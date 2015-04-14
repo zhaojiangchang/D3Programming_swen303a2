@@ -4,25 +4,32 @@ Software Engineering 303, 2015
 D3 Programming
 Dr Roma Klapaukh
 Due: Friday 24 April 2015
+
 1 Mission
+
 Assignment 2 is an individual programming task.
+
 In the previous task you were designing the latest trend-setting piece of wearable computing: Victoria
 Viewers. Your ideas from assignment one impressed the project so much that they wish for you to create
 one demo application (i.e. webpage) for them to trial the technology with test subjects. Since they do not
 yet have sufficient prototypes for everyone, you are to implement the software as a demo using D3. This will
 allow marketing to start distributing this to the relevant target groups immediately in order to increase the
 visibility of the project.
+
 The webpage application must be interactive and needs to simulate the user interacting with the Victoria
 Viewers in at least 2 environments. For the purpose of this assignment, you should consider an environment
 to be something like: the home; the school; the workplace; or something similar. Naturally, given you are
 mocking up the interface as a webpage application, you are allowed to simulate the actual glass input with
 keystrokes and mouse clicks instead.
+
 The application here does not need to be the same as you described in your essay.
+
 The program cannot have any server side components. For the purpose of this assignment you are allowed
 to slightly change the design of the viewers. In particular, you can add additional sensors (but only the sort
 that you can already get in a modern cell phone), and you can change the size of the display (so the display
 can cover up to the entire field of view). However the display size should still be consistent with that possible
 with wearable glasses with existing technology.
+
 The program must meet the following requirements:
 1. The system must be written only using JavaScript, HTML & D3. You can use any external D3 libraries.
 2. Any accompanying data files and images must be submitted alongside any code.
