@@ -1,8 +1,13 @@
 # swen303a2
+
 Assignment 2 written in javascpripe, html &amp; d3
+
 Software Engineering 303, 2015
+
 D3 Programming
+
 Dr Roma Klapaukh
+
 Due: Friday 24 April 2015
 
 1 Mission
@@ -31,37 +36,58 @@ can cover up to the entire field of view). However the display size should still
 with wearable glasses with existing technology.
 
 The program must meet the following requirements:
+
 1. The system must be written only using JavaScript, HTML & D3. You can use any external D3 libraries.
+
 2. Any accompanying data files and images must be submitted alongside any code.
+
 3. There must be a file called index.html which acts as an entry point.
+
 4. The system must respond to user interaction.
+
 5. You must have an attached PDF explaining the page. Any features not documented in the PDF will
 not be assessed.
+
 6. The submitted code must work in Chrome and Firefox on the ECS lab computers.
+
 1.1 Expectations
+
 This is a short assignment of only a few weeks. The main purpose of this assignment is to give you individual
 experience with D3 that can then be used in the larger pair-project after the mid-trimester break.
-1
+
 There is a lot of flexibility in the scope of the visualisation you create, and students can attain a B grade
 by demonstrating: the ability to display hard-coded data on the screen; react to user input; and document
 their design features.
+
 Those students wishing to get an B+ or better should also demonstrate: the ability to load data from an
 external JSON file of their own creation; the data should be reactive and change to user input; transitions
 should be used as part of the change; and code should be well-styled and well-structured.
+
 1.2 Grading
+
 This assignment is worth 20% of your final grade, and will be assigned a single letter grade when assessed.
 The essay should take approximately 15–20 hours to complete.
+
 2 Submission
+
 The assignment essay should be submitted as a zip file via the online submission system by 23:59pm on
 Friday, April 24th. The name of the entry point HTML file must be: index.html. Late submissions will be
 penalised at a rate of one grade point per 24-hour period.
+
 3 Format
+
 The explanatory PDF must adhere to the following formats. Any divergence from this will require resubmission
 with late penalties applied if appropriate:
+
 • 12 point serif font
+
 • PDF output
+
 • 1.5 linespacing
+
 • Single column
+
 • Maximum two pages for everything (although this is a limit, not a target)
+
 • Note: screenshots are not required. You may assume we are looking at the visualisation when we are
 reading this report.
