@@ -13,5 +13,15 @@
          {"x":"280", "y":"500"}, 
          {"x":"580", "y":"200"}, 
          {"x":"400", "y":"400"}
+    ],
+    "homeMenu": [
+        {"option":"Making Call", "x":200, "y":100},
+        {"option":"Send Message", "x":200, "y":150},
+        {"option":"Take Picture", "x":200, "y":200},
+        {"option":"Google It", "x":200, "y":250},
+        {"option":"Google Map", "x":200, "y":300},
+        {"option":"Recording Video", "x":200, "y":350},
+        {"option":"Game", "x":200, "y":400},
+        {"option":"Shut Down", "x":200, "y":450}
     ]
 }

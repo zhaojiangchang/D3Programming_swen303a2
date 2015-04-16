@@ -22,7 +22,7 @@ body {
 	left:20.9%;
 	width: 59.9%;
 	height: 79%;
-	background-color: black;
+	background-color: #000;
     cursor:pointer;
 }
 #inforSvg {
@@ -75,7 +75,7 @@ body {
   stroke: white;
   stroke-width: 3px;
 }
-#mapIframe {
+#iframe {
   position: fixed;
   top: 13%;
   left: 26%;
@@ -84,4 +84,10 @@ body {
   frameborder: 0;
   style: border:0;
 
+}
+#homeScreen {
+  position: fixed;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
+  background-color: white;
 }

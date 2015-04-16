@@ -2,8 +2,8 @@
 // Author: Jacky Chang
 // - 
 // =================================================================================
-function games(){
 var svg = d3.select("body").select("#mainSvg");
+function games(){
 var path = svg.append("path")
     .data([points])
     .attr("id","pathGame")
