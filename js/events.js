@@ -39,7 +39,15 @@ recordingButton.addEventListener("click", function(){
   removeDisplay();
   recordingVideo();
 });
-
+submitMessage.addEventListener("click", function(){
+  var m = document.getElementById("messageBox");
+  var valueMessage = m.value;
+  var messageTo = document.getElementById("messageBoxTo");
+  var valueTo = messageTo.value;
+  sentMessage.push(new message("user1",valueTo,valueMessage));
+  //showMessageOnScreen();
+  saveToFile();
+});
 function getNames(){
     var names = "Team member: ";
     for(var i = 0; i<teamMembers.length; i++){
@@ -145,4 +153,21 @@ function removeRecordingGraphics(){
   d3.select("#record-border").remove();
   d3.select("#record-circle").remove();
 }
-  addTextOnHomeScreen();
+function saveToFile(){
+var object = JSON.stringify(file(), null, 4);
+
+}
+function message(nameFrom, nameTo, message){
+  this.from = nameFrom;
+  this.to = nameTo;
+  this.message = message;
+}
+function file(){
+  this.introduction = intro;
+  this.teamMembers = teamMembers;
+  this.contactUs = contactUs;
+  this.game = game;
+  this.homeMenu = homeScreen;
+  this.sentMessage = sentMessage;
+
+}
