@@ -1,157 +1,49 @@
 // =================================================================================
-// Author:Jacky Chang
+// Author: Jacky Chang
+// - 
 // =================================================================================
-
-// ========= guest users =============================
-
-
-recordExplButton.addEventListener("click", function(){
-	if (recording){
-		stopRecording();
-		if (inserting)
-			insertIntoSelectedExploration(currentUser.getCurrentExploration());
-	}
-	else
-		startRecording();
+gameButton.addEventListener("click", function(){
+  removeDisplay();
+  games();
+});
+introButton.addEventListener("click",function(){
+  d3.select("body").select("#inforSvg").select("#textArea")
+ .text(intro);
+});
+teamButton.addEventListener("click",function(){
+  d3.select("body").select("#inforSvg").select("#textArea")
+ .text(getNames())
+});
+contactButton.addEventListener("click",function(){
+  d3.select("body").select("#inforSvg").select("#textArea")
+ .text(contactUs);
 });
 
-playExplButton.on('click', function () {
-	if (paused)
-		resumePlayback(selectedExploration);
-	else startPlayback(selectedExploration);
+screenResetButton.addEventListener("click", function(){
+  removeDisplay();
+});
+googleMapButton.addEventListener("click", function(){
+  removeDisplay();
+  var iframe = document.createElement('iframe');
+  iframe.id = "mapIframe";
+  iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95998.80691389229!2d174.76185460000008!3d-41.24437005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d38b1fc49e974cb%3A0xa00ef63a213b470!2sWellington!5e0!3m2!1sen!2snz!4v1429135956500" ;
+  document.body.appendChild(iframe);
+
 });
 
-pauseExplButton.on('click', function(){
-	pausePlayback(selectedExploration);
-});
-
-stopExplButton.on('click', function(){
-	stopPlayback(selectedExploration);
-});
-
-saveExplButton.click(function(){
-	saveExploration(currentUser.getCurrentExploration());
-});
-
-deleteExplButton.click(function(){
-	if (selectedExploration)
-		deleteExploration(selectedExploration);
-});
-
-resetExplButton.click(resetExplorations);
-
-// ==========================================
-// ======== exploration chooser and login====
-
-explChooser.onclick = updateSelectedExploration;
-
-showPathButton.onclick = toggleVisiblePath;
-
-//submit button
-logonButton.onclick = function(){
-	// if noone is logged on
-	if(userLoggedOn()){
-		if (!recording)
-			logout(currentUser);
-	}
-	else{
-		attemptLogin(userNameInput.value, passwordInput.value);
-	}
-};
-
-// =========================================
-// ============= share button ==============
-
-// exploration file sent when button clicked
-// userLabelValue: receiver
-// if userLabelValue not on the userList on the server will not able to send.
-document.getElementById("submit-shared-file").addEventListener('click',function(){
-	var userLabelValue = document.getElementById("shared-with").value;
-	if(userLabelValue!=null && userLabelValue!=currentUser.name && selectedExploration!=null){
-		shareFile(selectedExploration, userLabelValue);
-	}
-});
-
-// ==========================================
-// ============== create new account ========
-var myWindow;
-var newAccount = document.getElementById("create-new-account");
-newAccount.onclick = function(){
-	myWindow = window.open("newAccountPopupWindow.html", "_blank", "toolbar=yes, scrollbars=no, resizable=no, top=500, left=800, width=270, height=180");
-};
-
-// ==========================================
-// =============== notifications ============
-
-// notification container clicked - show or hide the selector box
-notificationContainer.addEventListener('click',function(){
-	stopRecording();
-	if(showListNotifications()){
-		if($(".notification-elements").hide())
-			$(".notification-elements").show();
-		else $(".notification-elements").hide();
-
-	}
-	else{
-		$(".notification-elements").hide();
-	}
-});
-
-// remove exploration from selector box, not delete from user's folder
-removeNotification.addEventListener("click", function(){
-	var selected = currentUser.getSharedExploration()[notificationSelector.options[notificationSelector.selectedIndex].value];
-	selected.isNew = false;
-	setExplorationIsOld(selected);
-
-	hideNotificationButtons();
-	updateNotifications();
-	deselectExploration();
-});
-
-quickplayNotification.addEventListener("click", function(){
-	selected = currentUser.getSharedExploration()[notificationSelector.options[notificationSelector.selectedIndex].value];
-	startPlayback(selected);
-	selected.isNew = true;
-	updateNotifications();
-});
-
-// ==========================================
-// =========== inserting ====================
-
-insertButton.click(function(){
-	inserting = true;
-	startRecording();
-	insertButton.css("visibility", "hidden");
-	var time = getCurrentPlaybackTime();
-	var xpos = progressBar.getXPosOfTime(time);
-	progressBar.showInsertGraphics(xpos);
-});
-
-stopInsertButton.click( function(){
-	var currentExpl = currentUser.getCurrentExploration();
-
-	// if audio, wait for conversion to wav
-	if (audioRecorder){
-		stopRecording(doneRecording);
-	}
-	else {
-		stopRecording();
-		doneRecording();
-	}
-
-	function doneRecording(){
-		inserting = false;
-
-		var insertionDuration = currentExpl.getDuration();
-		var currentTime = getCurrentPlaybackTime();
-
-		insertIntoSelectedExploration(currentExpl);
-
-		// gui stuff
-		progressBar.hideInsertGraphics();
-		progressBar.showInsertedChunk(currentTime, insertionDuration);
-	}
-});
-
-// ---- INIT
-resetExplorations();
+function getNames(){
+    var names = "Team member: ";
+    for(var i = 0; i<teamMembers.length; i++){
+      names = names+" , "+teamMembers[i].name;
+    } 
+    return names;
+    
+}
+function removeDisplay(){
+  $("svg#mainSvg").empty();
+  $("svg#inforSvg").empty();
+  var iframes = document.getElementsByTagName('iframe');
+  for (var i = 0; i < iframes.length; i++) {
+    iframes[i].parentNode.removeChild(iframes[i]);
+}
+}

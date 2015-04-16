@@ -1,0 +1,17 @@
+{
+    "introduction": "We now live in an era of information technology where new technologies are turning science fiction into reality, every bit of information is       available on our fingertips, or maybe not even a fingertip will be needed. Our new project - Victoria Viewers, a ¡°standard¡± glass which can evoluted your life.       This new stand alone wearable technology does not require any other devices to functions, it can independently record and take pictures, or it can also be used         as a blue headset and connect to your smart phone, tablet, computer and smart TV, it has ability to send messages and transfer real-time data via bluetooth             and/or wifi to other devices. Victoria Viewers has many other functions which can make your life earlier, efficient and much more interesting",
+    "teamMembers": [
+        {"name": "Jacky Chang"},
+        {"name": "Sisi Chang"}
+        ],
+    "contactUs": "Have more questions or need help with victotria viewer? We'd love to help. Call us at 0064-04-232323 anytime between 5am-9pm",
+    "game": [
+         {"x":"200", "y":"200"},
+         {"x":"450", "y":"450"}, 
+         {"x":"300", "y":"300"}, 
+         {"x":"350", "y":"350"}, 
+         {"x":"280", "y":"500"}, 
+         {"x":"580", "y":"200"}, 
+         {"x":"400", "y":"400"}
+    ]
+}
