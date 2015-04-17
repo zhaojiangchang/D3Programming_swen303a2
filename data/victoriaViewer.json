@@ -14,7 +14,7 @@
          {"x":"580", "y":"200"}, 
          {"x":"400", "y":"400"}
     ],
-    "homeMenu": [
+    "student": [
         {"option":"Making Call", "x":200, "y":100},
         {"option":"Send Message", "x":200, "y":150},
         {"option":"Take Picture", "x":200, "y":200},
@@ -23,6 +23,15 @@
         {"option":"Recording Video", "x":200, "y":350},
         {"option":"Game", "x":200, "y":400},
         {"option":"Shut Down", "x":200, "y":450}
+    ],
+    "business": [
+        {"option":"Making Call", "x":200, "y":100},
+        {"option":"Send Message", "x":200, "y":150},
+        {"option":"Stock Trading", "x":200, "y":200},
+        {"option":"Google It", "x":200, "y":250},
+        {"option":"Google Map", "x":200, "y":300},
+        {"option":"PowerPoint", "x":200, "y":350},
+        {"option":"Shut Down", "x":200, "y":400}
     ],
     "sentMessage": [
         {"from": "user1", "to":"user2", "message":"I will be home!"}

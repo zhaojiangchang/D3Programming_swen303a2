@@ -18,22 +18,51 @@ body {
 
 #mainSvg {
 	position: fixed;
-	top: 23%;
-	left:10.9%;
-	width: 80%;
-	height: 60%;
-	background-color: black;
+	top: 8%;
+	left:20.9%;
+	width: 59.9%;
+	height: 79%;
+	background-color: #000;
     cursor:pointer;
 }
 #inforSvg {
 	position: fixed;
-	top: 84.2%;
-	left:10.9%;
-	width: 80%;
+	top: 87.2%;
+	left:20.9%;
+	width: 59.9%;
 	height:12.5%;
 	background-color: white;
     cursor:pointer;
 }
+
+#left-bar {
+	position: fixed;
+	top: 8%;
+	left: 0%;
+	width: 20%;
+	height: 100%;
+	background-color: #99C2C2;
+	border: 3px solid black;
+}
+#control-bar {
+	position: fixed;
+	top: 8%;
+	left: 81%;
+	width: 20%;
+	height: 100%;
+	background-color: #99C2C2;
+	border: 3px solid black;
+}
+.messageInputBox {
+
+	top: 40%;
+	left: 81%;
+
+}
+#side-bar > * { /* all child elements of sidebar */
+	padding-left: 1em;
+}
+
 
 #pathGame {
   fill: none;
@@ -48,10 +77,10 @@ body {
 }
 #iframe {
   position: fixed;
-  top: 25%;
-  left: 16%;
-  width: 70%; 
-  height: 55%;
+  top: 13%;
+  left: 26%;
+  width: 50%; 
+  height: 70%;
   frameborder: 0;
   style: border:0;
 
@@ -59,24 +88,6 @@ body {
 #homeScreen {
   position: fixed;
   font-family: "Times New Roman", Times, serif;
-  font-size: 60px;
+  font-size: 40px;
   background-color: white;
-}
-#stockDiv {
-  position: relative; 
-  width: 800px;
-  height: 300px;
-  left: 100px;
-  top: 100px;
-  overflow: hidden;
-  overflow-y: scoll;
-  overflow-x: scoll;
-
-}
-#stockIframe {
-  position: relative; 
-  left:-100px; 
-  top: -100px; 
-  width: 400px; 
-  height:400px; 
 }
