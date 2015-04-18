@@ -40,3 +40,9 @@ function translateAlong(path) {
   };
 }
 }
+function removeGame(){
+      remvoeElement("pathGame");
+      while(document.getElementById("circleGame")!=null){
+              remvoeElement("circleGame");
+      }
+}

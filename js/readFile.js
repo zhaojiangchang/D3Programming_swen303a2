@@ -6,8 +6,9 @@ var intro = "";
 var contactUs = "";
 var teamMembers = [];
 var points = [];
-var student = [];
+var personal = [];
 var business = [];
+var home = [];
 var game = [];
 var sentMessage = [];
 var w = window.innerWidth;
@@ -30,9 +31,10 @@ var myjson = d3.json("data/victoriaViewer.json", function(json){
   }
   intro = json.introduction;
   teamMembers = json.teamMembers;
-  student = json.student;
+  personal = json.personal;
   business = json.business;
   contactUs = json.contactUs;
   sentMessage = json.sentMessage;
+  home = json.home;
   });
   

@@ -20,15 +20,16 @@ are created dynamically)
 <script src="js/lib/d3.v3.min.js"></script>
 <script src="js/lib/topojson.v1.min.js"></script>
 <script src="js/lib/jquery.min.js"></script>
+
 </head>
-<body>
+<body onload = "homePage()">
 <div id="logo" class="container">
 	<h1><a href="#">Victoria<span>Viewers</span></a></h1>
 </div>
 <div id="menu" class="container">
 	<ul>
-		<li><a href="#" accesskey="1" title="">Homepage</a></li>
-		<li><a id = "student" href="#" onclick = "stuentPage(); return false;">Student</a></li>
+		<li><a id = "home" href="#" onclick = "homePage(); return false;">Homepage</a></li>
+		<li><a id = "personal" href="#" onclick = "personalPage(); return false;">Personal</a></li>
 		<li><a id = "business" href="#" onclick = "businessPage(); return false;">Business</a></li>
 		<li><a href="#" accesskey="3" title="">Introdruction</a></li>
 		<li><a href="#" accesskey="4" title="">Team</a></li>
@@ -37,14 +38,12 @@ are created dynamically)
 </div>
 <div id = "mainPanel">
 		<svg id = "mainSvg" class = "mainSvg">
-			
 		</svg>
 </div>
 <div id = "inforPanel">
 		<svg id = "inforSvg">
 		<text id = "textArea" x="0" y="15" fill="red">Information Panel</text>
-		
-		</svg>
+
 </div>
 
 	<script src="js/readFile.js"></script>

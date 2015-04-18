@@ -7,31 +7,40 @@
     "contactUs": "Have more questions or need help with victotria viewer? We'd love to help. Call us at 0064-04-232323 anytime between 5am-9pm",
     "game": [
          {"x":"200", "y":"200"},
-         {"x":"450", "y":"450"}, 
-         {"x":"300", "y":"300"}, 
-         {"x":"350", "y":"350"}, 
-         {"x":"280", "y":"500"}, 
+         {"x":"450", "y":"150"}, 
+         {"x":"300", "y":"0"}, 
+         {"x":"350", "y":"50"}, 
          {"x":"580", "y":"200"}, 
-         {"x":"400", "y":"400"}
+         {"x":"780", "y":"200"}, 
+         {"x":"400", "y":"200"}
     ],
-    "student": [
-        {"option":"Making Call", "x":200, "y":100},
-        {"option":"Send Message", "x":200, "y":150},
-        {"option":"Take Picture", "x":200, "y":200},
-        {"option":"Google It", "x":200, "y":250},
-        {"option":"Google Map", "x":200, "y":300},
-        {"option":"Recording Video", "x":200, "y":350},
-        {"option":"Game", "x":200, "y":400},
-        {"option":"Shut Down", "x":200, "y":450}
+     "home": [
+        {"option":"Click Personal tab to show personal use", "x":10, "y":20},
+        {"option":"Click Business tab to show business use", "x":10, "y":40},
+        {"option":"Click introduction tab to show the introduction about victoria viewer", "x":10, "y":60},
+        {"option":"Click Team tab to show the Developers", "x":10, "y":80},
+        {"option":"Click the Contact us to show the way to contact developers", "x":10, "y":100}
+        ],
+    "personal": [
+        {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"]},
+        {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
+        {"option":"Take Picture", "x":100, "y":200, "instruction":["Voice control, face detect and also able to share your favorite picture to Google+, facebook and twitter."]},
+        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, user need to tell glass the question to search"]},
+        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control, user need say out from and to locations"]},
+        {"option":"Recording Video", "x":100, "y":350, "instruction":["Voice control, user need to say out: start or finish to control the device."]},
+        {"option":"Game", "x":100, "y":400, "instruction":["User able to use eyes to control the ball to move along the path"]},
+        {"option":"Shut Down", "x":100, "y":450,"instruction":["shut down the glass"]}            
     ],
+   
+
     "business": [
-        {"option":"Making Call", "x":200, "y":100},
-        {"option":"Send Message", "x":200, "y":150},
-        {"option":"Stock Trading", "x":200, "y":200},
-        {"option":"Google It", "x":200, "y":250},
-        {"option":"Google Map", "x":200, "y":300},
-        {"option":"PowerPoint", "x":200, "y":350},
-        {"option":"Shut Down", "x":200, "y":400}
+        {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"]},
+        {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
+        {"option":"Stock Trading", "x":100, "y":200, "instruction": ["Voice control, show NZ stock trading information"]},
+        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, user need to tell glass the question to search"]},
+        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control, user need say out from and to locations"]},
+        {"option":"PowerPoint", "x":100, "y":350, "instruction":["Voice control, for presentation, interview,  and meeting"]},
+        {"option":"Shut Down", "x":100, "y":400,"instruction":["shut down the glass"]}   
     ],
     "sentMessage": [
         {"from": "user1", "to":"user2", "message":"I will be home!"}

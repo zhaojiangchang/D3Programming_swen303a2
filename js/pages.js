@@ -2,9 +2,14 @@
 // Author: Jacky Chang
 // - 
 // =================================================================================
-function stuentPage(){
-  loadPage(student);
+function personalPage(){
+  loadPage(d3.select("body").select("#mainSvg"), personal);
+
 }
 function businessPage(){
-  loadPage(business);
+  loadPage(d3.select("body").select("#mainSvg"), business);
+}
+function homePage(){
+  loadPage(d3.select("body").select("#inforSvg"), home);
+  loadImage("data/glasses.png");
 }
