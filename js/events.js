@@ -57,7 +57,6 @@ function file(){
   this.game = game;
   this.homeMenu = homeScreen;
   this.sentMessage = sentMessage;
-
 }
 function loadPage(svgTag, page){
   $("#mainSvg").empty();
@@ -71,29 +70,37 @@ function loadPage(svgTag, page){
             .attr("id","personalDisplayOption")
             .attr("fill", "blue")
             .attr("font-size",20)
-             .attr("x", function(d){return d.x})
-             .attr("y",function(d){return d.y})
+            .attr("x", function(d){return d.x})
+            .attr("y",function(d){return d.y})
             .text(function(d) { return d.option})
             .attr("onmouseover","evt.target.setAttribute('opacity', '0.5')")
             .attr("onmouseout","evt.target.setAttribute('opacity','1)')")
             .on("click",function(d) {doEvent(d.option, d.instruction)});
 }
-function loadImage(imageAdd) {
+function loadImage(imageAdd,id) {
+  var div = document.createElement("div");
+  div.id = "imgDiv";
     var img = document.createElement("img");
-    img.id = "image";
+    img.id = "image"+id;
     img.src = imageAdd;
-    document.body.appendChild(img);
+    div.appendChild(img);
+    document.body.appendChild(div);
 }
    // <img id="picture" src="data/glasses.png">
 
 function doEvent(option, instruction){
+  if(instruction==null){
+    return;
+  }
   removeGame();
   removeIframe();
   remvoeElement("stockDiv");
- $("svg#inforSvg").empty();
-   addInstruction(instruction);
-
-  if(option==="Google It"){
+  $("svg#inforSvg").empty();
+  addInstruction(instruction);
+  if(option==="Making Call"){
+      makingCall();
+  }
+  else if(option==="Google It"){
       iframe( "http://www.google.com/custom?q=&btnG=Search");
   }
   else if(option==="Google Map"){
@@ -103,9 +110,8 @@ function doEvent(option, instruction){
       games();  
   }
   else if(option==="Take Picture"){
-      loadImage("data/face.jpg");
+      loadImage("data/face.jpg", "Picture");
       addGoBackButton();
-
   }
   else if(option==="Recording Video"){
       recordingVideo();  
@@ -123,6 +129,9 @@ function doEvent(option, instruction){
     removeRecordingGraphics();
       $("svg#mainSvg").empty();
       $("svg#inforSvg").empty();
+  }
+  else{
+
   }
 }
 function iframe(url){
@@ -174,4 +183,39 @@ function addInstruction(instruction){
 
 function showPowerPoint(){
   iframe("data/slides-victoria-viewer.html");
+}
+function makingCall(){
+
+}
+/**
+zoom home page image, then call loadPage function to load personal or bussiness menues
+**/
+function zoom(page){
+  var imgDiv = document.getElementById("imgDiv");
+  zoomImage();   
+    var img = document.getElementById("imageHome");
+
+    var maxWidth = img.width*1.3;
+    var maxHeight = img.height*1.3;
+    function zoomImage(){
+   
+      var zoomTimer = setInterval(function(){
+
+        if(img!=null && img.width<maxWidth){
+          img.width = img.width*1.005;
+          img.height = img.height*1.005;
+     
+      }
+      else {
+        clearInterval(zoomTimer);
+        remvoeElement("imgDiv");
+        loadPage(d3.select("body").select("#mainSvg"), page);
+      }
+    }, 20);
+  }
+
+  if(imgDiv==null||img==null) {
+    loadPage(d3.select("body").select("#mainSvg"), page);
+  }
+
 }

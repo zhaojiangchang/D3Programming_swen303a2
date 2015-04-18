@@ -1,0 +1,120 @@
+	html, body
+	{
+		height: 100%;
+	}
+	
+	body
+	{
+		margin: 0px;
+		padding: 0px;
+		background: #282828 url(images/bg01.png) repeat;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 12pt;
+		font-weight: 400;
+		color: #919191;
+	}
+	
+	
+	h1, h2, h3
+	{
+		margin: 0;
+		padding: 0;
+	}
+	
+	
+	ol, ul
+	{
+		padding: 0;
+		list-style: none;
+	}
+
+
+
+
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+
+	#logo
+	{
+		padding: 3em 0em;
+		text-transform: uppercase;
+	}
+	
+	#logo h1 a
+	{
+		text-decoration: none;
+		font-size: 1.5em;
+		color: #FFF;
+	}
+	
+	#logo span
+	{
+		color: #BC1414;
+	}
+	
+	#logo p
+	{
+		margin: 0;
+		padding: 0;
+		letter-spacing: 0.10em;
+		font-size: 0.90em;
+	}
+
+	#logo p a
+	{
+		text-decoration: none;
+	}
+
+
+/*********************************************************************************/
+/* Menu                                                                          */
+/*********************************************************************************/
+
+	#menu
+	{
+		background: #1B1B1B url(images/bg01.png) repeat;
+		border-bottom: 4px solid #BC1414;
+	}
+	
+	#menu ul
+	{
+		margin: 0;
+		padding: 0px 0px 0px 0px;
+		list-style: none;
+		line-height: normal;
+		text-align: center;
+	}
+	
+	#menu li
+	{
+		display: inline-block;
+	}
+	
+	#menu a
+	{
+		display: block;
+		padding: 0em 2em;
+		line-height: 80px;
+		letter-spacing: 1px;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 1em;
+		font-weight: 700;
+		color: #838383;
+	}
+	
+	#menu .current_page_item a
+	{
+		background: #BC1414;
+		color: #FFF;
+	}
+	
+	#menu a:hover
+	{
+		text-decoration: none;
+		color: #FFF;
+	}
+
+
+

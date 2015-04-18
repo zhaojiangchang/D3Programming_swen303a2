@@ -8,22 +8,113 @@ html {
 	font-size: 100%;
 }
 
-body {
-	/* The default font size will be 10 pixels with the default web browser font size setting*/
-	font: 0.625em/1em Verdana, Geneva, Arial, Helvetica, sans-serif;
-	background-color: #03719c;
+  html, body
+  {
+    height: 100%;
+  }
+  
+  body
+  {
+    margin: 0px;
+    padding: 0px;
+    background: #282828 ;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12pt;
+    font-weight: 40;
+    color: #919191;
+  }
+  
+  
+  h1, h2, h3
+  {
+    margin: 0;
+    padding: 0;
+  }
+  
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+
+  #logo
+  {
+    padding: 1em 0em;
+    text-transform: uppercase;
+  }
+  
+  #logo h1 a
+  {
+    text-decoration: none;
+    font-size: 1.9em;
+    color: #FFF;
+  }
+  
+  #logo span
+  {
+    color: black;
+  }
+  
+/*********************************************************************************/
+/* Menu                                                                          */
+/*********************************************************************************/
+
+  #menu
+  {
+    background: #1B1B1B repeat;
+    border-bottom: 4px solid #BC1414;
+  }
+  
+  #menu ul
+  {
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    list-style: none;
+    line-height: normal;
+    text-align: center;
+  }
+  
+  #menu li
+  {
+    display: inline-block;
+  }
+  
+  #menu a
+  {
+    display: block;
+    padding: 0em 2em;
+    line-height: 80px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: 700;
+    color: #838383;
+  }
+  
+  #menu .current_page_item a
+  {
+    background: #BC1414;
+    color: #FFF;
+  }
+  
+  #menu a:hover
+  {
+    text-decoration: none;
+    color: #FFF;
+  }
 
 
-}
+/*********************************************************************************/
+/* svg                                                                          */
+/*********************************************************************************/
 
 #mainSvg {
 	position: fixed;
-	top: 23%;
-	left:10.9%;
-	width: 80%;
-	height: 60%;
+  top: 26%;
+  left:10.9%;
+  width: 80%;
+	height: 58%;
 	background-color: black;
-    cursor:pointer;
+  margin: 0 auto;
 }
 #inforSvg {
 	position: fixed;
@@ -32,8 +123,10 @@ body {
 	width: 80%;
 	height:15.5%;
 	background-color: white;
-    cursor:pointer;
 }
+/*********************************************************************************/
+/* game                                                                          */
+/*********************************************************************************/
 
 #pathGame {
   fill: none;
@@ -46,22 +139,53 @@ body {
   stroke: white;
   stroke-width: 3px;
 }
+/*********************************************************************************/
+/* iframe                                                                        */
+/*********************************************************************************/
+
 #iframe {
   position: fixed;
-  top: 25%;
+  top: 30%;
   left: 40%;
   width: 45%; 
-  height: 55%;
+  height: 50%;
   frameborder: 0;
   style: border:0;
 
 }
+/*********************************************************************************/
+/* image                                                                         */
+/*********************************************************************************/
+
 #homeScreen {
   position: fixed;
   font-family: "Times New Roman", Times, serif;
   font-size: 60px;
   background-color: white;
 }
+#imgDiv { 
+  position: relative; 
+  top: 10%;
+  left:2%;
+   width: 550px;
+  height: 300px;
+  margin: 0 auto;
+  overflow:hidden;
+}
+#imagePicture {
+position: fixed;
+  top: 23%;
+  left:10.9%;
+  width: 80%;
+  height: 60%;
+}
+#imageHome {
+  top: 30%;
+}
+/*********************************************************************************/
+/* stock trading                                                                 */
+/*********************************************************************************/
+
 #stockDiv {
   position: relative; 
   width: 800px;
@@ -80,17 +204,11 @@ body {
   width: 50%; 
   height:70%; 
 }
-#image { 
-  position: relative; 
-  top: 1%;
-  left:10.9%;
-  width: 80%;
-  height: 60%;
-}
-
+/*********************************************************************************/
+/* go back button                                                                */
+/*********************************************************************************/
 #goBackButton {
-    position: relative; 
-
+    position: fixed; 
   -moz-box-shadow: 0px 1px 0px 0px #1c1b18;
   -webkit-box-shadow: 0px 1px 0px 0px #1c1b18;
   box-shadow: 0px 1px 0px 0px #1c1b18;
@@ -115,8 +233,8 @@ body {
   padding:12px 16px;
   text-decoration:none;
   text-shadow:0px 1px 0px #ffffff;
-  top: 1%;
-  left:1%;
+  top: 25%;
+  left:11.5%;
 }
 #goBackButton:hover {
   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ccc2a6), color-stop(1, #eae0c2));
@@ -128,7 +246,11 @@ body {
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc2a6', endColorstr='#eae0c2',GradientType=0);
   background-color:#ccc2a6;
 }
-#goBackButton:active {
-  position:relative;
-  top:1px;
+
+/*********************************************************************************/
+/* victoria viewer function button                                               */
+/*********************************************************************************/
+#personalDisplayOption {
+      cursor:pointer;
+
 }
