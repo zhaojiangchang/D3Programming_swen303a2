@@ -11,7 +11,7 @@ function businessPage(){
 function homePage(){
   loadPage("#inforSvg", home);
   remvoeElement("imgDiv");
-  loadImage("data/glasses.gif","Home");
+  loadImage("data/glasses-Copy.png","Home");
 }
 function contactUsPage(){
   loadPage("#inforSvg", contactUsInfo);
