@@ -122,7 +122,7 @@ html {
 	left:10.9%;
 	width: 80%;
 	height:15.5%;
-	background-color: white;
+	background-color: #170202;
 }
 /*********************************************************************************/
 /* game                                                                          */
@@ -178,6 +178,13 @@ position: fixed;
   left:10.9%;
   width: 80%;
   height: 60%;
+}
+#imageBack {
+position: fixed;
+  top: 23%;
+  left:10.9%;
+  width: 30%;
+  height: 20%;
 }
 #imageHome {
   top: 30%;

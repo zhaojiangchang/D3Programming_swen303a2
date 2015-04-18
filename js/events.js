@@ -58,13 +58,16 @@ function file(){
   this.homeMenu = homeScreen;
   this.sentMessage = sentMessage;
 }
-function loadPage(svgTag, page){
+function loadPage(svgId, page){
+  var svg = d3.select("body").select(svgId);
+  console.log(111);
   $("#mainSvg").empty();
   $("#inforSvg").empty();
+  remvoeElement("imgDiv");
   remvoeElement("goBackButton");
   removeIframe();
   remvoeElement("image");
-  svgTag.selectAll(".text")
+  svg.selectAll(".text")
           .data(page)
           .enter().append("text")
             .attr("id","personalDisplayOption")
@@ -78,6 +81,9 @@ function loadPage(svgTag, page){
             .on("click",function(d) {doEvent(d.option, d.instruction)});
 }
 function loadImage(imageAdd,id) {
+  if(document.getElementById("image"+id)!=null){
+    return;
+  }
   var div = document.createElement("div");
   div.id = "imgDiv";
     var img = document.createElement("img");
@@ -128,7 +134,6 @@ function doEvent(option, instruction){
   else if(option==="Shut Down"){
     removeRecordingGraphics();
       $("svg#mainSvg").empty();
-      $("svg#inforSvg").empty();
   }
   else{
 
@@ -187,6 +192,9 @@ function showPowerPoint(){
 function makingCall(){
 
 }
+function sendMessage(){
+  
+}
 /**
 zoom home page image, then call loadPage function to load personal or bussiness menues
 **/
@@ -209,13 +217,14 @@ function zoom(page){
       else {
         clearInterval(zoomTimer);
         remvoeElement("imgDiv");
-        loadPage(d3.select("body").select("#mainSvg"), page);
+        loadPage("#mainSvg", page);
+
       }
     }, 20);
   }
 
   if(imgDiv==null||img==null) {
-    loadPage(d3.select("body").select("#mainSvg"), page);
+    loadPage("#mainSvg", page);
   }
 
 }

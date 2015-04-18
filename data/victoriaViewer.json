@@ -1,10 +1,16 @@
 {
-    "introduction": "We now live in an era of information technology where new technologies are turning science fiction into reality, every bit of information is       available on our fingertips, or maybe not even a fingertip will be needed. Our new project - Victoria Viewers, a ¡°standard¡± glass which can evoluted your life.       This new stand alone wearable technology does not require any other devices to functions, it can independently record and take pictures, or it can also be used         as a blue headset and connect to your smart phone, tablet, computer and smart TV, it has ability to send messages and transfer real-time data via bluetooth             and/or wifi to other devices. Victoria Viewers has many other functions which can make your life earlier, efficient and much more interesting",
+    "introduction": "",
     "teamMembers": [
-        {"name": "Jacky Chang"},
-        {"name": "Sisi Chang"}
-        ],
-    "contactUs": "Have more questions or need help with victotria viewer? We'd love to help. Call us at 0064-04-232323 anytime between 5am-9pm",
+        {"option": "1. Jacky Chang - Developer 3rd year Software Engineering", "x":10, "y":20},
+        {"option": "2. Jason Smith - Developer 4th year Software Engineering", "x":10, "y":50},
+        {"option": "3. Rhett White - Disigner  4th year Software Engineering", "x":10, "y":80},
+        {"option": "4. Helen Green - Disigner  4th year Software Engineering", "x":10, "y":110}
+    ],
+    "contactUs": [
+        {"option":"Have questions or need help with victotria viewer?", "x":10, "y":30},
+        {"option":"We'd love to help. email us: victoriaViewer@glass.co.nz", "x":10, "y":60},
+        {"option":"Location: Level 2 Cotton Buliding, Victoria University of Wellington", "x":10, "y":90}
+    ],
     "game": [
          {"x":"200", "y":"200"},
          {"x":"450", "y":"150"}, 
@@ -20,7 +26,7 @@
         {"option":"Click introduction tab to show the introduction about victoria viewer", "x":10, "y":60},
         {"option":"Click Team tab to show the Developers", "x":10, "y":80},
         {"option":"Click the Contact us to show the way to contact developers", "x":10, "y":100}
-        ],
+    ],
     "personal": [
         {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"]},
         {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
@@ -31,8 +37,6 @@
         {"option":"Game", "x":100, "y":400, "instruction":["User able to use eyes to control the ball to move along the path"]},
         {"option":"Shut Down", "x":100, "y":450,"instruction":["shut down the glass"]}            
     ],
-   
-
     "business": [
         {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"]},
         {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
