@@ -260,7 +260,6 @@ function showPowerPoint(){
   iframe("data/slides-victoria-viewer.html");
 }
 
-var aa = 3000;
 function showTextOnSvg(index){
    $(".personalDisplayOption").toggle();
   
@@ -299,7 +298,7 @@ function showTextOnSvg(index){
                 timer = 0;
         }
       }
-      },aa*i);       
+      },3000*i);       
     } 
 }
 /**

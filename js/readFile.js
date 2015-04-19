@@ -1,6 +1,6 @@
 // =================================================================================
 // Author: Jacky Chang
-// - 
+// - load json file
 // =================================================================================
 var intro = [];
 var contactUsInfo = [];
@@ -25,16 +25,16 @@ var y = d3.scale.linear()
    .domain([0,ymax])
    .range([ymin,ymax])
 var myjson = d3.json("data/victoriaViewer.json", function(json){
-  game = json;
-  for(var i = 0; i<json.game.length; i++){
-    points[i] = [x(json.game[i].x),y(json.game[i].y)];
-  }
-  intro = json.introduction;
-  teamMembers = json.teamMembers;
-  personal = json.personal;
-  business = json.business;
-  contactUsInfo = json.contactUs;
-  sentMessage = json.sentMessage;
-  home = json.home;
-  });
+      game = json;
+      for(var i = 0; i<json.game.length; i++){
+            points[i] = [x(json.game[i].x),y(json.game[i].y)];
+      }
+      intro = json.introduction;
+      teamMembers = json.teamMembers;
+      personal = json.personal;
+      business = json.business;
+      contactUsInfo = json.contactUs;
+      sentMessage = json.sentMessage;
+      home = json.home;
+});
   

@@ -1,6 +1,6 @@
 {
     "introduction": [
-        {"option":"<        Demo webpage application       >", "x":100, "y":60},
+        {"option":"<********Demo webpage application********>", "x":100, "y":60},
         {"option":"- Personal Environment: (Home, Traveling, party): ", "x":100, "y":140},
         {"option":"Face detect camera and share picture to facebook, google+ and twitter.", "x":100, "y":180},
         {"option":"Google Map to find closed cafe, restaurant and Bar.", "x":100, "y":220},
