@@ -1,11 +1,10 @@
 // =================================================================================
 // Author: Jacky Chang
-// - 
+// - for top menus
 // =================================================================================
 var personalClicked = false;
 var businessClicked = false;
 function personalPage(){
-	//loadPage("#MainSvg", personal);
 	zoom(personal);
 	personalClicked = true;
 	businessClicked = false;

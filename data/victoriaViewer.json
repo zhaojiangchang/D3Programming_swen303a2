@@ -48,7 +48,7 @@
         {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: cafe, bar, restaurant and so on"]},
         {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"]},
         {"option":"Recording Video", "x":100, "y":350, "instruction":["Voice control, start recording or finish recording to control the Viewer."]},
-        {"option":"Game", "x":100, "y":400, "instruction":["Use eyes to control the ball to move along the path, help relax"]},
+        {"option":"Game", "x":100, "y":400, "instruction":["Use eyes to control the ball to move along the path, help relax, change shapes when wink "]},
         {"option":"Shut Down", "x":100, "y":450,"instruction":["Turn off the Viewer"]}            
     ],
     "business": [
