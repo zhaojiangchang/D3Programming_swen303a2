@@ -1,5 +1,17 @@
 {
-    "introduction": "",
+    "introduction": [
+        {"option":"<        Demo webpage application       >", "x":100, "y":60},
+        {"option":"- Personal Environment: (Home, Traveling, party): ", "x":100, "y":140},
+        {"option":"Face detect camera and share picture to facebook, google+ and twitter.", "x":100, "y":180},
+        {"option":"Google Map to find closed cafe, restaurant and Bar.", "x":100, "y":220},
+        {"option":"Recording Video for birthday party, family and share with friends. ", "x":100, "y":260},
+        {"option":"- Business Environment: (workplace, office, training):", "x":100, "y":340},  
+        {"option":"Stock Trading - checking stock and buy or sell shares", "x":100, "y":380},    
+        {"option":"PowerPoint for bussiness meeting and training", "x":100, "y":420},    
+        {"option":"Video Conference - group video meeting and teleconference", "x":100, "y":460}    
+
+  
+    ],
     "teamMembers": [
         {"option": "1. Jacky Chang - Developer 3rd year Software Engineering", "x":20, "y":20},
         {"option": "2. Jason Smith - Developer 4th year Software Engineering", "x":20, "y":50},
@@ -28,25 +40,26 @@
         {"option":"Click the Contact us to show the way to contact developers", "x":10, "y":100}
     ],
     "personal": [
-        {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"],
+        {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, viewer recognize name and number then follow instructions to make call"],
             "use":["Jacky: OK Viewer, make a call.", "Viewer: give me a name or number", "Jacky: call my wife.", "Viewer: call your wife's cell phone. ","   Viewer: connecting....", "   Viewer: connected.", ""]},
-        {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"],
+        {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, viewer detect user's voice then send message"],
             "use":["Jacky: OK Viewer, send a message.", "Viewer: give me a name or number", "Jacky: send to my wife.", "Viewer: send to your wife.","   Viewer: sending....", "   Viewer: sent.", ""]},
-        {"option":"Take Picture", "x":100, "y":200, "instruction":["Voice control, face detect and also able to share your favorite picture to Google+, facebook and twitter."]},
-        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, user need to tell Viewer the question to search"]},
-        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control, user need say out from and to locations"]},
-        {"option":"Recording Video", "x":100, "y":350, "instruction":["Voice control, user need to say out: start or finish to control the device."]},
-        {"option":"Game", "x":100, "y":400, "instruction":["User able to use eyes to control the ball to move along the path"]},
-        {"option":"Shut Down", "x":100, "y":450,"instruction":["shut down the Viewer"]}            
+        {"option":"Take Picture", "x":100, "y":200, "instruction":["Voice control, face detect and share picture to Google+, facebook and twitter."]},
+        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: cafe, bar, restaurant and so on"]},
+        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"]},
+        {"option":"Recording Video", "x":100, "y":350, "instruction":["Voice control, start recording or finish recording to control the Viewer."]},
+        {"option":"Game", "x":100, "y":400, "instruction":["Use eyes to control the ball to move along the path, help relax"]},
+        {"option":"Shut Down", "x":100, "y":450,"instruction":["Turn off the Viewer"]}            
     ],
     "business": [
-        {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"]},
+        {"option":"Making Call", "x":100, "y":100, "instruction":["viewer recognize name and number then follow user's instructions"]},
         {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
-        {"option":"Stock Trading", "x":100, "y":200, "instruction": ["Voice control, show NZ stock trading information"]},
-        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, user need to tell glass the question to search"]},
-        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control, user need say out from and to locations"]},
-        {"option":"PowerPoint", "x":100, "y":350, "instruction":["Voice control, for presentation, interview,  and meeting"]},
-        {"option":"Shut Down", "x":100, "y":400,"instruction":["shut down the glass"]}   
+        {"option":"Stock Trading", "x":100, "y":200, "instruction": ["Voice control, show NZ stock trading information, buy and sell"]},
+        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: buildings, formal mail writing, business solution and so on"]},
+        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"]},
+        {"option":"PowerPoint", "x":100, "y":350, "instruction":["Voice control, for presentation, interview, meeting and training"]},
+        {"option":"Video Conference", "x":100, "y":400, "instruction":["Voice control, group video meeting"]},
+        {"option":"Shut Down", "x":100, "y":450,"instruction":["shut down the glass"]}   
     ],
     "sentMessage": [
         {"from": "user1", "to":"user2", "message":"I will be home!"}

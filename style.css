@@ -192,20 +192,44 @@ position: fixed;
 #imageHome {
   top: 30%;
 }
+#imageVideoConference {
+  position: fixed;
+  top: 31%;
+  left:42%;
+  width: 45%;
+  height: 45%;
+}
+
+/*********************************************************************************/
+/* image    voice                                                                */
+/*********************************************************************************/
+#selection { 
+  position: fixed;
+  top: 30%;
+  left: 11%;
+  width: 10%;
+  height: 10%;
+  margin: 30px auto;
+  cursor:pointer;
+
+
+}
 #imgDivVoice {
   position: fixed;
-  top: 75%;
-  left:24%;
+  top: 30%;
+  left:13%;
   width: 5%;
   height: 5%;
 }
 #imageVoice {
   position: fixed;
   top: 30%;
-  left: 13%;
+  left: 11.3%;
   width: 5%;
   height: 5%;
+  cursor:pointer;
 }
+
 /*********************************************************************************/
 /* stock trading                                                                 */
 /*********************************************************************************/

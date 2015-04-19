@@ -5,6 +5,7 @@
 var callButtonClicked = false;
 var sendMessageButtonClicked = false;
 var timeout = false;
+
 function recordingVideo(){
   // adds graphics to the map to show that recording is in progress.
   iframe("https://www.youtube.com/embed/HVhSasnVjMQ?enablejsapi=1&theme=light&showinfo=0");
@@ -105,15 +106,51 @@ function loadImage(imageAdd,id) {
 
 function loadVoiceIcon(){
   loadImage("data/voiceIcon.png","Voice");
+  var imageVoice = document.getElementById("imageVoice"); 
+  var menu = [];
+  menu = ["personal","business"];
+  loadMenu(imageVoice, menu);
+  
+}
+function loadMenu(imageVoiceElem, menu){
+  if(document.getElementById("selection")==null){
+        var s=document.createElement('section');
+        s.setAttribute('id','selection');
+        s.style.display ="none";
+        s.addEventListener("click", function(event){
+            doEvent(null,null,null,event.target.innerHTML);});
+        s.addEventListener("mouseout", function(){ toggleMenu();},false);
+        var ul=document.createElement('ul');  
+        for (var i=0; i<menu.length; i++){
+            var li=document.createElement('li');
+            ul.appendChild(li);
+            li.innerHTML=menu[i];
+        }
+        s.appendChild(ul);
+        document.body.appendChild(s);
+        imageVoiceElem.addEventListener("click", function(){
+        toggleMenu();});
+  }
 }
 
-function doEvent(option, instruction, use){
+function doEvent(option, instruction, use, voiceMenu){
+   if(voiceMenu!=null){
+    console.log(voiceMenu);
+    if(voiceMenu==="personal"){
+      personalPage();
+    }
+    else if(voiceMenu ==="business"){
+      businessPage();
+    }
+  }else{
   if(instruction==null){
       return;
   }
+
   removeGame();
   removeIframe();
   remvoeElement("stockDiv");
+  remvoeElement("imageVideoConference");
   $("svg#inforSvg").empty();
   addInstruction(instruction);
   if(option==="Making Call"){
@@ -141,7 +178,7 @@ function doEvent(option, instruction, use){
       iframe( "http://www.google.com/custom?q=&btnG=Search");
   }
   else if(option==="Google Map"){
-      iframe("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95998.80691389229!2d174.76185460000008!3d-41.24437005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d38b1fc49e974cb%3A0xa00ef63a213b470!2sWellington!5e0!3m2!1sen!2snz!4v1429135956500");
+      iframe("https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5995.4017183864435!2d174.778369!3d-41.293614500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swellington+bar+cafe+restaurant+!5e0!3m2!1szh-CN!2snz!4v1429446987355");
   }
   else if(option==="Game"){
       games();  
@@ -163,9 +200,13 @@ function doEvent(option, instruction, use){
     removeRecordingGraphics();
       $("svg#mainSvg").empty();
   }
+  else if(option==="Video Conference"){
+    loadImage("data/VideoConference.jpg","VideoConference");
+  }
   else{
 
   }
+}
 }
 
 function iframe(url){
@@ -184,7 +225,6 @@ function removeIframe(){
 }
 
 function remvoeElement(id){
-  console.log(111)
   var element = document.getElementById(id);
   while(element!=null && element.parentNode!=null){
       element.parentNode.removeChild(element);
@@ -195,9 +235,6 @@ function addGoBackButton(){
   var goBack = document.createElement("button");
   var text = document.createTextNode("Go Back");
   goBack.id = "goBackButton";
-  goBack.onClick = function(){
-    console.log(111222);
-  };
   goBack.appendChild(text);
   document.body.appendChild(goBack);
   document.getElementById("goBackButton").addEventListener("click", function(){
@@ -301,4 +338,13 @@ function zoom(page){
         loadVoiceIcon();
 
       }
-  }
+}
+
+function toggleMenu(){
+    if(document.getElementById("selection").style.display ==="block"){
+      document.getElementById("selection").style.display="none";
+    }
+    else if(document.getElementById("selection").style.display==="none"){
+      document.getElementById("selection").style.display="block";
+    }
+}

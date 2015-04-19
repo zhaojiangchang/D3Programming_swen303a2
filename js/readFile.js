@@ -2,7 +2,7 @@
 // Author: Jacky Chang
 // - 
 // =================================================================================
-var intro = "";
+var intro = [];
 var contactUsInfo = [];
 var teamMembers = [];
 var points = [];
