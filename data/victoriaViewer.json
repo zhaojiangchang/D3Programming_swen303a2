@@ -1,10 +1,10 @@
 {
     "introduction": "",
     "teamMembers": [
-        {"option": "1. Jacky Chang - Developer 3rd year Software Engineering", "x":10, "y":20},
-        {"option": "2. Jason Smith - Developer 4th year Software Engineering", "x":10, "y":50},
-        {"option": "3. Rhett White - Disigner  4th year Software Engineering", "x":10, "y":80},
-        {"option": "4. Helen Green - Disigner  4th year Software Engineering", "x":10, "y":110}
+        {"option": "1. Jacky Chang - Developer 3rd year Software Engineering", "x":20, "y":20},
+        {"option": "2. Jason Smith - Developer 4th year Software Engineering", "x":20, "y":50},
+        {"option": "3. Rhett White - Disigner  4th year Software Engineering", "x":20, "y":80},
+        {"option": "4. Helen Green - Disigner  4th year Software Engineering", "x":20, "y":110}
     ],
     "contactUs": [
         {"option":"Have questions or need help with victotria viewer?", "x":10, "y":30},
@@ -28,7 +28,8 @@
         {"option":"Click the Contact us to show the way to contact developers", "x":10, "y":100}
     ],
     "personal": [
-        {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"]},
+        {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"],
+            "use":["Jacky: OK Viewer, make a call.", "Glass: give me a name or number", "Jacky: call my wife.", "Glass: call your wife's cell phone. ","   Glass: connecting....", "   Glass: connected.", ""]},
         {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
         {"option":"Take Picture", "x":100, "y":200, "instruction":["Voice control, face detect and also able to share your favorite picture to Google+, facebook and twitter."]},
         {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, user need to tell glass the question to search"]},

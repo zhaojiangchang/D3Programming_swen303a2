@@ -36,6 +36,5 @@ var myjson = d3.json("data/victoriaViewer.json", function(json){
   contactUsInfo = json.contactUs;
   sentMessage = json.sentMessage;
   home = json.home;
-  console.log(contactUsInfo)
   });
   

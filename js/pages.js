@@ -3,21 +3,27 @@
 // - 
 // =================================================================================
 function personalPage(){
-  zoom(personal);
+	//loadPage("#MainSvg", personal);
+  	zoom(personal);
 }
 function businessPage(){
- zoom(business);
+    //loadPage("#MainSvg", business);
+	zoom(business);
 }
 function homePage(){
-  loadPage("#inforSvg", home);
-  remvoeElement("imgDiv");
-  loadImage("data/glasses-Copy.png","Home");
+  	loadPage("#inforSvg", home);
+  	 document.getElementById("mainSvg").style.background = "white";
+  	remvoeElement("imgDivHome");
+  	remvoeElement("imgDivVoice")
+  	loadImage("data/glasses.png","Home");
 }
 function contactUsPage(){
-  loadPage("#inforSvg", contactUsInfo);
-  loadImage("data/glasses.png","Home");
+  	loadPage("#inforSvg", contactUsInfo);
+  	document.getElementById("mainSvg").style.background = "white";
+  	loadImage("data/glasses.png","Home");
 }
 function teamPage(){
-  loadPage("#inforSvg", teamMembers);
-  loadImage("data/glasses.png","Home");
+  	loadPage("#inforSvg", teamMembers);
+  	document.getElementById("mainSvg").style.background = "white";
+  	loadImage("data/glasses.png","Home");
 }

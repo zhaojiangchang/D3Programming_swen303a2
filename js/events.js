@@ -59,8 +59,8 @@ function file(){
   this.sentMessage = sentMessage;
 }
 function loadPage(svgId, page){
+  document.getElementById("mainSvg").style.background = "black";
   var svg = d3.select("body").select(svgId);
-  console.log(111);
   $("#mainSvg").empty();
   $("#inforSvg").empty();
   remvoeElement("imgDiv");
@@ -70,31 +70,34 @@ function loadPage(svgId, page){
   svg.selectAll(".text")
           .data(page)
           .enter().append("text")
+            .attr("class","personalDisplayOption")
             .attr("id","personalDisplayOption")
-            .attr("fill", "blue")
+            .attr("fill", "white")
             .attr("font-size",20)
             .attr("x", function(d){return d.x})
             .attr("y",function(d){return d.y})
             .text(function(d) { return d.option})
             .attr("onmouseover","evt.target.setAttribute('opacity', '0.5')")
             .attr("onmouseout","evt.target.setAttribute('opacity','1)')")
-            .on("click",function(d) {doEvent(d.option, d.instruction)});
+            .on("click",function(d) {doEvent(d.option, d.instruction, d.use)});
 }
 function loadImage(imageAdd,id) {
   if(document.getElementById("image"+id)!=null){
     return;
   }
   var div = document.createElement("div");
-  div.id = "imgDiv";
+  div.id = "imgDiv"+id;
     var img = document.createElement("img");
     img.id = "image"+id;
     img.src = imageAdd;
     div.appendChild(img);
     document.body.appendChild(div);
 }
-   // <img id="picture" src="data/glasses.png">
+function loadVoiceIcon(){
+  loadImage("data/voiceIcon.png","Voice");
+}
 
-function doEvent(option, instruction){
+function doEvent(option, instruction, use){
   if(instruction==null){
     return;
   }
@@ -104,7 +107,8 @@ function doEvent(option, instruction){
   $("svg#inforSvg").empty();
   addInstruction(instruction);
   if(option==="Making Call"){
-      makingCall();
+      makingCall(personalPage());
+  
   }
   else if(option==="Google It"){
       iframe( "http://www.google.com/custom?q=&btnG=Search");
@@ -155,6 +159,7 @@ function removeIframe(){
 }
 }
 function remvoeElement(id){
+  console.log(111)
   var element = document.getElementById(id);
   if(element!=null && element.parentNode!=null){
       element.parentNode.removeChild(element);
@@ -178,8 +183,7 @@ function addInstruction(instruction){
     d3.select("body").select("#inforSvg").selectAll(".text")
           .data(instruction)
           .enter().append("text")
-            .attr("id","personalDisplayOption")
-            .attr("fill", "blue")
+            .attr("fill", "white")
             .attr("font-size",20)
             .attr("x",x)
             .attr("y",y)
@@ -189,42 +193,76 @@ function addInstruction(instruction){
 function showPowerPoint(){
   iframe("data/slides-victoria-viewer.html");
 }
-function makingCall(){
+function makingCall(callBack){
+  // toggleDisplay("mainSvg", block);
 
+  $(".personalDisplayOption").toggle();
+  var x = 150;
+  var y = 300;
+  console.log(personal[0].use[0]);
+
+   for(var i = 0; i<personal[0].use.length; i++){
+      doSetTimeOut(i);
+    }
+    function doSetTimeOut(index){
+      setTimeout(function() {
+        remvoeElement("command");
+          var txt = personal[0].use[index];
+          var t = d3.select("body").select("#mainSvg")
+            .append("text")
+            .attr("id","command")
+            .attr("fill", "white")
+            .attr("font-size",40)
+            .attr("x",x)
+            .attr("y",y)
+            .text(txt);
+        },3000*index);       
+    } 
 }
+
 function sendMessage(){
-  
+    
 }
+// function toggleDisplay(id, toggle){
+//   $(id).toggle;
+  //document.getElementById(id).style.display = toggle;
+// }
 /**
 zoom home page image, then call loadPage function to load personal or bussiness menues
 **/
 function zoom(page){
-  var imgDiv = document.getElementById("imgDiv");
-  zoomImage();   
-    var img = document.getElementById("imageHome");
-
-    var maxWidth = img.width*1.3;
-    var maxHeight = img.height*1.3;
-    function zoomImage(){
    
-      var zoomTimer = setInterval(function(){
+    var img = document.getElementById("imageHome");
+   // zoomImage();  
+    if(img!=null){
+      
+        var maxWidth = img.width*1.3;
+        var maxHeight = img.height*1.3;
+        
+            var zoomTimer = setInterval(function(){
 
-        if(img!=null && img.width<maxWidth){
-          img.width = img.width*1.005;
-          img.height = img.height*1.005;
+                if(img!=null && img.width<maxWidth){
+                    img.width = img.width*1.005;
+                    img.height = img.height*1.005;
      
-      }
-      else {
-        clearInterval(zoomTimer);
-        remvoeElement("imgDiv");
+                }
+                else {
+                    clearInterval(zoomTimer);
+                    remvoeElement("imgDivHome");
+                    loadPage("#mainSvg", page);
+                }},20);
+        
+     }
+    else if(img==null && document.getElementById("imagePicture")!=null){
+        remvoeElement("imgDivPicture");
+        remvoeElement("goBackButton");
         loadPage("#mainSvg", page);
 
+    }
+
+    else if(img==null && document.getElementById("imagePicture")==null){
+        loadPage("#mainSvg", page);
+        loadVoiceIcon();
+
       }
-    }, 20);
   }
-
-  if(imgDiv==null||img==null) {
-    loadPage("#mainSvg", page);
-  }
-
-}
