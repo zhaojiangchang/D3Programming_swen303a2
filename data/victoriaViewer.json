@@ -29,14 +29,15 @@
     ],
     "personal": [
         {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"],
-            "use":["Jacky: OK Viewer, make a call.", "Glass: give me a name or number", "Jacky: call my wife.", "Glass: call your wife's cell phone. ","   Glass: connecting....", "   Glass: connected.", ""]},
-        {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
+            "use":["Jacky: OK Viewer, make a call.", "Viewer: give me a name or number", "Jacky: call my wife.", "Viewer: call your wife's cell phone. ","   Viewer: connecting....", "   Viewer: connected.", ""]},
+        {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"],
+            "use":["Jacky: OK Viewer, send a message.", "Viewer: give me a name or number", "Jacky: send to my wife.", "Viewer: send to your wife.","   Viewer: sending....", "   Viewer: sent.", ""]},
         {"option":"Take Picture", "x":100, "y":200, "instruction":["Voice control, face detect and also able to share your favorite picture to Google+, facebook and twitter."]},
-        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, user need to tell glass the question to search"]},
+        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, user need to tell Viewer the question to search"]},
         {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control, user need say out from and to locations"]},
         {"option":"Recording Video", "x":100, "y":350, "instruction":["Voice control, user need to say out: start or finish to control the device."]},
         {"option":"Game", "x":100, "y":400, "instruction":["User able to use eyes to control the ball to move along the path"]},
-        {"option":"Shut Down", "x":100, "y":450,"instruction":["shut down the glass"]}            
+        {"option":"Shut Down", "x":100, "y":450,"instruction":["shut down the Viewer"]}            
     ],
     "business": [
         {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then call"]},

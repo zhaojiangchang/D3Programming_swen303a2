@@ -2,28 +2,34 @@
 // Author: Jacky Chang
 // - 
 // =================================================================================
+var personalClicked = false;
+var businessClicked = false;
 function personalPage(){
 	//loadPage("#MainSvg", personal);
-  	zoom(personal);
+	zoom(personal);
+	personalClicked = true;
 }
 function businessPage(){
-    //loadPage("#MainSvg", business);
 	zoom(business);
+	businessClicked = true;
 }
 function homePage(){
-  	loadPage("#inforSvg", home);
-  	 document.getElementById("mainSvg").style.background = "white";
   	remvoeElement("imgDivHome");
   	remvoeElement("imgDivVoice")
-  	loadImage("data/glasses.png","Home");
+  		load(home);
+
 }
 function contactUsPage(){
-  	loadPage("#inforSvg", contactUsInfo);
-  	document.getElementById("mainSvg").style.background = "white";
-  	loadImage("data/glasses.png","Home");
+	load(contactUsInfo);
 }
 function teamPage(){
-  	loadPage("#inforSvg", teamMembers);
-  	document.getElementById("mainSvg").style.background = "white";
-  	loadImage("data/glasses.png","Home");
+	load(teamMembers);
 }
+function load(array){
+	personalClicked = false;
+  	businessClicked = false;
+	callButtonClicked = false;
+	sendMessageButtonClicked = false;
+	loadPage("#inforSvg", array);
+  	document.getElementById("mainSvg").style.background = "white";
+  	loadImage("data/glasses.png","Home");}

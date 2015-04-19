@@ -2,7 +2,9 @@
 // Author: Jacky Chang
 // - 
 // =================================================================================
-
+var callButtonClicked = false;
+var sendMessageButtonClicked = false;
+var timeout = false;
 function recordingVideo(){
   // adds graphics to the map to show that recording is in progress.
   iframe("https://www.youtube.com/embed/HVhSasnVjMQ?enablejsapi=1&theme=light&showinfo=0");
@@ -37,10 +39,12 @@ function recordingVideo(){
     .style('fill', 'red')
     .transition().duration();
 }
+
 function removeRecordingGraphics(){
   d3.select("#record-border").remove();
   d3.select("#record-circle").remove();
 }
+
 function saveToFile(){
 var object = JSON.stringify(file(), null, 4);
 
@@ -58,6 +62,7 @@ function file(){
   this.homeMenu = homeScreen;
   this.sentMessage = sentMessage;
 }
+
 function loadPage(svgId, page){
   document.getElementById("mainSvg").style.background = "black";
   var svg = d3.select("body").select(svgId);
@@ -67,6 +72,9 @@ function loadPage(svgId, page){
   remvoeElement("goBackButton");
   removeIframe();
   remvoeElement("image");
+  loadVoiceIcon();
+  personalClicked = false;
+  businessClicked = false;
   svg.selectAll(".text")
           .data(page)
           .enter().append("text")
@@ -81,25 +89,27 @@ function loadPage(svgId, page){
             .attr("onmouseout","evt.target.setAttribute('opacity','1)')")
             .on("click",function(d) {doEvent(d.option, d.instruction, d.use)});
 }
+
 function loadImage(imageAdd,id) {
   if(document.getElementById("image"+id)!=null){
-    return;
+      return;
   }
   var div = document.createElement("div");
   div.id = "imgDiv"+id;
-    var img = document.createElement("img");
-    img.id = "image"+id;
-    img.src = imageAdd;
-    div.appendChild(img);
-    document.body.appendChild(div);
+  var img = document.createElement("img");
+  img.id = "image"+id;
+  img.src = imageAdd;
+  div.appendChild(img);
+  document.body.appendChild(div);
 }
+
 function loadVoiceIcon(){
   loadImage("data/voiceIcon.png","Voice");
 }
 
 function doEvent(option, instruction, use){
   if(instruction==null){
-    return;
+      return;
   }
   removeGame();
   removeIframe();
@@ -107,8 +117,25 @@ function doEvent(option, instruction, use){
   $("svg#inforSvg").empty();
   addInstruction(instruction);
   if(option==="Making Call"){
-      makingCall(personalPage());
-  
+      callButtonClicked = true;
+      sendMessageButtonClicked = false;
+      if(timeout==true){
+        personalClicked = false;
+        businessClicked = false;
+        timeout = false;
+      }
+    showTextOnSvg(0);
+
+  }
+  else if(option==="Send Message"){
+      sendMessageButtonClicked = true;
+      callButtonClicked = false;
+      if(timeout==true){
+        personalClicked = false;
+        businessClicked = false;
+        timeout = false;
+      }
+    showTextOnSvg(1);
   }
   else if(option==="Google It"){
       iframe( "http://www.google.com/custom?q=&btnG=Search");
@@ -126,9 +153,6 @@ function doEvent(option, instruction, use){
   else if(option==="Recording Video"){
       recordingVideo();  
   }
-  else if(option==="Send Message"){
-      sendMessage();  
-  }
   else if(option==="Stock Trading"){
   iframe("data/nz-stoke-exchange.html");
   }
@@ -143,25 +167,26 @@ function doEvent(option, instruction, use){
 
   }
 }
+
 function iframe(url){
   var iframe = document.createElement('iframe');
   iframe.id = "iframe";
   iframe.src = url ;
   document.body.appendChild(iframe);
-
 }
-function removeIframe(){
 
+function removeIframe(){
   removeRecordingGraphics();
   var iframes = document.getElementsByTagName('iframe');
   for (var i = 0; i < iframes.length; i++) {
-    iframes[i].parentNode.removeChild(iframes[i]);
+      iframes[i].parentNode.removeChild(iframes[i]);
+  }
 }
-}
+
 function remvoeElement(id){
   console.log(111)
   var element = document.getElementById(id);
-  if(element!=null && element.parentNode!=null){
+  while(element!=null && element.parentNode!=null){
       element.parentNode.removeChild(element);
   }
 }
@@ -170,13 +195,17 @@ function addGoBackButton(){
   var goBack = document.createElement("button");
   var text = document.createTextNode("Go Back");
   goBack.id = "goBackButton";
+  goBack.onClick = function(){
+    console.log(111222);
+  };
   goBack.appendChild(text);
   document.body.appendChild(goBack);
   document.getElementById("goBackButton").addEventListener("click", function(){
-    personalPage();
-    remvoeElement("goBackButton");
+  personalPage();
+  remvoeElement("goBackButton");
   });
 }
+
 function addInstruction(instruction){
   var x = 10;
   var y = 20;
@@ -193,47 +222,54 @@ function addInstruction(instruction){
 function showPowerPoint(){
   iframe("data/slides-victoria-viewer.html");
 }
-function makingCall(callBack){
-  // toggleDisplay("mainSvg", block);
 
-  $(".personalDisplayOption").toggle();
+var aa = 3000;
+function showTextOnSvg(index){
+   $(".personalDisplayOption").toggle();
+  
   var x = 150;
   var y = 300;
-  console.log(personal[0].use[0]);
-
-   for(var i = 0; i<personal[0].use.length; i++){
-      doSetTimeOut(i);
+   for(var i = 0; i<personal[index].use.length; i++){
+         doSetTimeOut(i); 
     }
-    function doSetTimeOut(index){
-      setTimeout(function() {
+    function doSetTimeOut(i){
+      var timer = 0;
+      timer = setTimeout(function() {
         remvoeElement("command");
-          var txt = personal[0].use[index];
+        if((callButtonClicked==true && personalClicked == true)||
+          (callButtonClicked==true && businessClicked == true)||
+          (sendMessageButtonClicked==true && personalClicked == true)||
+          (sendMessageButtonClicked==true && businessClicked == true)){
+                timeout = true;
+                return stop; 
+        }
+         
+          var txt = personal[index].use[i];
           var t = d3.select("body").select("#mainSvg")
             .append("text")
             .attr("id","command")
+            .attr("class", "command")
             .attr("fill", "white")
             .attr("font-size",40)
             .attr("x",x)
             .attr("y",y)
             .text(txt);
-        },3000*index);       
+        
+        return stop;
+        function stop(){
+            if(timer){
+                clearTimeout(timer);
+                timer = 0;
+        }
+      }
+      },aa*i);       
     } 
 }
-
-function sendMessage(){
-    
-}
-// function toggleDisplay(id, toggle){
-//   $(id).toggle;
-  //document.getElementById(id).style.display = toggle;
-// }
 /**
 zoom home page image, then call loadPage function to load personal or bussiness menues
 **/
 function zoom(page){
-   
-    var img = document.getElementById("imageHome");
-   // zoomImage();  
+      var img = document.getElementById("imageHome");
     if(img!=null){
       
         var maxWidth = img.width*1.3;
