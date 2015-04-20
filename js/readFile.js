@@ -9,14 +9,13 @@ var points = [];
 var personal = [];
 var business = [];
 var home = [];
-var jsonFile = [];
 var sentMessage = [];
-var w = window.innerWidth;
-var h = window.innerHeight;
-var xmin = w*0.2;
-var ymin = h*0.209;
-var xmax = w*0.599;
-var ymax = h*0.79;
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
+var xmin = windowWidth*0.2;
+var ymin = windowHeight*0.209;
+var xmax = windowWidth*0.599;
+var ymax = windowHeight*0.79;
 var x = d3.scale.linear()
    .domain([0,xmax])
    .range([xmin,xmax])

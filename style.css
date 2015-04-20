@@ -150,8 +150,8 @@ html {
 #iframe {
   position: fixed;
   top: 30%;
-  left: 40%;
-  width: 45%; 
+  left: 20%;
+  width: 65%; 
   height: 50%;
   border: 4px solid gray;
 
@@ -248,7 +248,7 @@ position: fixed;
 }
 #stockIframe {
   position: relative; 
-  left:20%; 
+  left:10%; 
   top: 10%; 
   width: 50%; 
   height:70%; 
@@ -301,5 +301,11 @@ position: fixed;
 /*********************************************************************************/
 #personalDisplayOption {
       cursor:pointer;
+
+}
+/*********************************************************************************/
+/* game                                                                          */
+/*********************************************************************************/
+#mySquare {
 
 }

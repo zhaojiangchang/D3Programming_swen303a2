@@ -9,6 +9,8 @@
 //
 // =================================================================================
 var svg = d3.select("body").select("#mainSvg");
+var mainSVgElem = document.getElementById("mainSvg");
+console.log(mainSVgElem.getBoundingClientRect().left+"   "+mainSVgElem.getBoundingClientRect().left);
 function Game(){
 this.paths = function(){
       var path = svg.append("path")
@@ -51,30 +53,32 @@ this.paths = function(){
 this.square = function(){
     var mySquare = svg.append("rect")
                        .attr("id","mySquare")
-                       .attr("x",200)
-                       .attr("y",60)
+                       .attr("x",mainSVgElem.getBoundingClientRect().left)
+                       .attr("y",mainSVgElem.getBoundingClientRect().top-200)
                        .attr("width",60)
                        .attr("height",60)
                        .transition()
-                          .duration(9000)
+                          .duration(4000)
                           .attr("width", 400)
                           .style("fill","#F5FFC2")
-                          .style("cpacity", 0)
-                          .attr("x",320)
+                          .style("cpacity", 0.5)
+                          .attr("x",mainSVgElem.getBoundingClientRect().left+100)
+                          .style("opacity", 0.5)
                           .ease("elastic");
 
     var text = svg.append("text")
-                      .text("eye relax game")
+                      .text("eye relaxing game")
                       .attr("id","textOnSquare")
-                      .attr("x",300)
-                      .attr("y",100)
+                      .attr("x",mainSVgElem.getBoundingClientRect().left+70)
+                      .attr("y",mainSVgElem.getBoundingClientRect().top-150)
                       .attr("font-size", "40px")
                       .attr("fill", "red")
                       .transition()
-                        .duration(9000)
+                        .duration(4000)
                         .style("fill","blue")
-                        .style("cpacity", 0)
-                        .attr("x",390)
+                        .style("cpacity", 0.5)
+                        .style("opacity", 0.5)
+                        .attr("x",mainSVgElem.getBoundingClientRect().left+170)
                         .ease("elastic");
 
     }

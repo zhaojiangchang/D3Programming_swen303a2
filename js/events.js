@@ -1,12 +1,6 @@
 // =================================================================================
 // Author: Jacky Chang
 // - events.js hold all the events for this application
-// =================================================================================
-var personalCallButtonClicked = false;
-var personalSendMessageButtonClicked = false;
-var businessCallButtonClicked = false;
-var businessSendMessageButtonClicked = false;
-var timeout = false;
 
 /**
 *   draw red dot and red rect when click record video (personal page)
@@ -16,18 +10,18 @@ function recordingVideo(){
     iframe("https://www.youtube.com/embed/HVhSasnVjMQ?enablejsapi=1&theme=light&showinfo=0");
     var w = window.innerWidth;
     var h = window.innerHeight;
-    var width = w*0.51;
+    var width = w*0.71;
     var height = h*0.57;
     var borderWidth = 8;
     var circleRadius = 10;
     var padding = 10;
     var bottomPadding = 10;
-    var circleCX = borderWidth + circleRadius+10+ w*0.25;
+    var circleCX = borderWidth + circleRadius+10+ w*0.1;
     var circleCY = borderWidth + circleRadius+10;
     svg.append("rect")
         .attr({
               id:    "record-border",
-              x:     10 + borderWidth/2 + w*0.25,
+              x:     10 + borderWidth/2 + 50,
               y:     10 + borderWidth/2,
               width: width - borderWidth,
               height:height - bottomPadding - borderWidth
@@ -39,7 +33,7 @@ function recordingVideo(){
     svg.append('circle')
        .attr({
               id: "record-circle",
-              cx:  circleCX,
+              cx:  circleCX-50,
               cy:  circleCY,
               r:   circleRadius})
               .style('fill', 'red')
@@ -87,8 +81,6 @@ function loadPage(svgId, page){
               .on("click",function(d) {
                     var newPage = copy(page);
                     doEvent(d.option, d.instruction, d.use,null, newPage)
-
-
               });
 }
 
@@ -151,12 +143,12 @@ function loadMenu(imageVoiceElem, menu){
 *  voiceMenu: load page when click selection menu(personal or business) 
 **/
 function doEvent(option, instruction, use, voiceMenu, page){
-
-            removeGame();
-            removeIframe();
-            remvoeElement("stockDiv");
-            remvoeElement("imgDivVideoConference");
-            $("svg#inforSvg").empty();
+     var newValue = copy(page);
+     removeGame();
+     removeIframe();
+     remvoeElement("stockDiv");
+     remvoeElement("imgDivVideoConference");
+     $("svg#inforSvg").empty();
      if(voiceMenu!=null){
             if(voiceMenu==="personal"){
                   personalPage();
@@ -171,105 +163,81 @@ function doEvent(option, instruction, use, voiceMenu, page){
             }
 
             addInstruction(instruction);
-            if(option==="Making Call"){
-                  var newValue = copy(page);
-                  if(page[0].option==="Personal Call"){
-                    callAndMsgBoolButtonStateChange(true,false,false,false);
-                       
-                  }
-                  else if(page[0].option==="Business Call"){
-                        callAndMsgBoolButtonStateChange(false,false,true,false);
-                  }                  
-                  if(timeout==true){
-                        personalClicked = false;
-                        businessClicked = false;
-                        callAndMsgBoolButtonStateChange(false,false,false,false);
-                        timeout = false;
-                  }
-                showTextOnSvg(newValue,0);
+            if(option==="Personal Call"){
+                  showTextOnSvg(newValue,0);
             }
-            else if(option==="Send Message"){
-              var newValue = copy(page);
-                if(page[1].option==="Personal Message"){
-                    callAndMsgBoolButtonStateChange(false,true,false,false);
-                  }
-                  else if(page[1].option==="Business Message"){
-                    callAndMsgBoolButtonStateChange(false,false,false,true);
-
-                  }    
-                if(timeout==true){
-                      personalClicked = false;
-                      businessClicked = false;
-                      callAndMsgBoolButtonStateChange(false,false,false,false);
-                      timeout = false;
-                }
-                showTextOnSvg(newValue,1);
+            else if(option==="Business Call"){
+                  showTextOnSvg(newValue,0);
+            }
+            else if(option==="Personal Message"){
+                  showTextOnSvg(newValue,1);
+            }
+            else if(option==="Business Message"){
+                  showTextOnSvg(newValue,1);
             }
             else if(option==="Google It"){
-                iframe( "http://www.google.com/custom?q=&btnG=Search");
+                  showTextOnSvg(newValue, 3);
+
             }
             else if(option==="Google Map"){
-                iframe("https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5995.4017183864435!2d174.778369!3d-41.293614500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swellington+bar+cafe+restaurant+!5e0!3m2!1szh-CN!2snz!4v1429446987355");
+              showTextOnSvg(newValue, 4);
             }
             else if(option==="Game"){
-               var game = new Game(); 
-                   game.paths();
-                   game.square(); 
+              showTextOnSvg(newValue, 6);
+
             }
             else if(option==="Take Picture"){
-                  loadImage("data/face.jpg", "Picture");
-                  addGoBackButton();
+               showTextOnSvg(newValue, 2);
             }
             else if(option==="Recording Video"){
-                  recordingVideo();  
+               showTextOnSvg(newValue, 5);
+
             }
             else if(option==="Stock Trading"){
-                  iframe("data/nz-stoke-exchange.html");
+               showTextOnSvg(newValue, 2);
             }
              else if(option==="PowerPoint"){
-                  showPowerPoint();
+               showTextOnSvg(newValue, 5);
             }
             else if(option==="Shut Down"){
-                  removeRecordingGraphics();
-                  $("svg#mainSvg").empty();
+                  showTextOnSvg(newValue, 7);
+
             }
             else if(option==="Video Conference"){
-                  loadImage("data/VideoConference.jpg","VideoConference");
+                  showTextOnSvg(newValue, 6);
             }
             else{
 
             }
     }
 }
+
 /**
 *  for make call and send message demo
 *  append text every 3 second
 **/
+var timer = null;
 function showTextOnSvg(newValue, index){
-   $(".personalDisplayOption").toggle();
+   $(".personalDisplayOption").toggle();  
+   console.log("personalCallButtonclicked")
   
-  var x = 150;
-  var y = 300;
-   for(var i = 0; i<newValue[index].use.length; i++){
-         doSetTimeOut(i); 
-    }
-    function doSetTimeOut(i){
-      var timer = 0;
-      timer = setTimeout(function() {
+    var cnt = -1;
+    timer = setInterval(function() {
+      ++cnt;
+      if(cnt==newValue[index].use.length){
+          stopTimer();
           remvoeElement("command");
-          if((callButtonClicked==true && personalClicked == true)||
-            (callButtonClicked==true && businessClicked == true)||
-            (sendMessageButtonClicked==true && personalClicked == true)||
-            (sendMessageButtonClicked==true && businessClicked == true)){
-                  console.log(1111);
-                  timeout = true;
-                  newValue[index].use = [];
-                  clearTimeout(timer);
-                  return stop; 
+          loadFunction(index);
+      }
+      myTimer(newValue, index, cnt); },2000);
+  }
 
-          }
-           
-            var txt = newValue[index].use[i];
+function myTimer(newValue, index, cnt){
+  remvoeElement("command");
+    var x = 50;
+    var y = 300;
+        console.log("start print out")
+       var txt = newValue[index].use[cnt];
             var t = d3.select("body").select("#mainSvg")
                                     .append("text")
                                     .attr("id","command")
@@ -279,17 +247,52 @@ function showTextOnSvg(newValue, index){
                                     .attr("x",x)
                                     .attr("y",y)
                                     .text(txt);
-          
-          //return stop;
-          function stop(){
-              if(timer){
-                  clearTimeout(timer);
-                  timer = 0;
-              }
-          }
-      },3000*i);       
-    } 
 }
+/**
+*  stop the timer for function  showTextOnSvg
+**/
+function stopTimer(){
+  clearInterval(timer);
+}
+/**
+*  this function called by showTextOnSvg function, when stopTimer()
+**/
+function loadFunction(index){
+      if(personalClicked==true){
+         if(index==2){
+                  loadImage("data/face.jpg", "Picture");
+                  addGoBackButton();
+            }
+              else if(index==5){
+                  recordingVideo();  
+            }
+            else if(index==6){
+                 var game = new Game(); 
+                       game.paths();
+                       game.square();
+            }
+      }
+      else if(businessClicked==true){
+             if(index==2){
+                  iframe("data/nz-stoke-exchange.html");
+
+            }
+              else if(index==5){
+                  showPowerPoint();
+            }
+            else if(index==6){
+                  loadImage("data/VideoConference.jpg","VideoConference");
+            }
+      }
+         
+      if(index==3){
+                    iframe( "http://www.google.com/custom?q=&btnG=Search");
+      }
+      else if(index==4){
+                    iframe("https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5995.4017183864435!2d174.778369!3d-41.293614500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swellington+bar+cafe+restaurant+!5e0!3m2!1szh-CN!2snz!4v1429446987355");
+      }
+}
+
 /**
 *  create iframe 
 *  url: source address
@@ -401,7 +404,6 @@ function zoom(page){
 **/
 function toggleMenu(){
     if(document.getElementById("selection").style.display ==="block"){
-      console.log(111);
           document.getElementById("selection").style.display="none";
     }
     else if(document.getElementById("selection").style.display==="none"){
@@ -416,7 +418,7 @@ function getPositions(ev) {
 if (ev == null) { ev = window.event }
    var _mouseX = ev.clientX;
    var _mouseY = ev.clientY;
-     if(_mouseX>300 && document.getElementById("pathGame")!=null){
+     if(document.getElementById("pathGame")!=null){
            points[2][0] = _mouseX;
            points[2][1]= _mouseY;
            points[5][0] = _mouseX;
@@ -452,11 +454,4 @@ function copy(o) {
        out[key] = (typeof v === "object") ? copy(v) : v;
    }
    return out;
-}
-
-function callAndMsgBoolButtonStateChange(b1,b2,b3,b4){
-    personalCallButtonClicked = b1;
-    personalSendMessageButtonClicked = b2;
-    businessCallButtonClicked = b3;
-    businessSendMessageButtonClicked = b4;
 }
