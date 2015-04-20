@@ -8,12 +8,14 @@ function personalPage(){
 	zoom(personal);
 	personalClicked = true;
 	businessClicked = false;
+	stopTimer();
 
 }
 function businessPage(){
 	zoom(business);
 	businessClicked = true;
 	personalClicked = false;
+    stopTimer();
 
 }
 function homePage(){
@@ -30,7 +32,7 @@ function teamPage(){
 function introductionPage(){
 	personalClicked = false;
   	businessClicked = false;
-	callAndMsgBoolButtonStateChange(false,false,false,false);
+	//callAndMsgBoolButtonStateChange(false,false,false,false);
 
 	loadPage("#mainSvg", intro);
   	document.getElementById("mainSvg").style.background = "black";
@@ -41,7 +43,7 @@ function introductionPage(){
 function load(array){
 	personalClicked = false;
   	businessClicked = false;
-	callAndMsgBoolButtonStateChange(false,false,false,false);
+	//callAndMsgBoolButtonStateChange(false,false,false,false);
 	loadPage("#inforSvg", array);
   	document.getElementById("mainSvg").style.background = "white";
   	loadImage("data/glasses.png","Home");

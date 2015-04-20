@@ -41,25 +41,32 @@
     ],
     "personal": [
         {"option":"Personal Call", "x":100, "y":100, "instruction":["Voice control, viewer recognize name and number then follow instructions to make call"],
-            "use":["Jacky: OK Viewer, make a call.", "Viewer: give me a name or number", "Jacky: call my wife.", "Viewer: call your wife's cell phone. ","   Viewer: connecting....", "   Viewer: connected.", ""]},
+            "use":["Jacky: OK Viewer, call sisi's cellphone", "Viewer: connecting....", "   Viewer: connected.", ""]},
         {"option":"Personal Message", "x":100, "y":150, "instruction":["Voice control, viewer detect user's voice then send message"],
-            "use":["Jacky: OK Viewer, send a message.", "Viewer: give me a name or number", "Jacky: send to my wife.", "Viewer: send to your wife.","   Viewer: sending....", "   Viewer: sent.", ""]},
-        {"option":"Take Picture", "x":100, "y":200, "instruction":["Voice control, face detect and share picture to Google+, facebook and twitter."]},
-        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: cafe, bar, restaurant and so on"]},
-        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"]},
-        {"option":"Recording Video", "x":100, "y":350, "instruction":["Voice control, start recording or finish recording to control the Viewer."]},
-        {"option":"Game", "x":100, "y":400, "instruction":["Use eyes to control the ball to move along the path, help relax, change shapes when wink "]},
-        {"option":"Shut Down", "x":100, "y":450,"instruction":["Turn off the Viewer"]}            
+            "use":["Jacky: OK Viewer, send a message to my wife.", "Viewer: OK", "Jacky: I will be home at 7pm.", "Viewer: sending....", "Viewer: sent."]},
+        {"option":"Take Picture", "x":100, "y":200, "instruction":["Voice control, face detect and share picture to Google+, facebook and twitter."],
+            "use": ["Jacky: OK Viewer, take picture and shared to my facebook."]},
+        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: cafe, bar, restaurant and so on"],
+            "use": ["Jacky: OK Viewer, Open google website."]},
+        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"],
+            "use": ["Jacky: OK Viewer, cafe on google map wellington."]},
+        {"option":"Recording Video", "x":100, "y":350, "instruction":["Voice control, start recording or finish recording to control the Viewer."],
+            "use": ["Jacky: OK Viewer, Recording video."]},
+        {"option":"Game", "x":100, "y":400, "instruction":["Use eyes to control the ball to move along the path, help relax, change shapes when wink "],
+            "use": ["Jacky: OK Viewer, play a game."]},
+        {"option":"Shut Down", "x":100, "y":450,"instruction":["Turn off the Viewer"],"use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]}           
     ],
+
     "business": [
-        {"option":"Business Call", "x":100, "y":100, "instruction":["viewer recognize name and number then follow user's instructions"]},
-        {"option":"Business Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
-        {"option":"Stock Trading", "x":100, "y":200, "instruction": ["Voice control, show NZ stock trading information, buy and sell"]},
-        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: buildings, formal mail writing, business solution and so on"]},
-        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"]},
-        {"option":"PowerPoint", "x":100, "y":350, "instruction":["Voice control, for presentation, interview, meeting and training"]},
-        {"option":"Video Conference", "x":100, "y":400, "instruction":["Voice control, group video meeting"]},
-        {"option":"Shut Down", "x":100, "y":450,"instruction":["shut down the glass"]}   
+        {"option":"Business Call", "x":100, "y":100, "instruction":["viewer recognize name and number then follow user's instructions"],"use":["Jacky: OK Viewer, make a call, Alex HR department.", "Viewer: connecting to HR Department.","   Viewer: connected."]},
+        {"option":"Business Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"],
+            "use":["Jacky: OK Viewer, send a message.", "Jacky: send to Fairfax finance department.", "Viewer: OK.","Jacky: setup Business meeting at 12","Viewer: sending....", " Viewer: sent."]},
+        {"option":"Stock Trading", "x":100, "y":200, "instruction": ["Voice control, show NZ stock trading information, buy and sell"], "use": ["Jacky: OK Viewer, today's NZ stock trading."]},
+        {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: buildings, formal mail writing, business solution and so on"], "use": ["Jacky: OK Viewer, Open google website."]},
+        {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"],"use": ["Jacky: OK Viewer, Open google map and find Fairfax."]},
+        {"option":"PowerPoint", "x":100, "y":350, "instruction":["Voice control, for presentation, interview, meeting and training"],"use": ["Jacky: OK Viewer, training PowerPoint.", "Viewer: training 1 or training 2?","Jacky: training 1 please."]},                   
+        {"option":"Video Conference", "x":100, "y":400, "instruction":["Voice control, group video meeting"],"use": ["Jacky: OK Viewer, finance department video conference.", "Viewer: connecting...","Viewer: connected"]},           
+        {"option":"Shut Down", "x":100, "y":450,"instruction":["shut down the glass"], "use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]}           
     ],
     "sentMessage": [
         {"from": "user1", "to":"user2", "message":"I will be home!"}
