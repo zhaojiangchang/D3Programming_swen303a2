@@ -2,8 +2,10 @@
 // Author: Jacky Chang
 // - events.js hold all the events for this application
 // =================================================================================
-var callButtonClicked = false;
-var sendMessageButtonClicked = false;
+var personalCallButtonClicked = false;
+var personalSendMessageButtonClicked = false;
+var businessCallButtonClicked = false;
+var businessSendMessageButtonClicked = false;
 var timeout = false;
 
 /**
@@ -68,9 +70,8 @@ function loadPage(svgId, page){
     remvoeElement("goBackButton");
     removeIframe();
     remvoeElement("image");
+    remvoeElement("imgDivVideoConference");
     loadVoiceIcon();
-    personalClicked = false;
-    businessClicked = false;
     svg.selectAll(".text")
             .data(page)
             .enter().append("text")
@@ -83,7 +84,12 @@ function loadPage(svgId, page){
               .text(function(d) { return d.option})
               .attr("onmouseover","evt.target.setAttribute('opacity', '0.5')")
               .attr("onmouseout","evt.target.setAttribute('opacity','1)')")
-              .on("click",function(d) {doEvent(d.option, d.instruction, d.use)});
+              .on("click",function(d) {
+                    var newPage = copy(page);
+                    doEvent(d.option, d.instruction, d.use,null, newPage)
+
+
+              });
 }
 
 /**
@@ -123,7 +129,7 @@ function loadMenu(imageVoiceElem, menu){
           s.setAttribute('id','selection');
           s.style.display ="none";
           s.addEventListener("click", function(event){
-              doEvent(null,null,null,event.target.innerHTML);});
+              doEvent(null,null,null,event.target.innerHTML,null);});
           s.addEventListener("mouseout", function(){ toggleMenu();},false);
           var ul=document.createElement('ul');  
           for (var i=0; i<menu.length; i++){
@@ -144,92 +150,107 @@ function loadMenu(imageVoiceElem, menu){
 *  use: string - for call and message (demo make call and send message)
 *  voiceMenu: load page when click selection menu(personal or business) 
 **/
-function doEvent(option, instruction, use, voiceMenu){
+function doEvent(option, instruction, use, voiceMenu, page){
 
-   if(voiceMenu!=null){
-        if(voiceMenu==="personal"){
-              personalPage();
-        }
-        else if(voiceMenu ==="business"){
-              businessPage();
-        }
-        }else{
-              if(instruction==null){
-                 return;
-        }
-
-      removeGame();
-      removeIframe();
-      remvoeElement("stockDiv");
-      remvoeElement("imageVideoConference");
-      $("svg#inforSvg").empty();
-      addInstruction(instruction);
-      if(option==="Making Call"){
-            callButtonClicked = true;
-            sendMessageButtonClicked = false;
-            if(timeout==true){
-                  personalClicked = false;
-                  businessClicked = false;
-                  timeout = false;
+            removeGame();
+            removeIframe();
+            remvoeElement("stockDiv");
+            remvoeElement("imgDivVideoConference");
+            $("svg#inforSvg").empty();
+     if(voiceMenu!=null){
+            if(voiceMenu==="personal"){
+                  personalPage();
             }
-          showTextOnSvg(0);
-      }
-      else if(option==="Send Message"){
-          sendMessageButtonClicked = true;
-          callButtonClicked = false;
-          if(timeout==true){
-                personalClicked = false;
-                businessClicked = false;
-                timeout = false;
-          }
-        showTextOnSvg(1);
-      }
-      else if(option==="Google It"){
-          iframe( "http://www.google.com/custom?q=&btnG=Search");
-      }
-      else if(option==="Google Map"){
-          iframe("https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5995.4017183864435!2d174.778369!3d-41.293614500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swellington+bar+cafe+restaurant+!5e0!3m2!1szh-CN!2snz!4v1429446987355");
-      }
-      else if(option==="Game"){
-         var game = new Game(); 
-             game.paths();
-             game.square(); 
-      }
-      else if(option==="Take Picture"){
-            loadImage("data/face.jpg", "Picture");
-            addGoBackButton();
-      }
-      else if(option==="Recording Video"){
-            recordingVideo();  
-      }
-      else if(option==="Stock Trading"){
-            iframe("data/nz-stoke-exchange.html");
-      }
-       else if(option==="PowerPoint"){
-            showPowerPoint();
-      }
-      else if(option==="Shut Down"){
-            removeRecordingGraphics();
-            $("svg#mainSvg").empty();
-      }
-      else if(option==="Video Conference"){
-            loadImage("data/VideoConference.jpg","VideoConference");
-      }
-      else{
+            else if(voiceMenu ==="business"){
+                  businessPage();
+            }
+            }
+    else{
+            if(instruction==null){
+                     return;
+            }
 
-      }
-  }
+            addInstruction(instruction);
+            if(option==="Making Call"){
+                  var newValue = copy(page);
+                  if(page[0].option==="Personal Call"){
+                    callAndMsgBoolButtonStateChange(true,false,false,false);
+                       
+                  }
+                  else if(page[0].option==="Business Call"){
+                        callAndMsgBoolButtonStateChange(false,false,true,false);
+                  }                  
+                  if(timeout==true){
+                        personalClicked = false;
+                        businessClicked = false;
+                        callAndMsgBoolButtonStateChange(false,false,false,false);
+                        timeout = false;
+                  }
+                showTextOnSvg(newValue,0);
+            }
+            else if(option==="Send Message"){
+              var newValue = copy(page);
+                if(page[1].option==="Personal Message"){
+                    callAndMsgBoolButtonStateChange(false,true,false,false);
+                  }
+                  else if(page[1].option==="Business Message"){
+                    callAndMsgBoolButtonStateChange(false,false,false,true);
+
+                  }    
+                if(timeout==true){
+                      personalClicked = false;
+                      businessClicked = false;
+                      callAndMsgBoolButtonStateChange(false,false,false,false);
+                      timeout = false;
+                }
+                showTextOnSvg(newValue,1);
+            }
+            else if(option==="Google It"){
+                iframe( "http://www.google.com/custom?q=&btnG=Search");
+            }
+            else if(option==="Google Map"){
+                iframe("https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5995.4017183864435!2d174.778369!3d-41.293614500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swellington+bar+cafe+restaurant+!5e0!3m2!1szh-CN!2snz!4v1429446987355");
+            }
+            else if(option==="Game"){
+               var game = new Game(); 
+                   game.paths();
+                   game.square(); 
+            }
+            else if(option==="Take Picture"){
+                  loadImage("data/face.jpg", "Picture");
+                  addGoBackButton();
+            }
+            else if(option==="Recording Video"){
+                  recordingVideo();  
+            }
+            else if(option==="Stock Trading"){
+                  iframe("data/nz-stoke-exchange.html");
+            }
+             else if(option==="PowerPoint"){
+                  showPowerPoint();
+            }
+            else if(option==="Shut Down"){
+                  removeRecordingGraphics();
+                  $("svg#mainSvg").empty();
+            }
+            else if(option==="Video Conference"){
+                  loadImage("data/VideoConference.jpg","VideoConference");
+            }
+            else{
+
+            }
+    }
 }
 /**
 *  for make call and send message demo
 *  append text every 3 second
 **/
-function showTextOnSvg(index){
+function showTextOnSvg(newValue, index){
    $(".personalDisplayOption").toggle();
   
   var x = 150;
   var y = 300;
-   for(var i = 0; i<personal[index].use.length; i++){
+   for(var i = 0; i<newValue[index].use.length; i++){
          doSetTimeOut(i); 
     }
     function doSetTimeOut(i){
@@ -240,11 +261,15 @@ function showTextOnSvg(index){
             (callButtonClicked==true && businessClicked == true)||
             (sendMessageButtonClicked==true && personalClicked == true)||
             (sendMessageButtonClicked==true && businessClicked == true)){
+                  console.log(1111);
                   timeout = true;
+                  newValue[index].use = [];
+                  clearTimeout(timer);
                   return stop; 
+
           }
            
-            var txt = personal[index].use[i];
+            var txt = newValue[index].use[i];
             var t = d3.select("body").select("#mainSvg")
                                     .append("text")
                                     .attr("id","command")
@@ -255,7 +280,7 @@ function showTextOnSvg(index){
                                     .attr("y",y)
                                     .text(txt);
           
-          return stop;
+          //return stop;
           function stop(){
               if(timer){
                   clearTimeout(timer);
@@ -376,6 +401,7 @@ function zoom(page){
 **/
 function toggleMenu(){
     if(document.getElementById("selection").style.display ==="block"){
+      console.log(111);
           document.getElementById("selection").style.display="none";
     }
     else if(document.getElementById("selection").style.display==="none"){
@@ -388,20 +414,21 @@ function toggleMenu(){
 **/
 function getPositions(ev) {
 if (ev == null) { ev = window.event }
-   _mouseX = ev.clientX;
-   _mouseY = ev.clientY;
-   if(_mouseX>300 && document.getElementById("pathGame")!=null){
-       points[2][0] = _mouseX;
-       points[2][1]= _mouseY;
-       points[5][0] = _mouseX;
-       points[5][1]= _mouseY;
-      remvoeElement("pathGame");
-      while(document.getElementById("circleGame")!=null){
-              remvoeElement("circleGame");
-      }       console.log(points[2])
-       var g = new Game();
-        g.paths();
-    }
+   var _mouseX = ev.clientX;
+   var _mouseY = ev.clientY;
+     if(_mouseX>300 && document.getElementById("pathGame")!=null){
+           points[2][0] = _mouseX;
+           points[2][1]= _mouseY;
+           points[5][0] = _mouseX;
+           points[5][1]= _mouseY;
+           remvoeElement("pathGame");
+           while(document.getElementById("circleGame")!=null){
+                  remvoeElement("circleGame");
+           }
+           var g = new Game();
+           g.paths();
+
+      }
 }
 /**
 *   remove all game elements
@@ -413,4 +440,23 @@ function removeGame(){
       while(document.getElementById("circleGame")!=null){
               remvoeElement("circleGame");
       }
+}
+/**
+*   copy new array
+**/
+function copy(o) {
+   var out, v, key;
+   out = Array.isArray(o) ? [] : {};
+   for (key in o) {
+       v = o[key];
+       out[key] = (typeof v === "object") ? copy(v) : v;
+   }
+   return out;
+}
+
+function callAndMsgBoolButtonStateChange(b1,b2,b3,b4){
+    personalCallButtonClicked = b1;
+    personalSendMessageButtonClicked = b2;
+    businessCallButtonClicked = b3;
+    businessSendMessageButtonClicked = b4;
 }

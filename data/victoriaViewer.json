@@ -13,15 +13,15 @@
   
     ],
     "teamMembers": [
-        {"option": "1. Jacky Chang - Developer 3rd year Software Engineering", "x":20, "y":20},
-        {"option": "2. Jason Smith - Developer 4th year Software Engineering", "x":20, "y":50},
-        {"option": "3. Rhett White - Disigner  4th year Software Engineering", "x":20, "y":80},
-        {"option": "4. Helen Green - Disigner  4th year Software Engineering", "x":20, "y":110}
+        {"option": "1. Jacky Chang - Developer", "x":20, "y":20},
+        {"option": "2. Jason Smith - Developer", "x":20, "y":50},
+        {"option": "3. Rhett White - Disigner", "x":20, "y":80},
+        {"option": "4. Helen Green - Disigner", "x":20, "y":110}
     ],
     "contactUs": [
-        {"option":"Have questions or need help with victotria viewer?", "x":10, "y":30},
-        {"option":"We'd love to help. email us: victoriaViewer@glass.co.nz", "x":10, "y":60},
-        {"option":"Location: Level 2 Cotton Buliding, Victoria University of Wellington", "x":10, "y":90}
+        {"option":"Need technical help?", "x":10, "y":30},
+        {"option":"Email us: victoriaViewer@glass.co.nz", "x":10, "y":60},
+        {"option":"or Call us: 0064-04-321321", "x":10, "y":90}
     ],
     "game": [
          {"x":"200", "y":"200"},
@@ -40,9 +40,9 @@
         {"option":"Click the Contact us to show the way to contact developers", "x":10, "y":100}
     ],
     "personal": [
-        {"option":"Making Call", "x":100, "y":100, "instruction":["Voice control, viewer recognize name and number then follow instructions to make call"],
+        {"option":"Personal Call", "x":100, "y":100, "instruction":["Voice control, viewer recognize name and number then follow instructions to make call"],
             "use":["Jacky: OK Viewer, make a call.", "Viewer: give me a name or number", "Jacky: call my wife.", "Viewer: call your wife's cell phone. ","   Viewer: connecting....", "   Viewer: connected.", ""]},
-        {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, viewer detect user's voice then send message"],
+        {"option":"Personal Message", "x":100, "y":150, "instruction":["Voice control, viewer detect user's voice then send message"],
             "use":["Jacky: OK Viewer, send a message.", "Viewer: give me a name or number", "Jacky: send to my wife.", "Viewer: send to your wife.","   Viewer: sending....", "   Viewer: sent.", ""]},
         {"option":"Take Picture", "x":100, "y":200, "instruction":["Voice control, face detect and share picture to Google+, facebook and twitter."]},
         {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: cafe, bar, restaurant and so on"]},
@@ -52,8 +52,8 @@
         {"option":"Shut Down", "x":100, "y":450,"instruction":["Turn off the Viewer"]}            
     ],
     "business": [
-        {"option":"Making Call", "x":100, "y":100, "instruction":["viewer recognize name and number then follow user's instructions"]},
-        {"option":"Send Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
+        {"option":"Business Call", "x":100, "y":100, "instruction":["viewer recognize name and number then follow user's instructions"]},
+        {"option":"Business Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"]},
         {"option":"Stock Trading", "x":100, "y":200, "instruction": ["Voice control, show NZ stock trading information, buy and sell"]},
         {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: buildings, formal mail writing, business solution and so on"]},
         {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"]},
