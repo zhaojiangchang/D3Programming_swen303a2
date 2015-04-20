@@ -9,7 +9,7 @@ var points = [];
 var personal = [];
 var business = [];
 var home = [];
-var game = [];
+var jsonFile = [];
 var sentMessage = [];
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -25,7 +25,7 @@ var y = d3.scale.linear()
    .domain([0,ymax])
    .range([ymin,ymax])
 var myjson = d3.json("data/victoriaViewer.json", function(json){
-      game = json;
+      gameFile = json.business;
       for(var i = 0; i<json.game.length; i++){
             points[i] = [x(json.game[i].x),y(json.game[i].y)];
       }

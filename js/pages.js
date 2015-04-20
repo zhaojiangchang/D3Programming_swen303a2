@@ -8,6 +8,7 @@ function personalPage(){
 	zoom(personal);
 	personalClicked = true;
 	businessClicked = false;
+
 }
 function businessPage(){
 	zoom(business);
@@ -17,7 +18,6 @@ function businessPage(){
 }
 function homePage(){
   	remvoeElement("imgDivHome");
-  	remvoeElement("imgDivVoice")
   	load(home);
 
 }
@@ -30,21 +30,20 @@ function teamPage(){
 function introductionPage(){
 	personalClicked = false;
   	businessClicked = false;
-	callButtonClicked = false;
-	sendMessageButtonClicked = false;
+	callAndMsgBoolButtonStateChange(false,false,false,false);
+
 	loadPage("#mainSvg", intro);
   	document.getElementById("mainSvg").style.background = "black";
-  	remvoeElement("imageHome");
-    remvoeElement("imageVideoConference");
+  	remvoeElement("imgDivHome");
+    remvoeElement("imgDivVideoConference");
 
 }
 function load(array){
 	personalClicked = false;
   	businessClicked = false;
-	callButtonClicked = false;
-	sendMessageButtonClicked = false;
+	callAndMsgBoolButtonStateChange(false,false,false,false);
 	loadPage("#inforSvg", array);
   	document.getElementById("mainSvg").style.background = "white";
   	loadImage("data/glasses.png","Home");
-  	remvoeElement("imageVideoConference");
+  	remvoeElement("imgDivVideoConference");
   }
