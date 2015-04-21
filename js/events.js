@@ -93,6 +93,9 @@ function loadImage(imageAdd,id) {
     if(document.getElementById("image"+id)!=null){
           return;
     }
+   if(document.getElementById("imgDiv"+id)!=null){
+          return;
+    }
     var div = document.createElement("div");
     div.id = "imgDiv"+id;
     var img = document.createElement("img");
@@ -260,17 +263,31 @@ function stopTimer(){
 function loadFunction(index){
       if(personalClicked==true){
          if(index==2){
-                  loadImage("data/face.jpg", "Picture");
-                  addGoBackButton();
-            }
-              else if(index==5){
+                  loadImage("data/face1.jpg", "Picture");
+                 if(document.getElementById("imgDivPicture")!=null){
+                        document.getElementById("imagePicture").src = "data/face1.jpg";
+                  }
+                  addButton("Take Picture","takePictureButton");
+                  document.getElementById("takePictureButton").style.display = "block";
+                          document.getElementById("takePictureButton").onclick = function(){
+                          takePictureAction();
+                          document.getElementById("takePictureButton").style.display = "none";
+                          };
+
+                  
+                  addButton("Go Back","goBackButton");
+                  document.getElementById("goBackButton").onclick = function(){
+                      document.getElementById("takePictureButton").style.display = "none";                 
+                  };
+        }
+         else if(index==5){
                   recordingVideo();  
-            }
-            else if(index==6){
+         }
+         else if(index==6){
                  var game = new Game(); 
                        game.paths();
                        game.square();
-            }
+         }
       }
       else if(businessClicked==true){
              if(index==2){
@@ -292,7 +309,19 @@ function loadFunction(index){
                     iframe("https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5995.4017183864435!2d174.778369!3d-41.293614500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swellington+bar+cafe+restaurant+!5e0!3m2!1szh-CN!2snz!4v1429446987355");
       }
 }
+function takePictureAction(){
+   //remvoeElement("imgDivPicture");
 
+     setTimeout(function(){
+        //addButton("Go Back", "goBackButton");
+        document.getElementById("imagePicture").src = "data/face.jpg";
+        document.getElementById("imgDivPicture").style.display="block";
+        document.getElementById("goBackButton").style.display = "block";
+        document.getElementById("takePictureButton").style.display = "none";        
+     },100);
+     //
+
+}
 /**
 *  create iframe 
 *  url: source address
@@ -318,6 +347,7 @@ function removeIframe(){
 *  id: element id
 **/
 function remvoeElement(id){
+  console.log("abc")
     var element = document.getElementById(id);
     while(element!=null && element.parentNode!=null){
         element.parentNode.removeChild(element);
@@ -326,15 +356,15 @@ function remvoeElement(id){
 /**
 *  create a go back button 
 **/
-function addGoBackButton(){
-    var goBack = document.createElement("button");
-    var text = document.createTextNode("Go Back");
-    goBack.id = "goBackButton";
-    goBack.appendChild(text);
-    document.body.appendChild(goBack);
-    document.getElementById("goBackButton").addEventListener("click", function(){
+function addButton(buttonText, id){
+    var buttonElem = document.createElement("button");
+    var text = document.createTextNode(buttonText);
+    buttonElem.id = id;
+    buttonElem.appendChild(text);
+    document.body.appendChild(buttonElem);
+    buttonElem.addEventListener("click", function(){
     personalPage();
-    remvoeElement("goBackButton");
+    remvoeElement(buttonElem);
     });
 }
 /**
@@ -386,8 +416,8 @@ function zoom(page){
         
      }
     else if(img==null && document.getElementById("imagePicture")!=null){
-        remvoeElement("imgDivPicture");
-        remvoeElement("goBackButton");
+        document.getElementById("imgDivPicture").style.display="none";
+        document.getElementById("goBackButton").style.display="none";
         loadPage("#mainSvg", page);
 
     }
