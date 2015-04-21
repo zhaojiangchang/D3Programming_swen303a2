@@ -125,6 +125,7 @@ function voiceButtonListener(){
             remvoeElement("stockDiv");
             remvoeElement("imgDivVideoConference");
             $("svg#inforSvg").empty();
+
           if(personalClicked==false && businessClicked==false){
              var environment = prompt("Is it persoanl or Business use?", "Personal");
              environment = environment.toUpperCase();
@@ -140,101 +141,122 @@ function voiceButtonListener(){
         else if(personalClicked==true){
            var option = prompt("Jacky: Voice input", "Personal Call");
            option = option.toUpperCase();
-           option = option.toUpperCase();
-            if(option.indexOf("BUSINESS")){
-                businessPage();
-            }
-           if(option.indexOf("CALL")){
-               // showTextByUserInput(["Veiwer: Please press voice button, and say: name or phone number "],0);  
-                $(".personalDisplayOption").show();    
-                showTextOnSvg(personal, 0);             
-           }
-           else if(option.indexOf("MESSAGE")){
-              $(".personalDisplayOption").show();    
-                showTextOnSvg(personal, 1);   
-           }
-           else if(option.indexOf("GOOGLE")|| option.indexOf("SEARCH")){
-                if(option.indexOf("GOOGLE SEARCH")!=-1){
-                   searchGoogle = option.replace("GOOGLE SEARCH","");
-                }
-                else if(option.indexOf("GOOGLE IT")!=-1){
-                   searchGoogle = option.replace("GOOGLE IT","");
-                }
-                else if(option.indexOf("GOOGLE")!=-1){
-                   searchGoogle = option.replace("GOOGLE","");
-                }
-                else if(option.indexOf("SEARCH")!=-1){
-                  console.log("search")
-                   searchGoogle = option.replace("SEARCH","");
-                }
-           
-               
-                showTextByUserInput(["Veiwer: Google search application opening... "],3);               
 
+           if(option==null){
+                if(personalClicked == true){
+                  personalPage();
+                }
+                else if(businessPage == true){
+                  businessPage();
+                }
            }
-           else if(option.indexOf("MAP")!=-1){
-                showTextByUserInput(["Veiwer: Google map application opening... "],4);               
-           }
-           else if(option.indexOf("GAME")!=-1){
-                showTextByUserInput(["Veiwer: eye relaxing game app opening... "],6);               
-           }
-          else if(option.indexOf("RECORD")!=-1 || option.indexOf("VIDEO")!=-1){
-                showTextByUserInput(["Veiwer: Recording video, please face to the target... "],5);               
-           }
-           else if(option.indexOf("TAKE")!=-1 || option.indexOf("PICTURE")!=-1){
-                showTextByUserInput(["Veiwer: take picture focus on your target... "],2);               
-           }
-           else if(option.indexOf("SHUT")){
-                showTextByUserInput(["Veiwer: Turn off viewer... "],7);
-          }
-        }
+           else{
+               if(option.indexOf("BUSINESS")){
+                    businessPage();
+                }
+               if(option.indexOf("CALL")!=-1){
+                                      console.log(option);
+
+                   // showTextByUserInput(["Veiwer: Please press voice button, and say: name or phone number "],0);  
+                    $(".personalDisplayOption").show();    
+                    showTextOnSvg(personal, 0);             
+               }
+               else if(option.indexOf("MESSAGE")!=-1){
+                  $(".personalDisplayOption").show();    
+                    showTextOnSvg(personal, 1);   
+               }
+               else if(option.indexOf("GOOGLE")!=-1|| option.indexOf("SEARCH")!=-1){
+                    if(option.indexOf("GOOGLE SEARCH")!=-1){
+                       searchGoogle = option.replace("GOOGLE SEARCH","");
+                    }
+                    else if(option.indexOf("GOOGLE IT")!=-1){
+                       searchGoogle = option.replace("GOOGLE IT","");
+                    }
+                    else if(option.indexOf("GOOGLE")!=-1){
+                       searchGoogle = option.replace("GOOGLE","");
+                    }
+                    else if(option.indexOf("SEARCH")!=-1){
+                       searchGoogle = option.replace("SEARCH","");
+                    }
+               
+                   
+                    showTextByUserInput(["Veiwer: Google search application opening... "],3);               
+
+               }
+               else if(option.indexOf("MAP")!=-1){
+                    showTextByUserInput(["Veiwer: Google map application opening... "],4);               
+               }
+               else if(option.indexOf("GAME")!=-1){
+                    showTextByUserInput(["Veiwer: eye relaxing game app opening... "],6);               
+               }
+              else if(option.indexOf("RECORD")!=-1 || option.indexOf("VIDEO")!=-1){
+                    showTextByUserInput(["Veiwer: Recording video, please face to the target... "],5);               
+               }
+               else if(option.indexOf("TAKE")!=-1 || option.indexOf("PICTURE")!=-1){
+                    showTextByUserInput(["Veiwer: take picture focus on your target... "],2);               
+               }
+               else if(option.indexOf("SHUT")!=-1){
+                    showTextByUserInput(["Veiwer: Turn off viewer... "],7);
+              }
+            }
+      }
         else if(businessClicked==true){
            var option = prompt("Jacky: Voice input", "Business Call");
            option = option.toUpperCase();
-            if(option.indexOf("PERSONAL")!=-1){
-                businessPage();
-            }
-           if(option.indexOf("CALL")!=-1){
-                $(".personalDisplayOption").show();    
-                showTextOnSvg(business, 0);                
-            }
-           else if(option.indexOf("MESSAGE")!=-1){
-              $(".personalDisplayOption").show();    
-                showTextOnSvg(business, 1);   
+          if(option==null){
+                if(personalClicked == true){
+                  personalPage();
+                }
+                else if(businessPage == true){
+                  businessPage();
+                }
            }
-           else if(option.indexOf("GOOGLE")!=-1){
-                if(option.indexOf("GOOGLE SEARCH")!=-1){
-                   searchGoogle = option.replace("GOOGLE SEARCH","");
-                }
-                else if(option.indexOf("GOOGLE IT")!=-1){
-                   searchGoogle = option.replace("GOOGLE IT","");
-                }
-                else if(option.indexOf("GOOGLE")!=-1){
-                   searchGoogle = option.replace("GOOGLE","");
-                }
-                else if(option.indexOf("SEARCH")!=-1){
-                  console.log("search")
-                   searchGoogle = option.replace("SEARCH","");
-                }
-                showTextByUserInput(["Veiwer: Google search application opening... "],3);               
+          else{
+                if(option.indexOf("PERSONAL")!=-1){
+                      personalPage();
+                  }
+                 if(option.indexOf("CALL")!=-1){
+                      $(".personalDisplayOption").show();    
+                      showTextOnSvg(business, 0);                
+                  }
+                 else if(option.indexOf("MESSAGE")!=-1){
+                    $(".personalDisplayOption").show();    
+                      showTextOnSvg(business, 1);   
+                 }
+                 else if(option.indexOf("GOOGLE")!=-1){
+                      if(option.indexOf("GOOGLE SEARCH")!=-1){
+                         searchGoogle = option.replace("GOOGLE SEARCH","");
+                      }
+                      else if(option.indexOf("GOOGLE IT")!=-1){
+                         searchGoogle = option.replace("GOOGLE IT","");
+                      }
+                      else if(option.indexOf("GOOGLE")!=-1){
+                         searchGoogle = option.replace("GOOGLE","");
+                      }
+                      else if(option.indexOf("SEARCH")!=-1){
+                        console.log("search")
+                         searchGoogle = option.replace("SEARCH","");
+                      }
+                      showTextByUserInput(["Veiwer: Google search application opening... "],3);               
 
-           }
-           else if(option.indexOf("MAP")!=-1){
-                showTextByUserInput(["Veiwer: Google map application opening... "],4);               
-           }
-           else if(option.indexOf("POWERPOINT")!=-1){
-                showTextByUserInput(["Veiwer: powerPoint opening... "],5);               
-           }
-          else if(option.indexOf("CONFERENCE")!=-1 || option.indexOf("VIDEO")!=-1){
-                showTextByUserInput(["Veiwer: Video conference starting... "],6);               
-           }
-           else if(option.indexOf("STOCK")!=-1 || option.indexOf("SHARE")!=-1){
-                showTextByUserInput(["Veiwer:  Stock trading page opening... "],2);               
-           }
-          else if(option.indexOf("SHUT")!=-1){
-                showTextByUserInput(["Veiwer: Turn off viewer... "],7);
-          }
-        }
+                 }
+                 else if(option.indexOf("MAP")!=-1){
+                      showTextByUserInput(["Veiwer: Google map application opening... "],4);               
+                 }
+                 else if(option.indexOf("POWERPOINT")!=-1){
+                      showTextByUserInput(["Veiwer: powerPoint opening... "],5);               
+                 }
+                else if(option.indexOf("CONFERENCE")!=-1 || option.indexOf("VIDEO")!=-1){
+                      showTextByUserInput(["Veiwer: Video conference starting... "],6);               
+                 }
+                 else if(option.indexOf("STOCK")!=-1 || option.indexOf("SHARE")!=-1){
+                      showTextByUserInput(["Veiwer:  Stock trading page opening... "],2);               
+                 }
+                else if(option.indexOf("SHUT")!=-1){
+                      showTextByUserInput(["Veiwer: Turn off viewer... "],7);
+                }
+              }
+      }
     });
 }
 /**
