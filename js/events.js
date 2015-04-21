@@ -61,7 +61,6 @@ function loadPage(svgId, page){
     $("#mainSvg").empty();
     $("#inforSvg").empty();
     remvoeElement("imgDiv");
-    remvoeElement("goBackButton");
     removeIframe();
     remvoeElement("image");
     remvoeElement("imgDivVideoConference");
@@ -230,7 +229,7 @@ function showTextOnSvg(newValue, index){
       if(cnt==newValue[index].use.length){
           stopTimer();
           remvoeElement("command");
-          loadFunction(index);
+          loadButtonFunction(index);
       }
       myTimer(newValue, index, cnt); },2000);
   }
@@ -246,7 +245,7 @@ function myTimer(newValue, index, cnt){
                                     .attr("id","command")
                                     .attr("class", "command")
                                     .attr("fill", "white")
-                                    .attr("font-size",40)
+                                    .attr("font-size",30)
                                     .attr("x",x)
                                     .attr("y",y)
                                     .text(txt);
@@ -260,25 +259,40 @@ function stopTimer(){
 /**
 *  this function called by showTextOnSvg function, when stopTimer()
 **/
-function loadFunction(index){
+function loadButtonFunction(index){
+   var takePictureButton =  document.getElementById("takePictureButton");
+
       if(personalClicked==true){
          if(index==2){
-                  loadImage("data/face1.jpg", "Picture");
-                 if(document.getElementById("imgDivPicture")!=null){
-                        document.getElementById("imagePicture").src = "data/face1.jpg";
+                  if(document.getElementById("imagePicture")==null){
+                          loadImage("data/face1.jpg", "Picture");
                   }
-                  addButton("Take Picture","takePictureButton");
-                  document.getElementById("takePictureButton").style.display = "block";
-                          document.getElementById("takePictureButton").onclick = function(){
+                   if(document.getElementById("imgDivPicture")!=null){
+                          document.getElementById("imgDivPicture").style.display="block";
+                  }
+                  if(document.getElementById("goBackButton")==null){
+                          addButton("Go Back","goBackButton");
+                          document.getElementById("goBackButton").style.display = "block";
+                    }
+                  if(document.getElementById("goBackButton")!=null){
+                          document.getElementById("goBackButton").style.display = "block";
+                   }
+                 if(document.getElementById("imgDivPicture")!=null){
+                          document.getElementById("imagePicture").src = "data/face1.jpg";
+                  }
+                  if( takePictureButton==null){
+                          addButton("Take Picture","takePictureButton");
+                          takePictureButton =  document.getElementById("takePictureButton");
+                  }
+                  takePictureButton.style.display = "block";
+                  takePictureButton.onclick = function(){
                           takePictureAction();
-                          document.getElementById("takePictureButton").style.display = "none";
-                          };
-
-                  
-                  addButton("Go Back","goBackButton");
+                          takePictureButton.style.display = "none";
+                          document.getElementById("goBackButton").style.display = "block";
+                  };         
                   document.getElementById("goBackButton").onclick = function(){
-                      document.getElementById("takePictureButton").style.display = "none";                 
-                  };
+                          takePictureButton.style.display = "none";                 
+                  };  
         }
          else if(index==5){
                   recordingVideo();  
@@ -316,7 +330,6 @@ function takePictureAction(){
         //addButton("Go Back", "goBackButton");
         document.getElementById("imagePicture").src = "data/face.jpg";
         document.getElementById("imgDivPicture").style.display="block";
-        document.getElementById("goBackButton").style.display = "block";
         document.getElementById("takePictureButton").style.display = "none";        
      },100);
      //
