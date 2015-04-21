@@ -5,6 +5,7 @@
 var personalClicked = false;
 var businessClicked = false;
 function personalPage(){
+	$(".personalDisplayOption").hide();    
 	zoom(personal);
 	personalClicked = true;
 	businessClicked = false;
@@ -12,6 +13,7 @@ function personalPage(){
 
 }
 function businessPage(){
+	$(".personalDisplayOption").hide();    
 	zoom(business);
 	businessClicked = true;
 	personalClicked = false;

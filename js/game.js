@@ -10,7 +10,6 @@
 // =================================================================================
 var svg = d3.select("body").select("#mainSvg");
 var mainSVgElem = document.getElementById("mainSvg");
-console.log(mainSVgElem.getBoundingClientRect().left+"   "+mainSVgElem.getBoundingClientRect().left);
 function Game(){
 this.paths = function(){
       var path = svg.append("path")

@@ -41,9 +41,9 @@
     ],
     "personal": [
         {"option":"Personal Call", "x":100, "y":100, "instruction":["Voice control, viewer recognize name and number then follow instructions to make call"],
-            "use":["Jacky: OK Viewer, call sisi's cellphone", "Viewer: connecting....", "   Viewer: connected.", ""]},
+            "use":["Jacky: OK Viewer, call sisi's cellphone", "Viewer: connecting to Sisi....", "   Viewer: connected.", ""]},
         {"option":"Personal Message", "x":100, "y":150, "instruction":["Voice control, viewer detect user's voice then send message"],
-            "use":["Jacky: OK Viewer, send a message to my wife.", "Viewer: OK", "Jacky: I will be home at 7pm.", "Viewer: sending....", "Viewer: sent."]},
+            "use":["Jacky: OK Viewer, send a message to my wife.", "Viewer: OK, send message to Sisi", "Jacky: I will be home at 7pm.", "Viewer: sending I will be home at 7pm....", "Viewer: sent."]},
         {"option":"Take Picture", "x":100, "y":200, "instruction":["Voice control, face detect and share picture to Google+, facebook and twitter."],
             "use": ["Jacky: OK Viewer, take picture and shared to my facebook."]},
         {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: cafe, bar, restaurant and so on"],
@@ -58,9 +58,9 @@
     ],
 
     "business": [
-        {"option":"Business Call", "x":100, "y":100, "instruction":["viewer recognize name and number then follow user's instructions"],"use":["Jacky: OK Viewer, make a call, Alex HR department.", "Viewer: connecting to HR Department.","   Viewer: connected."]},
+        {"option":"Business Call", "x":100, "y":100, "instruction":["viewer recognize name and number then follow user's instructions"],"use":["Jacky: OK Viewer, make a call, Alex HR department.", "Viewer: connecting to HR Department.","Viewer: connecting...."," Viewer: connected."]},
         {"option":"Business Message", "x":100, "y":150, "instruction":["Voice control, device waiting for detect user's voice! then send message"],
-            "use":["Jacky: OK Viewer, send a message.", "Jacky: send to Fairfax finance department.", "Viewer: OK.","Jacky: setup Business meeting at 12","Viewer: sending....", " Viewer: sent."]},
+            "use":["Jacky: OK Viewer, send a message.", "Jacky: send to Fairfax finance department.", "Viewer: OK.","Jacky: setup Business meeting at 12","Viewer: sending setup Business meeting at 12....", " Viewer: sent."]},
         {"option":"Stock Trading", "x":100, "y":200, "instruction": ["Voice control, show NZ stock trading information, buy and sell"], "use": ["Jacky: OK Viewer, today's NZ stock trading."]},
         {"option":"Google It", "x":100, "y":250, "instruction":["Voice control, search: buildings, formal mail writing, business solution and so on"], "use": ["Jacky: OK Viewer, Open google website."]},
         {"option":"Google Map", "x":100, "y":300, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"],"use": ["Jacky: OK Viewer, Open google map and find Fairfax."]},
