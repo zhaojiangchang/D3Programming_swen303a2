@@ -1,10 +1,11 @@
 {
     "introduction": [
-        {"option":"<********Demo webpage application********>", "x":100, "y":60},
-        {"option":"- Personal Environment: (Home, Traveling, party): ", "x":100, "y":140},
-        {"option":"Face detect camera and share picture to facebook, google+ and twitter.", "x":100, "y":180},
-        {"option":"Google Map to find closed cafe, restaurant and Bar.", "x":100, "y":220},
-        {"option":"Recording Video for birthday party, family and share with friends. ", "x":100, "y":260},
+        {"option":"<********Demo webpage application********>", "x":100, "y":80},
+        {"option": "Click voice icon and input value as voice input", "x":100, "y":140},
+        {"option":"- Personal Environment: (Home, Traveling, party): ", "x":100, "y":180},
+        {"option":"Take picture: goback and take picture buttons as voice input.", "x":100, "y":220},
+        {"option":"when click voice icon and input google swen303, it will search swen303.", "x":100, "y":260},
+        {"option":"Game involved HTML, D3 and js able to click and play. ", "x":100, "y":300},
         {"option":"- Business Environment: (workplace, office, training):", "x":100, "y":340},  
         {"option":"Stock Trading - checking stock and buy or sell shares", "x":100, "y":380},    
         {"option":"PowerPoint for bussiness meeting and training", "x":100, "y":420},    

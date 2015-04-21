@@ -2,6 +2,8 @@
 // Author: Jacky Chang
 // - events.js hold all the events for this application
 
+var searchGoogle = "";
+
 /**
 *   draw red dot and red rect when click record video (personal page)
 **/
@@ -125,84 +127,111 @@ function voiceButtonListener(){
             $("svg#inforSvg").empty();
           if(personalClicked==false && businessClicked==false){
              var environment = prompt("Is it persoanl or Business use?", "Personal");
-
+             environment = environment.toUpperCase();
           if (environment != null) {
-              if(environment==="Personal"||environment==="personal"){
+              if(environment==="PERSONAL"){
                 personalPage();
               }
-              else if(environment==="business"||environment==="Business"){
+              else if(environment==="BUSINESS"){
                 businessPage();
               }
           }
         }
         else if(personalClicked==true){
            var option = prompt("Jacky: Voice input", "Personal Call");
-            if(option.indexOf("business")!=-1 || option.indexOf("Business")!=-1){
+           option = option.toUpperCase();
+           option = option.toUpperCase();
+            if(option.indexOf("BUSINESS")){
                 businessPage();
             }
-           if(option.indexOf("call")!=-1 ||option.indexOf("Call")!=-1){
+           if(option.indexOf("CALL")){
                // showTextByUserInput(["Veiwer: Please press voice button, and say: name or phone number "],0);  
                 $(".personalDisplayOption").show();    
                 showTextOnSvg(personal, 0);             
            }
-           else if(option.indexOf("message")!=-1 ||option.indexOf("Message")!=-1){
+           else if(option.indexOf("MESSAGE")){
               $(".personalDisplayOption").show();    
                 showTextOnSvg(personal, 1);   
            }
-           else if(option.indexOf("Google")!=-1 || option.indexOf("google")!=-1){
+           else if(option.indexOf("GOOGLE")|| option.indexOf("SEARCH")){
+                if(option.indexOf("GOOGLE SEARCH")!=-1){
+                   searchGoogle = option.replace("GOOGLE SEARCH","");
+                }
+                else if(option.indexOf("GOOGLE IT")!=-1){
+                   searchGoogle = option.replace("GOOGLE IT","");
+                }
+                else if(option.indexOf("GOOGLE")!=-1){
+                   searchGoogle = option.replace("GOOGLE","");
+                }
+                else if(option.indexOf("SEARCH")!=-1){
+                  console.log("search")
+                   searchGoogle = option.replace("SEARCH","");
+                }
+           
+               
                 showTextByUserInput(["Veiwer: Google search application opening... "],3);               
 
            }
-           else if(option.indexOf("map")!=-1 || option.indexOf("Map")!=-1){
+           else if(option.indexOf("MAP")!=-1){
                 showTextByUserInput(["Veiwer: Google map application opening... "],4);               
            }
-           else if(option.indexOf("game")!=-1 || option.indexOf("Game")!=-1){
+           else if(option.indexOf("GAME")!=-1){
                 showTextByUserInput(["Veiwer: eye relaxing game app opening... "],6);               
            }
-          else if(option.indexOf("Record")!=-1 || option.indexOf("record")!=-1||
-            option.indexOf("Video")!=-1 || option.indexOf("video")!=-1){
+          else if(option.indexOf("RECORD")!=-1 || option.indexOf("VIDEO")!=-1){
                 showTextByUserInput(["Veiwer: Recording video, please face to the target... "],5);               
            }
-           else if(option.indexOf("take")!=-1 || option.indexOf("Take")!=-1||
-            option.indexOf("Picture")!=-1 || option.indexOf("Picture")!=-1){
+           else if(option.indexOf("TAKE")!=-1 || option.indexOf("PICTURE")!=-1){
                 showTextByUserInput(["Veiwer: take picture focus on your target... "],2);               
            }
-           else if(option.indexOf("Shut")!=-1 || option.indexOf("shut")!=-1){
+           else if(option.indexOf("SHUT")){
                 showTextByUserInput(["Veiwer: Turn off viewer... "],7);
           }
         }
         else if(businessClicked==true){
            var option = prompt("Jacky: Voice input", "Business Call");
-            if(option.indexOf("personal")!=-1 || option.indexOf("Personal")!=-1){
+           option = option.toUpperCase();
+            if(option.indexOf("PERSONAL")!=-1){
                 businessPage();
             }
-           if(option.indexOf("call")!=-1 ||option.indexOf("Call")!=-1){
+           if(option.indexOf("CALL")!=-1){
                 $(".personalDisplayOption").show();    
                 showTextOnSvg(business, 0);                
             }
-           else if(option.indexOf("message")!=-1 ||option.indexOf("Message")!=-1){
+           else if(option.indexOf("MESSAGE")!=-1){
               $(".personalDisplayOption").show();    
                 showTextOnSvg(business, 1);   
            }
-           else if(option.indexOf("Google")!=-1 || option.indexOf("google")!=-1){
+           else if(option.indexOf("GOOGLE")!=-1){
+                if(option.indexOf("GOOGLE SEARCH")!=-1){
+                   searchGoogle = option.replace("GOOGLE SEARCH","");
+                }
+                else if(option.indexOf("GOOGLE IT")!=-1){
+                   searchGoogle = option.replace("GOOGLE IT","");
+                }
+                else if(option.indexOf("GOOGLE")!=-1){
+                   searchGoogle = option.replace("GOOGLE","");
+                }
+                else if(option.indexOf("SEARCH")!=-1){
+                  console.log("search")
+                   searchGoogle = option.replace("SEARCH","");
+                }
                 showTextByUserInput(["Veiwer: Google search application opening... "],3);               
 
            }
-           else if(option.indexOf("map")!=-1 || option.indexOf("Map")!=-1){
+           else if(option.indexOf("MAP")!=-1){
                 showTextByUserInput(["Veiwer: Google map application opening... "],4);               
            }
-           else if(option.indexOf("powerpoint")!=-1 || option.indexOf("Powerpoint")!=-1||option.indexOf("PowerPoint")!=-1){
+           else if(option.indexOf("POWERPOINT")!=-1){
                 showTextByUserInput(["Veiwer: powerPoint opening... "],5);               
            }
-          else if(option.indexOf("Conference")!=-1 || option.indexOf("conference")!=-1||
-            option.indexOf("Video")!=-1 || option.indexOf("video")!=-1){
+          else if(option.indexOf("CONFERENCE")!=-1 || option.indexOf("VIDEO")!=-1){
                 showTextByUserInput(["Veiwer: Video conference starting... "],6);               
            }
-           else if(option.indexOf("stock")!=-1 || option.indexOf("Stock")!=-1||
-            option.indexOf("Shares")!=-1 || option.indexOf("shares")!=-1){
+           else if(option.indexOf("STOCK")!=-1 || option.indexOf("SHARE")!=-1){
                 showTextByUserInput(["Veiwer:  Stock trading page opening... "],2);               
            }
-          else if(option.indexOf("Shut")!=-1 || option.indexOf("shut")!=-1){
+          else if(option.indexOf("SHUT")!=-1){
                 showTextByUserInput(["Veiwer: Turn off viewer... "],7);
           }
         }
@@ -223,7 +252,9 @@ function showTextByUserInput(newValue, index){
             }
             textTimer(newValue, cnt); },2000);
 }
-
+/**
+* this function called by showTextByUserInput function
+**/
 function textTimer(newValue, cnt){
             remvoeElement("command");
               var x = 50;
@@ -237,7 +268,11 @@ function textTimer(newValue, cnt){
                     .attr("font-size",25)
                     .attr("x",x)
                     .attr("y",y)
-                    .text(txt);
+                    .text(txt)
+                     .transition()
+                          .duration(2000)
+                          .style("fill","#F5FFC2")
+                          .style("opacity", 0);
 
 }
 
@@ -322,10 +357,21 @@ function showTextOnSvg(newValue, index){
           stopTimer();
           remvoeElement("command");
           loadButtonFunction(index);
+          if(index == 0 || index == 1){
+            if(personalClicked == true){
+              personalPage();
+            }
+            else if(businessPage == true){
+              businessPage();
+            }
+          }
       }
       myTimer(newValue, index, cnt); },2000);
   }
 
+/**
+*  this function called by showTextOnSvg function
+**/
 function myTimer(newValue, index, cnt){
   remvoeElement("command");
     var x = 50;
@@ -339,7 +385,11 @@ function myTimer(newValue, index, cnt){
             .attr("font-size",30)
             .attr("x",x)
             .attr("y",y)
-            .text(txt);
+            .text(txt)
+            .transition()
+                .duration(2000)
+                .style("fill","#F5FFC2")
+                .style("opacity", 0);
 }
 /**
 *  stop the timer for function  showTextOnSvg
@@ -405,7 +455,7 @@ function loadButtonFunction(index){
       }
          
       if(index==3){
-                    iframe( "http://www.google.com/custom?q=&btnG=Search");
+                    iframe( "http://www.google.com/custom?q="+searchGoogle+"&btnG=Search");
       }
       else if(index==4){
                     iframe("https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5995.4017183864435!2d174.778369!3d-41.293614500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swellington+bar+cafe+restaurant+!5e0!3m2!1szh-CN!2snz!4v1429446987355");
@@ -494,7 +544,7 @@ function showPowerPoint(){
 zoom home page image, then call loadPage function to load personal or bussiness menues
 **/
 function zoom(page){
-      var img = document.getElementById("imageHome");
+    var img = document.getElementById("imageHome");
     if(img!=null){
       
         var maxWidth = img.width*1.5;
