@@ -5,21 +5,19 @@
 var personalClicked = false;
 var businessClicked = false;
 function personalPage(){
-	$(".personalDisplayOption").hide();    
+	$(".displayOption").hide();    
 	zoom(personal);
 	personalClicked = true;
 	businessClicked = false;
-	console.log(personalClicked)
 
 	stopTimer();
 
 }
 function businessPage(){
-	$(".personalDisplayOption").hide();    
+	$(".displayOption").hide();    
 	zoom(business);
 	businessClicked = true;
 	personalClicked = false;
-		console.log(businessClicked)
     stopTimer();
 
 }

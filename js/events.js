@@ -3,6 +3,20 @@
 // - events.js hold all the events for this application
 
 var searchGoogle = "";
+var option = "";
+
+document.getElementById("exit").addEventListener("click" ,function(){
+  console.log(9999)
+        if(personalClicked == true){
+              personalPage();
+            }
+        else if(businessPage == true){
+              businessPage();
+        }
+        else{
+          homePage();
+        }
+});
 
 /**
 *   draw red dot and red rect when click record video (personal page)
@@ -13,7 +27,7 @@ function recordingVideo(){
     var w = window.innerWidth;
     var h = window.innerHeight;
     var width = w*0.71;
-    var height = h*0.57;
+    var height = h*0.47;
     var borderWidth = 8;
     var circleRadius = 10;
     var padding = 10;
@@ -67,8 +81,8 @@ function loadPage(svgId, page){
     svg.selectAll(".text")
             .data(page)
             .enter().append("text")
-              .attr("class","personalDisplayOption")
-              .attr("id","personalDisplayOption")
+              .attr("class","displayOption")
+              .attr("id","displayOption")
               .attr("fill", "white")
               .attr("font-size",20)
               .attr("x", function(d){return d.x})
@@ -116,8 +130,10 @@ function loadVoiceIcon(){
 * when click pop up box show up (user input to active different functions)
 **/
 function voiceButtonListener(){
-    imageVoice.addEventListener("click", function(event){
-          $(".personalDisplayOption").show();    
+    //imageVoice.addEventListener("click", function(event){
+          option = option.toUpperCase();
+
+          $(".displayOption").show();    
             remvoeElement("command");
             stopTimer();
             removeGame();
@@ -127,20 +143,19 @@ function voiceButtonListener(){
             $("svg#inforSvg").empty();
 
           if(personalClicked==false && businessClicked==false){
-             var environment = prompt("Is it persoanl or Business use?", "");
-             environment = environment.toUpperCase();
-          if (environment != null) {
-              if(environment==="PERSONAL"){
+             // var environment = prompt("Is it persoanl or Business use?", "");
+          if (option != null) {
+              if(option==="PERSONAL"){
                 personalPage();
               }
-              else if(environment==="BUSINESS"){
+              else if(option==="BUSINESS"){
                 businessPage();
               }
           }
         }
         else if(personalClicked==true){
-           var option = prompt("Jacky: Voice input", "");
-           option = option.toUpperCase();
+           // var option = prompt("Jacky: Voice input", "");
+          // option = option.toUpperCase();
 
            if(option==null){
                 if(personalClicked == true){
@@ -151,18 +166,18 @@ function voiceButtonListener(){
                 }
            }
            else{
-               if(option.indexOf("BUSINESS")){
+               if(option.indexOf("BUSINESS")!=-1){
                     businessPage();
                 }
                if(option.indexOf("CALL")!=-1){
                                       console.log(option);
 
                    // showTextByUserInput(["Veiwer: Please press voice button, and say: name or phone number "],0);  
-                    $(".personalDisplayOption").show();    
+                    $(".displayOption").show();    
                     showTextOnSvg(personal, 0);             
                }
                else if(option.indexOf("MESSAGE")!=-1){
-                  $(".personalDisplayOption").show();    
+                  $(".displayOption").show();    
                     showTextOnSvg(personal, 1);   
                }
                else if(option.indexOf("GOOGLE")!=-1|| option.indexOf("SEARCH")!=-1){
@@ -201,8 +216,8 @@ function voiceButtonListener(){
             }
       }
         else if(businessClicked==true){
-           var option = prompt("Jacky: Voice input", "");
-           option = option.toUpperCase();
+           // var option = prompt("Jacky: Voice input", "");
+          // option = option.toUpperCase();
           if(option==null){
                 if(personalClicked == true){
                   personalPage();
@@ -216,11 +231,11 @@ function voiceButtonListener(){
                       personalPage();
                   }
                  if(option.indexOf("CALL")!=-1){
-                      $(".personalDisplayOption").show();    
+                      $(".displayOption").show();    
                       showTextOnSvg(business, 0);                
                   }
                  else if(option.indexOf("MESSAGE")!=-1){
-                    $(".personalDisplayOption").show();    
+                    $(".displayOption").show();    
                       showTextOnSvg(business, 1);   
                  }
                  else if(option.indexOf("GOOGLE")!=-1){
@@ -257,13 +272,13 @@ function voiceButtonListener(){
                 }
               }
       }
-    });
+    // });
 }
 /**
 * called by voiceButtonListener function, show text on screen then active the function
 **/
 function showTextByUserInput(newValue, index){
-    $(".personalDisplayOption").hide();    
+    $(".displayOption").hide();    
     var cnt = -1;
     timer = setInterval(function() {
             ++cnt;
@@ -272,7 +287,7 @@ function showTextByUserInput(newValue, index){
                   remvoeElement("command");
                   loadButtonFunction(index);
             }
-            textTimer(newValue, cnt); },2000);
+            textTimer(newValue, cnt); },3000);
 }
 /**
 * this function called by showTextByUserInput function
@@ -292,12 +307,30 @@ function textTimer(newValue, cnt){
                     .attr("y",y)
                     .text(txt)
                      .transition()
-                          .duration(2000)
+                          .duration(3000)
                           .style("fill","#F5FFC2")
                           .style("opacity", 0);
 
 }
+function attachTextListener(input, func) {
+  if (window.addEventListener) {
+    input.addEventListener('input', func, true);
+  } else
+    input.attachEvent('onpropertychange', function() {
+      func.call(input);
+    });
+}
 
+var myInput = document.getElementById('textInput');
+attachTextListener(myInput, function() {
+  var input = document.getElementById("textInput").value;
+         document.getElementById("submitTextToScreen").onclick = function(){
+          option = input;
+          console.log(option);
+          voiceButtonListener();
+          document.getElementById("textInput").value = "";
+  };
+});
 /**
 *  menu selection for personal page and business page
 *  option: string name of the side bar label
@@ -371,7 +404,7 @@ function doEvent(option, instruction, use, voiceMenu, page){
 **/
 var timer = null;
 function showTextOnSvg(newValue, index){
-   $(".personalDisplayOption").toggle();    
+   $(".displayOption").toggle();    
     var cnt = -1;
     timer = setInterval(function() {
       ++cnt;
@@ -388,7 +421,7 @@ function showTextOnSvg(newValue, index){
             }
           }
       }
-      myTimer(newValue, index, cnt); },2000);
+      myTimer(newValue, index, cnt); },3000);
   }
 
 /**
@@ -409,7 +442,7 @@ function myTimer(newValue, index, cnt){
             .attr("y",y)
             .text(txt)
             .transition()
-                .duration(2000)
+                .duration(3000)
                 .style("fill","#F5FFC2")
                 .style("opacity", 0);
 }
@@ -433,13 +466,6 @@ function loadButtonFunction(index){
                       document.getElementById("imagePicture").src = "data/face1.jpg";
                       document.getElementById("imgDivPicture").style.display="block";
               }
-              if(document.getElementById("goBackButton")==null){
-                      addButton("Go Back","goBackButton");
-                      document.getElementById("goBackButton").style.display = "block";
-                }
-              if(document.getElementById("goBackButton")!=null){
-                      document.getElementById("goBackButton").style.display = "block";
-               }
               if( takePictureButton==null){
                       addButton("Take Picture","takePictureButton");
                       takePictureButton =  document.getElementById("takePictureButton");
@@ -448,11 +474,7 @@ function loadButtonFunction(index){
               takePictureButton.onclick = function(){
                       takePictureAction();
                       takePictureButton.style.display = "none";
-                      document.getElementById("goBackButton").style.display = "block";
               };         
-              document.getElementById("goBackButton").onclick = function(){
-                      takePictureButton.style.display = "none";                 
-              };  
         }
          else if(index==5){
                   recordingVideo();  
@@ -569,8 +591,8 @@ function zoom(page){
     var img = document.getElementById("imageHome");
     if(img!=null){
       
-        var maxWidth = img.width*1.5;
-        var maxHeight = img.height*1.5;
+        var maxWidth = img.width*1.3;
+        var maxHeight = img.height*1.3;
         
             var zoomTimer = setInterval(function(){
 
@@ -588,7 +610,6 @@ function zoom(page){
      }
     else if(img==null && document.getElementById("imagePicture")!=null){
         document.getElementById("imgDivPicture").style.display="none";
-        document.getElementById("goBackButton").style.display="none";
         loadPage("#mainSvg", page);
 
     }
