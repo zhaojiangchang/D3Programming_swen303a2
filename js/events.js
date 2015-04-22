@@ -1,12 +1,13 @@
 // =================================================================================
 // Author: Jacky Chang
 // - events.js hold all the events for this application
+// =================================================================================
 
-var searchGoogle = "";
-var option = "";
+var searchGoogle = ""; // for google search
+var option = ""; // user text input
 
 document.getElementById("exit").addEventListener("click" ,function(){
-  console.log(9999)
+  document.getElementById("todo").style.display = "none";
         if(personalClicked == true){
               personalPage();
             }
@@ -123,24 +124,22 @@ function loadImage(imageAdd,id) {
 function loadVoiceIcon(){
     loadImage("data/voiceIcon.png","Voice");
     var imageVoice = document.getElementById("imageVoice"); 
-    voiceButtonListener();
 }
 /**
-* create listenner for voice icon
-* when click pop up box show up (user input to active different functions)
+* create listenner for text input lable
+* check key work user input, thne action the function
 **/
 function voiceButtonListener(){
-    //imageVoice.addEventListener("click", function(event){
           option = option.toUpperCase();
-
+          document.getElementById("todo").style.display = "none";
           $(".displayOption").show();    
-            remvoeElement("command");
-            stopTimer();
-            removeGame();
-            removeIframe();
-            remvoeElement("stockDiv");
-            remvoeElement("imgDivVideoConference");
-            $("svg#inforSvg").empty();
+          remvoeElement("command");
+          stopTimer();
+          removeGame();
+          removeIframe();
+          remvoeElement("stockDiv");
+          remvoeElement("imgDivVideoConference");
+          $("svg#inforSvg").empty();
 
           if(personalClicked==false && businessClicked==false){
              // var environment = prompt("Is it persoanl or Business use?", "");
@@ -154,131 +153,145 @@ function voiceButtonListener(){
           }
         }
         else if(personalClicked==true){
-           // var option = prompt("Jacky: Voice input", "");
-          // option = option.toUpperCase();
-
            if(option==null){
-                if(personalClicked == true){
-                  personalPage();
-                }
-                else if(businessPage == true){
-                  businessPage();
-                }
+                    if(personalClicked == true){
+                             personalPage();
+                    }
+                    else if(businessPage == true){
+                              businessPage();
+                    }
            }
            else{
-               if(option.indexOf("BUSINESS")!=-1){
-                    businessPage();
-                }
-               if(option.indexOf("CALL")!=-1){
-                                      console.log(option);
+                     if(option.indexOf("BUSINESS")!=-1){
+                             businessPage();
+                      }
+                     if(option.indexOf("CALL")!=-1){
+                              $(".displayOption").show();    
+                              showTextOnSvg(personal, 0);             
+                     }
+                     else if(option.indexOf("MESSAGE")!=-1){
+                            $(".displayOption").show();    
+                              showTextOnSvg(personal, 1);   
+                     }
+                     else if(option.indexOf("GOOGLE")!=-1|| option.indexOf("SEARCH")!=-1){
+                              if(option.indexOf("GOOGLE SEARCH")!=-1){
+                                    searchGoogle = option.replace("GOOGLE SEARCH","");
+                              }
+                              else if(option.indexOf("GOOGLE IT")!=-1){
+                                    searchGoogle = option.replace("GOOGLE IT","");
+                              }
+                              else if(option.indexOf("GOOGLE")!=-1){
+                                    searchGoogle = option.replace("GOOGLE","");
+                              }
+                              else if(option.indexOf("SEARCH")!=-1){
+                                    searchGoogle = option.replace("SEARCH","");
+                              }
+                              showTextByUserInput(["Veiwer: Google search application opening... "],3);               
+                     }
+                     else if(option.indexOf("MAP")!=-1){
+                              showTextByUserInput(["Veiwer: Google map application opening... "],4);               
+                     }
+                     else if(option.indexOf("GAME")!=-1){
+                              showTextByUserInput(["Veiwer: eye relaxing game app opening... "],6);               
+                     }
+                     else if(option.indexOf("RECORD")!=-1 || option.indexOf("VIDEO")!=-1){
+                              showTextByUserInput(["Veiwer: Recording video, please face to the target... "],5);               
+                     }
+                     else if(option.indexOf("TAKE")!=-1 || option.indexOf("PICTURE")!=-1){
+                              showTextByUserInput(["Veiwer: take picture focus on your target... "],2);               
+                     }
+                     else if(option.indexOf("SHUT")!=-1){
+                              showTextByUserInput(["Veiwer: Turn off viewer... "],7);
+                     }
+                     else if(option.indexOf("TODO")!=-1){
+                            $(".displayOption").hide();  
+                            if(option.indexOf("REMOVE TODO")!=-1){
+                                  if(todoListArray.length==0){
+                                    return;
+                                  }
+                                  if(document.getElementById("todo").style.display === "none"){
+                                    document.getElementById("todo").style.display = "block";
+                                      showTextByUserInput(["Veiwer: Open TODO list and remove element... "],-1);
+                                  }
+                                  if(todoListArray.length!=0){
+                                        var newT =option.replace("REMOVE TODO","");
+                                        removeFromList(newT);
+                                  }
+                            }
+                            else{
+                                  console.log(1111);   
+                                  if(document.getElementById("todo").style.display === "none"){
+                                      document.getElementById("todo").style.display = "block";
+                                      //showTextByUserInput(["Veiwer: Open TODO list... "],8);
+                                    }
+                                  var newT =option.replace("TODO","");
+                                  addToList(newT);
+                            }
 
-                   // showTextByUserInput(["Veiwer: Please press voice button, and say: name or phone number "],0);  
-                    $(".displayOption").show();    
-                    showTextOnSvg(personal, 0);             
-               }
-               else if(option.indexOf("MESSAGE")!=-1){
-                  $(".displayOption").show();    
-                    showTextOnSvg(personal, 1);   
-               }
-               else if(option.indexOf("GOOGLE")!=-1|| option.indexOf("SEARCH")!=-1){
-                    if(option.indexOf("GOOGLE SEARCH")!=-1){
-                       searchGoogle = option.replace("GOOGLE SEARCH","");
-                    }
-                    else if(option.indexOf("GOOGLE IT")!=-1){
-                       searchGoogle = option.replace("GOOGLE IT","");
-                    }
-                    else if(option.indexOf("GOOGLE")!=-1){
-                       searchGoogle = option.replace("GOOGLE","");
-                    }
-                    else if(option.indexOf("SEARCH")!=-1){
-                       searchGoogle = option.replace("SEARCH","");
-                    }
-               
-                   
-                    showTextByUserInput(["Veiwer: Google search application opening... "],3);               
-
-               }
-               else if(option.indexOf("MAP")!=-1){
-                    showTextByUserInput(["Veiwer: Google map application opening... "],4);               
-               }
-               else if(option.indexOf("GAME")!=-1){
-                    showTextByUserInput(["Veiwer: eye relaxing game app opening... "],6);               
-               }
-              else if(option.indexOf("RECORD")!=-1 || option.indexOf("VIDEO")!=-1){
-                    showTextByUserInput(["Veiwer: Recording video, please face to the target... "],5);               
-               }
-               else if(option.indexOf("TAKE")!=-1 || option.indexOf("PICTURE")!=-1){
-                    showTextByUserInput(["Veiwer: take picture focus on your target... "],2);               
-               }
-               else if(option.indexOf("SHUT")!=-1){
-                    showTextByUserInput(["Veiwer: Turn off viewer... "],7);
+                      }
+                        
               }
-            }
-      }
+        }
         else if(businessClicked==true){
-           // var option = prompt("Jacky: Voice input", "");
-          // option = option.toUpperCase();
           if(option==null){
-                if(personalClicked == true){
-                  personalPage();
-                }
-                else if(businessPage == true){
-                  businessPage();
-                }
+                    if(personalClicked == true){
+                            personalPage();
+                    }
+                    else if(businessPage == true){
+                            businessPage();
+                    }
            }
           else{
-                if(option.indexOf("PERSONAL")!=-1){
-                      personalPage();
-                  }
-                 if(option.indexOf("CALL")!=-1){
-                      $(".displayOption").show();    
-                      showTextOnSvg(business, 0);                
-                  }
-                 else if(option.indexOf("MESSAGE")!=-1){
-                    $(".displayOption").show();    
-                      showTextOnSvg(business, 1);   
-                 }
-                 else if(option.indexOf("GOOGLE")!=-1){
-                      if(option.indexOf("GOOGLE SEARCH")!=-1){
-                         searchGoogle = option.replace("GOOGLE SEARCH","");
+                    if(option.indexOf("PERSONAL")!=-1){
+                              personalPage();
                       }
-                      else if(option.indexOf("GOOGLE IT")!=-1){
-                         searchGoogle = option.replace("GOOGLE IT","");
+                     if(option.indexOf("CALL")!=-1){
+                              $(".displayOption").show();    
+                              showTextOnSvg(business, 0);                
                       }
-                      else if(option.indexOf("GOOGLE")!=-1){
-                         searchGoogle = option.replace("GOOGLE","");
-                      }
-                      else if(option.indexOf("SEARCH")!=-1){
-                        console.log("search")
-                         searchGoogle = option.replace("SEARCH","");
-                      }
-                      showTextByUserInput(["Veiwer: Google search application opening... "],3);               
+                     else if(option.indexOf("MESSAGE")!=-1){
+                            $(".displayOption").show();    
+                              showTextOnSvg(business, 1);   
+                     }
+                     else if(option.indexOf("GOOGLE")!=-1){
+                              if(option.indexOf("GOOGLE SEARCH")!=-1){
+                                    searchGoogle = option.replace("GOOGLE SEARCH","");
+                              }
+                              else if(option.indexOf("GOOGLE IT")!=-1){
+                                    searchGoogle = option.replace("GOOGLE IT","");
+                              }
+                              else if(option.indexOf("GOOGLE")!=-1){
+                                    searchGoogle = option.replace("GOOGLE","");
+                              }
+                              else if(option.indexOf("SEARCH")!=-1){
+                                    searchGoogle = option.replace("SEARCH","");
+                              }
+                              showTextByUserInput(["Veiwer: Google search application opening... "],3);               
 
-                 }
-                 else if(option.indexOf("MAP")!=-1){
-                      showTextByUserInput(["Veiwer: Google map application opening... "],4);               
-                 }
-                 else if(option.indexOf("POWERPOINT")!=-1){
-                      showTextByUserInput(["Veiwer: powerPoint opening... "],5);               
-                 }
-                else if(option.indexOf("CONFERENCE")!=-1 || option.indexOf("VIDEO")!=-1){
-                      showTextByUserInput(["Veiwer: Video conference starting... "],6);               
-                 }
-                 else if(option.indexOf("STOCK")!=-1 || option.indexOf("SHARE")!=-1){
-                      showTextByUserInput(["Veiwer:  Stock trading page opening... "],2);               
-                 }
-                else if(option.indexOf("SHUT")!=-1){
-                      showTextByUserInput(["Veiwer: Turn off viewer... "],7);
-                }
+                     }
+                     else if(option.indexOf("MAP")!=-1){
+                              showTextByUserInput(["Veiwer: Google map application opening... "],4);               
+                     }
+                     else if(option.indexOf("POWERPOINT")!=-1){
+                              showTextByUserInput(["Veiwer: powerPoint opening... "],5);               
+                     }
+                    else if(option.indexOf("CONFERENCE")!=-1 || option.indexOf("VIDEO")!=-1){
+                              showTextByUserInput(["Veiwer: Video conference starting... "],6);               
+                     }
+                     else if(option.indexOf("STOCK")!=-1 || option.indexOf("SHARE")!=-1){
+                              showTextByUserInput(["Veiwer:  Stock trading page opening... "],2);               
+                     }
+                    else if(option.indexOf("SHUT")!=-1){
+                              showTextByUserInput(["Veiwer: Turn off viewer... "],7);
+                    }
               }
       }
-    // });
 }
 /**
 * called by voiceButtonListener function, show text on screen then active the function
 **/
 function showTextByUserInput(newValue, index){
-    $(".displayOption").hide();    
+    $(".displayOption").hide();
     var cnt = -1;
     timer = setInterval(function() {
             ++cnt;
@@ -286,6 +299,7 @@ function showTextByUserInput(newValue, index){
                   stopTimer();
                   remvoeElement("command");
                   loadButtonFunction(index);
+
             }
             textTimer(newValue, cnt); },3000);
 }
@@ -312,6 +326,9 @@ function textTimer(newValue, cnt){
                           .style("opacity", 0);
 
 }
+/**
+*   add text listener to detect user input 
+**/
 function attachTextListener(input, func) {
   if (window.addEventListener) {
     input.addEventListener('input', func, true);
@@ -320,13 +337,14 @@ function attachTextListener(input, func) {
       func.call(input);
     });
 }
-
+/**
+*   get user input and call voiceButtonListener to do the right action
+**/
 var myInput = document.getElementById('textInput');
 attachTextListener(myInput, function() {
   var input = document.getElementById("textInput").value;
          document.getElementById("submitTextToScreen").onclick = function(){
           option = input;
-          console.log(option);
           voiceButtonListener();
           document.getElementById("textInput").value = "";
   };
@@ -393,6 +411,9 @@ function doEvent(option, instruction, use, voiceMenu, page){
       else if(option==="Video Conference"){
             showTextOnSvg(newValue, 6);
       }
+      else if(option==="Todo List"){
+            showTextOnSvg(newValue, 8);
+      }
       else{
 
       }
@@ -454,6 +475,7 @@ function stopTimer(){
 }
 /**
 *  this function called by showTextOnSvg function, 
+*  index: index of the lable on the black screen.
 **/
 function loadButtonFunction(index){
    var takePictureButton =  document.getElementById("takePictureButton");
@@ -483,6 +505,9 @@ function loadButtonFunction(index){
                  var game = new Game(); 
                        game.paths();
                        game.square();
+         }
+         else if(index==8){
+                  addToDoList("demo");
          }
       }
       else if(businessClicked==true){
@@ -675,3 +700,45 @@ function copy(o) {
    }
    return out;
 }
+var todoListArray = [];
+/**
+*   Todo for demo only
+**/
+function addToDoList(demo){
+      document.getElementById("todo").style.display="block";
+      if(demo!=""){
+        todoTask = demo;
+      }
+      console.log(todoTask);
+      addToList(todoTask);
+}
+/**
+*   after user input and click send button will call this function to add to the list
+**/
+function addToList(todoTask){
+    todoTask=todoTask.toUpperCase();
+    if(todoTask==""){
+      return;
+    }
+        var ul = document.getElementById("todoList");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(todoTask));  
+        ul.appendChild(li); 
+        todoListArray.push(todoTask);
+  }
+/**
+*   after user input and click send button will call this function to remove to the list
+**/
+function removeFromList(todoTask){
+    console.log(todoListArray)
+    var listItems = $("#todoList li");
+    listItems.each(function(idx, li){
+      var product = $(li);
+      if(todoTask.indexOf(product.text())!=-1){
+            li.parentNode.removeChild(li);
+            todoListArray.splice(idx,idx);
+                console.log(todoListArray)
+
+      }
+    });
+  }

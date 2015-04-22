@@ -1,6 +1,6 @@
 // =================================================================================
 // Author: Jacky Chang
-// - for top menus
+// - for top menus 
 // =================================================================================
 var personalClicked = false;
 var businessClicked = false;
@@ -39,6 +39,7 @@ function introductionPage(){
 
 	loadPage("#mainSvg", intro);
   	document.getElementById("mainSvg").style.background = "black";
+  	document.getElementById("todo").style.display = "none";
   	remvoeElement("imgDivHome");
     remvoeElement("imgDivVideoConference");
 
@@ -51,4 +52,8 @@ function load(array){
   	document.getElementById("mainSvg").style.background = "white";
   	loadImage("data/glasses.png","Home");
   	remvoeElement("imgDivVideoConference");
+    document.getElementById("textInput").value = "";
+    document.getElementById("todo").style.display = "none";
+
+
   }

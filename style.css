@@ -1,7 +1,6 @@
 /*
 =================================================================================
 Author: Jacky Chang
-Contains: Event handlers for most GUI elements, including:
 =================================================================================
 */
 html {
@@ -316,10 +315,22 @@ position: fixed;
   top: 79.2%;
   left:17.9%;
   background-color: #170202;
-    border: 4px solid gray;
+  border: 4px solid gray;
 
 }
 
-
+/*********************************************************************************/
+/* Todo div                                                                      */
+/*********************************************************************************/
+.todo {
+  position: fixed; 
+  top: 35%;
+  width: 450px;
+  height: 300px;
+  margin-left: 30%;
+  background-color:#eae0c2;
+  border: 4px solid gray;
+  display: none;
+}
 
 

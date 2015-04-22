@@ -11,7 +11,7 @@
 var svg = d3.select("body").select("#mainSvg");
 var mainSVgElem = document.getElementById("mainSvg");
 function Game(){
-this.paths = function(){
+   this.paths = function(){
       var path = svg.append("path")
                     .data([points])
                     .attr("id","pathGame")
@@ -79,6 +79,7 @@ this.square = function(){
                         .style("opacity", 0.5)
                         .attr("x",mainSVgElem.getBoundingClientRect().left+170)
                         .ease("elastic");
+
 
     }
 }

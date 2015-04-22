@@ -55,7 +55,9 @@
             "use": ["Jacky: OK Viewer, Recording video."]},
         {"option":"Game", "x":100, "y":350, "instruction":["Use eyes to control the ball to move along the path, help relax, change shapes when wink "],
             "use": ["Jacky: OK Viewer, play a game."]},
-        {"option":"Shut Down", "x":100, "y":400,"instruction":["Turn off the Viewer"],"use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]}           
+        {"option":"Shut Down", "x":100, "y":400,"instruction":["Turn off the Viewer"],"use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]},
+        {"option":"Todo List", "x":100, "y":450,"instruction":["Todo list app, able to add and delete task"],"use": ["Jacky: OK Viewer, Todo list.", "Viewer: OK open todo list."]}           
+           
     ],
 
     "business": [
@@ -69,7 +71,10 @@
         {"option":"Video Conference", "x":100, "y":350, "instruction":["Voice control, group video meeting"],"use": ["Jacky: OK Viewer, finance department video conference.", "Viewer: connecting...","Viewer: connected"]},           
         {"option":"Shut Down", "x":100, "y":400,"instruction":["shut down the glass"], "use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]}           
     ],
-    "sentMessage": [
-        {"from": "user1", "to":"user2", "message":"I will be home!"}
+    "contact": [
+        {"Jacky": "0276521255", "email":"abc@hotmail.com", "address":"wellington"},
+        {"Jason": "022588766", "email":"def@hotmail.com", "address":"Upper Hutt"},
+        {"Lucy": "02158962415", "email":"hij@hotmail.com", "address":"Lower Hutt"},
+        {"MJ": "02156644446", "email":"klm@hotmail.com", "address":"Auckland"}
     ]
 }
