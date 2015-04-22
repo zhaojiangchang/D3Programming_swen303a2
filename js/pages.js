@@ -9,6 +9,8 @@ function personalPage(){
 	zoom(personal);
 	personalClicked = true;
 	businessClicked = false;
+	console.log(personalClicked)
+
 	stopTimer();
 
 }
@@ -17,6 +19,7 @@ function businessPage(){
 	zoom(business);
 	businessClicked = true;
 	personalClicked = false;
+		console.log(businessClicked)
     stopTimer();
 
 }

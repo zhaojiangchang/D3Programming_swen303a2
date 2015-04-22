@@ -34,15 +34,17 @@ are created dynamically)
 		<li><a id = "bontactUs" href="#" onclick = "contactUsPage(); return false;">Contact Us</a></li>
 	</ul>
 </div>
-<div id = "mainPanel">
-		<svg id = "mainSvg" class = "mainSvg" onclick =getPositions(evt) >
-		</svg>
-</div>
-<div id = "inforPanel">
-		<svg id = "inforSvg">
-		<text id = "textArea" x="0" y="15" fill="red">Information Panel</text>
+<svg id = "mainSvg" class = "mainSvg" onclick =getPositions(evt) >
+	<table class="textInputTable">
 
-</div>
+		<td><input id="textInput" type="text" placeholder="Viewer command"></td>
+		<td><input type="submit" id="submitTextToScreen" value="Send"></td>
+		<td><button id="exit">Cancel send</button></td>
+</table>
+</svg>
+<svg id = "inforSvg">
+<text id = "textArea" x="0" y="15" fill="red">Information Panel</text>
+</svg>
 
 	<script src="js/readFile.js"></script>
 	<script src="js/game.js"></script>

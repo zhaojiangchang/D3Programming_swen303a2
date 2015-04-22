@@ -127,7 +127,7 @@ function voiceButtonListener(){
             $("svg#inforSvg").empty();
 
           if(personalClicked==false && businessClicked==false){
-             var environment = prompt("Is it persoanl or Business use?", "Personal");
+             var environment = prompt("Is it persoanl or Business use?", "");
              environment = environment.toUpperCase();
           if (environment != null) {
               if(environment==="PERSONAL"){
@@ -139,7 +139,7 @@ function voiceButtonListener(){
           }
         }
         else if(personalClicked==true){
-           var option = prompt("Jacky: Voice input", "Personal Call");
+           var option = prompt("Jacky: Voice input", "");
            option = option.toUpperCase();
 
            if(option==null){
@@ -201,7 +201,7 @@ function voiceButtonListener(){
             }
       }
         else if(businessClicked==true){
-           var option = prompt("Jacky: Voice input", "Business Call");
+           var option = prompt("Jacky: Voice input", "");
            option = option.toUpperCase();
           if(option==null){
                 if(personalClicked == true){
@@ -287,7 +287,7 @@ function textTimer(newValue, cnt){
                     .attr("id","command")
                     .attr("class", "command")
                     .attr("fill", "white")
-                    .attr("font-size",25)
+                    .attr("font-size",20)
                     .attr("x",x)
                     .attr("y",y)
                     .text(txt)
@@ -404,7 +404,7 @@ function myTimer(newValue, index, cnt){
             .attr("id","command")
             .attr("class", "command")
             .attr("fill", "white")
-            .attr("font-size",30)
+            .attr("font-size",20)
             .attr("x",x)
             .attr("y",y)
             .text(txt)
@@ -550,7 +550,7 @@ function addInstruction(instruction){
           .data(instruction)
           .enter().append("text")
             .attr("fill", "white")
-            .attr("font-size",20)
+            .attr("font-size",15)
             .attr("x",x)
             .attr("y",y)
             .text(function(d) { return d});
