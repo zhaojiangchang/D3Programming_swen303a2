@@ -1,15 +1,14 @@
 // =================================================================================
 // Author: Jacky Chang
-// - Game 
+// - Game
 // inside game function has to functions
 // function paths crate path and circles and translate along the path
-// function square show a title of the game   
+// function square show a title of the game
 // - remove Game
 // remove all elements created for Game
 //
 // =================================================================================
 var svg = d3.select("body").select("#mainSvg");
-var mainSVgElem = document.getElementById("mainSvg");
 function Game(){
    this.paths = function(){
       var path = svg.append("path")
@@ -46,10 +45,11 @@ function Game(){
       }
 }
 this.square = function(){
+
     var mySquare = svg.append("rect")
                        .attr("id","mySquare")
-                       .attr("x",mainSVgElem.getBoundingClientRect().left)
-                       .attr("y",mainSVgElem.getBoundingClientRect().top-200)
+                       .attr("x",windowWidth*0.12)
+                       .attr("y",windowHeight*0.09)
                        .attr("width",60)
                        .attr("height",60)
                        .transition()
@@ -57,15 +57,14 @@ this.square = function(){
                           .attr("width", 400)
                           .style("fill","#F5FFC2")
                           .style("cpacity", 0.5)
-                          .attr("x",mainSVgElem.getBoundingClientRect().left+100)
                           .style("opacity", 0.5)
                           .ease("elastic");
 
     var text = svg.append("text")
                       .text("eye relaxing game")
                       .attr("id","textOnSquare")
-                      .attr("x",mainSVgElem.getBoundingClientRect().left+70)
-                      .attr("y",mainSVgElem.getBoundingClientRect().top-150)
+                      .attr("x",windowWidth*0.17)
+                      .attr("y",windowHeight*0.15)
                       .attr("font-size", "40px")
                       .attr("fill", "red")
                       .transition()
@@ -73,7 +72,6 @@ this.square = function(){
                         .style("fill","blue")
                         .style("cpacity", 0.5)
                         .style("opacity", 0.5)
-                        .attr("x",mainSVgElem.getBoundingClientRect().left+170)
                         .ease("elastic");
     }
 }

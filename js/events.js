@@ -126,7 +126,7 @@ function textInputListenner(){
       option = option.toUpperCase();
       document.getElementById("todoPersonal").style.display = "none";
       document.getElementById("todoBusiness").style.display = "none";
-      $(".displayOption").show();    
+      $(".displayOption").show();
       remvoeElement("command");
       stopTimer();
       removeGame();
@@ -159,12 +159,12 @@ function textInputListenner(){
                          businessPage();
                   }
                  if(option.indexOf("CALL")!=-1){
-                          $(".displayOption").show();    
-                          showTextOnSvg(personal, 0);             
+                          $(".displayOption").show();
+                          showTextOnSvg(personal, 0);
                  }
                  else if(option.indexOf("MESSAGE")!=-1){
-                        $(".displayOption").show();    
-                          showTextOnSvg(personal, 1);   
+                        $(".displayOption").show();
+                          showTextOnSvg(personal, 1);
                  }
                  else if(option.indexOf("GOOGLE")!=-1|| option.indexOf("SEARCH")!=-1){
                           if(option.indexOf("GOOGLE SEARCH")!=-1){
@@ -179,19 +179,19 @@ function textInputListenner(){
                           else if(option.indexOf("SEARCH")!=-1){
                                 searchGoogle = option.replace("SEARCH","");
                           }
-                          showTextByUserInput(["Veiwer: Google search application opening... "],3);               
+                          showTextByUserInput(["Veiwer: Google search application opening... "],3);
                  }
                  else if(option.indexOf("MAP")!=-1){
-                          showTextByUserInput(["Veiwer: Google map application opening... "],4);               
+                          showTextByUserInput(["Veiwer: Google map application opening... "],4);
                  }
                  else if(option.indexOf("GAME")!=-1){
-                          showTextByUserInput(["Veiwer: eye relaxing game app opening... "],6);               
+                          showTextByUserInput(["Veiwer: eye relaxing game app opening... "],6);
                  }
                  else if(option.indexOf("ONLINE")!=-1 || option.indexOf("VIDEO")!=-1){
-                          showTextByUserInput(["Veiwer: Recording video, please face to the target... "],5);               
+                          showTextByUserInput(["Veiwer: Recording video, please face to the target... "],5);
                  }
                  else if(option.indexOf("TAKE")!=-1 || option.indexOf("PICTURE")!=-1){
-                          showTextByUserInput(["Veiwer: take picture focus on your target... "],2);               
+                          showTextByUserInput(["Veiwer: take picture focus on your target... "],2);
                  }
                  else if(option.indexOf("SHUT")!=-1){
                           showTextByUserInput(["Veiwer: Turn off viewer... "],7);
@@ -199,7 +199,7 @@ function textInputListenner(){
                  else if(option.indexOf("TODO")!=-1){
                           activeTodo(option, todoPersonal,"todoListPersonal");
                   }
-                    
+
           }
     }
     else if(businessClicked==true){
@@ -216,12 +216,12 @@ function textInputListenner(){
                           personalPage();
                   }
                  if(option.indexOf("CALL")!=-1){
-                          $(".displayOption").show();    
-                          showTextOnSvg(business, 0);                
+                          $(".displayOption").show();
+                          showTextOnSvg(business, 0);
                   }
                  else if(option.indexOf("MESSAGE")!=-1){
-                        $(".displayOption").show();    
-                          showTextOnSvg(business, 1);   
+                        $(".displayOption").show();
+                          showTextOnSvg(business, 1);
                  }
                  else if(option.indexOf("GOOGLE")!=-1){
                           if(option.indexOf("GOOGLE SEARCH")!=-1){
@@ -236,34 +236,34 @@ function textInputListenner(){
                           else if(option.indexOf("SEARCH")!=-1){
                                 searchGoogle = option.replace("SEARCH","");
                           }
-                          showTextByUserInput(["Veiwer: Google search application opening... "],3);               
+                          showTextByUserInput(["Veiwer: Google search application opening... "],3);
 
                  }
                  else if(option.indexOf("MAP")!=-1){
-                          showTextByUserInput(["Veiwer: Google map application opening... "],4);               
+                          showTextByUserInput(["Veiwer: Google map application opening... "],4);
                  }
                  else if(option.indexOf("POWERPOINT")!=-1){
-                          showTextByUserInput(["Veiwer: powerPoint opening... "],5);               
+                          showTextByUserInput(["Veiwer: powerPoint opening... "],5);
                  }
                 else if(option.indexOf("CONFERENCE")!=-1 || option.indexOf("VIDEO")!=-1){
-                          showTextByUserInput(["Veiwer: Video conference starting... "],6);               
+                          showTextByUserInput(["Veiwer: Video conference starting... "],6);
                  }
                  else if(option.indexOf("S&P")!=-1){
-                          showTextByUserInput(["Veiwer:  S&P500 page opening... "],2);               
+                          showTextByUserInput(["Veiwer:  S&P500 page opening... "],2);
                  }
                 else if(option.indexOf("SHUT")!=-1){
                           showTextByUserInput(["Veiwer: Turn off viewer... "],7);
                 }
                 else if(option.indexOf("TODO")!=-1){
                   activeTodo(option, todoBusiness, "todoListBusiness");
-                        
+
 
                   }
           }
   }
 }
 function activeTodo(option, todoArray, environment){
-      $(".displayOption").hide();  
+      $(".displayOption").hide();
       if(option.indexOf("REMOVE TODO")!=-1){
             if(todoBusiness.length==0){
               return;
@@ -500,13 +500,8 @@ function loadButtonFunction(index){
                        game.square();
          }
          else if(index==8){
-              if(personalClicked==true){
-                 addToDoList("DEMO","todoListPersonal");
-              }
-              else if(businessClicked==true){
-                addToDoList("DEMO", "todoListBusiness");
-              }
-                 
+        	 checkEnvironment();
+            	  addToList("DEMO",todoPersonal,"todoListPersonal");
          }
       }
       else if(businessClicked==true){
@@ -520,6 +515,10 @@ function loadButtonFunction(index){
              else if(index==6){
                   loadImage("data/VideoConference.jpg","VideoConference");
             }
+             else if(index==8){
+             	 checkEnvironment();
+                 addToList("DEMO", todoBusiness, "todoListBusiness");
+              }
       }
 
       if(index==3){
@@ -528,6 +527,7 @@ function loadButtonFunction(index){
       else if(index==4){
                     iframe("https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5995.4017183864435!2d174.778369!3d-41.293614500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swellington+bar+cafe+restaurant+!5e0!3m2!1szh-CN!2snz!4v1429446987355");
       }
+
 }
 /**
 * when take picture button clickde
@@ -704,13 +704,12 @@ function copy(o) {
 /**
 *   Todo for demo only
 **/
-function addToDoList(demo, environment){
-      document.getElementById("todo").style.display="block";
-      if(demo!=""){
-        todoTask = demo;
-      }
-      addToList(todoTask,null, environment);
-}
+//function addToDoList(demo, environment){
+//	checkEnvironment();
+//	if(demo!=""){
+//	      addToList(demo,demo, environment);
+//      }
+//}
 /**
 *   after user input and click send button will call this function to add to the list
 **/
@@ -720,8 +719,9 @@ function addToList(todoTask, todoArray, environment){
     }
     var ul = document.getElementById(environment);
     var li = document.createElement("li");
-    li.appendChild(document.createTextNode(todoTask));  
-    ul.appendChild(li); 
+    li.appendChild(document.createTextNode(todoTask));
+    ul.appendChild(li);
+    console.log(todoTask);
     todoArray.push(todoTask);
 
   }
@@ -741,11 +741,11 @@ function removeFromList(todoTask, todoArray, environment){
   }
 function checkEnvironment(){
   if(personalClicked==true){
-      document.getElementById("todoPersonal").style.display="block"      
-      document.getElementById("todoBusiness").style.display="none"  
+      document.getElementById("todoPersonal").style.display="block"
+      document.getElementById("todoBusiness").style.display="none"
   }
   else if(businessClicked==true){
-      document.getElementById("todoPersonal").style.display="none"      
-      document.getElementById("todoBusiness").style.display="block" 
+      document.getElementById("todoPersonal").style.display="none"
+      document.getElementById("todoBusiness").style.display="block"
   }
 }
