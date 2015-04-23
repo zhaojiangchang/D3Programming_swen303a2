@@ -76,9 +76,9 @@ function loadPage(svgId, page){
     remvoeElement("image");
     remvoeElement("imgDivVideoConference");
     if(document.getElementById("imgDivVoice")==null){
-          loadVoiceIcon();  
+        loadImage("data/voiceicon.png","Voice");
     }
-    
+
     svg.selectAll(".text")
             .data(page)
             .enter().append("text")
@@ -119,20 +119,13 @@ function loadImage(imageAdd,id) {
 }
 
 /**
-*  create voice icon
-**/
-function loadVoiceIcon(){
-    loadImage("data/voiceIcon.png","Voice");
-    var imageVoice = document.getElementById("imageVoice"); 
-}
-/**
 * create listenner for text input lable
 * check key work user input, thne action the function
 **/
 function voiceButtonListener(){
           option = option.toUpperCase();
           document.getElementById("todo").style.display = "none";
-          $(".displayOption").show();    
+          $(".displayOption").show();
           remvoeElement("command");
           stopTimer();
           removeGame();
@@ -166,12 +159,12 @@ function voiceButtonListener(){
                              businessPage();
                       }
                      if(option.indexOf("CALL")!=-1){
-                              $(".displayOption").show();    
-                              showTextOnSvg(personal, 0);             
+                              $(".displayOption").show();
+                              showTextOnSvg(personal, 0);
                      }
                      else if(option.indexOf("MESSAGE")!=-1){
-                            $(".displayOption").show();    
-                              showTextOnSvg(personal, 1);   
+                            $(".displayOption").show();
+                              showTextOnSvg(personal, 1);
                      }
                      else if(option.indexOf("GOOGLE")!=-1|| option.indexOf("SEARCH")!=-1){
                               if(option.indexOf("GOOGLE SEARCH")!=-1){
@@ -186,25 +179,25 @@ function voiceButtonListener(){
                               else if(option.indexOf("SEARCH")!=-1){
                                     searchGoogle = option.replace("SEARCH","");
                               }
-                              showTextByUserInput(["Veiwer: Google search application opening... "],3);               
+                              showTextByUserInput(["Veiwer: Google search application opening... "],3);
                      }
                      else if(option.indexOf("MAP")!=-1){
-                              showTextByUserInput(["Veiwer: Google map application opening... "],4);               
+                              showTextByUserInput(["Veiwer: Google map application opening... "],4);
                      }
                      else if(option.indexOf("GAME")!=-1){
-                              showTextByUserInput(["Veiwer: eye relaxing game app opening... "],6);               
+                              showTextByUserInput(["Veiwer: eye relaxing game app opening... "],6);
                      }
                      else if(option.indexOf("RECORD")!=-1 || option.indexOf("VIDEO")!=-1){
-                              showTextByUserInput(["Veiwer: Recording video, please face to the target... "],5);               
+                              showTextByUserInput(["Veiwer: Recording video, please face to the target... "],5);
                      }
                      else if(option.indexOf("TAKE")!=-1 || option.indexOf("PICTURE")!=-1){
-                              showTextByUserInput(["Veiwer: take picture focus on your target... "],2);               
+                              showTextByUserInput(["Veiwer: take picture focus on your target... "],2);
                      }
                      else if(option.indexOf("SHUT")!=-1){
                               showTextByUserInput(["Veiwer: Turn off viewer... "],7);
                      }
                      else if(option.indexOf("TODO")!=-1){
-                            $(".displayOption").hide();  
+                            $(".displayOption").hide();
                             if(option.indexOf("REMOVE TODO")!=-1){
                                   if(todoListArray.length==0){
                                     return;
@@ -219,7 +212,7 @@ function voiceButtonListener(){
                                   }
                             }
                             else{
-                                  console.log(1111);   
+                                  console.log(1111);
                                   if(document.getElementById("todo").style.display === "none"){
                                       document.getElementById("todo").style.display = "block";
                                       //showTextByUserInput(["Veiwer: Open TODO list... "],8);
@@ -229,7 +222,7 @@ function voiceButtonListener(){
                             }
 
                       }
-                        
+
               }
         }
         else if(businessClicked==true){
@@ -246,12 +239,12 @@ function voiceButtonListener(){
                               personalPage();
                       }
                      if(option.indexOf("CALL")!=-1){
-                              $(".displayOption").show();    
-                              showTextOnSvg(business, 0);                
+                              $(".displayOption").show();
+                              showTextOnSvg(business, 0);
                       }
                      else if(option.indexOf("MESSAGE")!=-1){
-                            $(".displayOption").show();    
-                              showTextOnSvg(business, 1);   
+                            $(".displayOption").show();
+                              showTextOnSvg(business, 1);
                      }
                      else if(option.indexOf("GOOGLE")!=-1){
                               if(option.indexOf("GOOGLE SEARCH")!=-1){
@@ -266,20 +259,20 @@ function voiceButtonListener(){
                               else if(option.indexOf("SEARCH")!=-1){
                                     searchGoogle = option.replace("SEARCH","");
                               }
-                              showTextByUserInput(["Veiwer: Google search application opening... "],3);               
+                              showTextByUserInput(["Veiwer: Google search application opening... "],3);
 
                      }
                      else if(option.indexOf("MAP")!=-1){
-                              showTextByUserInput(["Veiwer: Google map application opening... "],4);               
+                              showTextByUserInput(["Veiwer: Google map application opening... "],4);
                      }
                      else if(option.indexOf("POWERPOINT")!=-1){
-                              showTextByUserInput(["Veiwer: powerPoint opening... "],5);               
+                              showTextByUserInput(["Veiwer: powerPoint opening... "],5);
                      }
                     else if(option.indexOf("CONFERENCE")!=-1 || option.indexOf("VIDEO")!=-1){
-                              showTextByUserInput(["Veiwer: Video conference starting... "],6);               
+                              showTextByUserInput(["Veiwer: Video conference starting... "],6);
                      }
                      else if(option.indexOf("STOCK")!=-1 || option.indexOf("SHARE")!=-1){
-                              showTextByUserInput(["Veiwer:  Stock trading page opening... "],2);               
+                              showTextByUserInput(["Veiwer:  Stock trading page opening... "],2);
                      }
                     else if(option.indexOf("SHUT")!=-1){
                               showTextByUserInput(["Veiwer: Turn off viewer... "],7);
@@ -301,7 +294,7 @@ function showTextByUserInput(newValue, index){
                   loadButtonFunction(index);
 
             }
-            textTimer(newValue, cnt); },3000);
+            textTimer(newValue, cnt); },2000);
 }
 /**
 * this function called by showTextByUserInput function
@@ -321,13 +314,13 @@ function textTimer(newValue, cnt){
                     .attr("y",y)
                     .text(txt)
                      .transition()
-                          .duration(3000)
+                          .duration(2000)
                           .style("fill","#F5FFC2")
                           .style("opacity", 0);
 
 }
 /**
-*   add text listener to detect user input 
+*   add text listener to detect user input
 **/
 function attachTextListener(input, func) {
   if (window.addEventListener) {
@@ -354,7 +347,7 @@ attachTextListener(myInput, function() {
 *  option: string name of the side bar label
 *  instruction: string label discription
 *  use: string - for call and message (demo make call and send message)
-*  voiceMenu: load page when click selection menu(personal or business) 
+*  voiceMenu: load page when click selection menu(personal or business)
 **/
 function doEvent(option, instruction, use, voiceMenu, page){
        var newValue = copy(page);
@@ -425,7 +418,7 @@ function doEvent(option, instruction, use, voiceMenu, page){
 **/
 var timer = null;
 function showTextOnSvg(newValue, index){
-   $(".displayOption").toggle();    
+   $(".displayOption").toggle();
     var cnt = -1;
     timer = setInterval(function() {
       ++cnt;
@@ -442,7 +435,7 @@ function showTextOnSvg(newValue, index){
             }
           }
       }
-      myTimer(newValue, index, cnt); },3000);
+      myTimer(newValue, index, cnt); },2000);
   }
 
 /**
@@ -463,7 +456,7 @@ function myTimer(newValue, index, cnt){
             .attr("y",y)
             .text(txt)
             .transition()
-                .duration(3000)
+                .duration(2000)
                 .style("fill","#F5FFC2")
                 .style("opacity", 0);
 }
@@ -474,7 +467,7 @@ function stopTimer(){
   clearInterval(timer);
 }
 /**
-*  this function called by showTextOnSvg function, 
+*  this function called by showTextOnSvg function,
 *  index: index of the lable on the black screen.
 **/
 function loadButtonFunction(index){
@@ -496,13 +489,13 @@ function loadButtonFunction(index){
               takePictureButton.onclick = function(){
                       takePictureAction();
                       takePictureButton.style.display = "none";
-              };         
+              };
         }
          else if(index==5){
-                  recordingVideo();  
+                  recordingVideo();
          }
          else if(index==6){
-                 var game = new Game(); 
+                 var game = new Game();
                        game.paths();
                        game.square();
          }
@@ -514,7 +507,7 @@ function loadButtonFunction(index){
              if(index==2){
                   iframe("data/nz-stoke-exchange.html");
 
-              } 
+              }
              else if(index==5){
                   showPowerPoint();
               }
@@ -522,7 +515,7 @@ function loadButtonFunction(index){
                   loadImage("data/VideoConference.jpg","VideoConference");
             }
       }
-         
+
       if(index==3){
                     iframe( "http://www.google.com/custom?q="+searchGoogle+"&btnG=Search");
       }
@@ -535,14 +528,16 @@ function loadButtonFunction(index){
 * swap two pictures
 **/
 function takePictureAction(){
+	  $(".displayOption").hide();
+
      setTimeout(function(){
         document.getElementById("imagePicture").src = "data/face.jpg";
         document.getElementById("imgDivPicture").style.display="block";
-        document.getElementById("takePictureButton").style.display = "none";        
+        document.getElementById("takePictureButton").style.display = "none";
      },100);
 }
 /**
-*  create iframe 
+*  create iframe
 *  url: source address
 **/
 function iframe(url){
@@ -552,7 +547,7 @@ function iframe(url){
     document.body.appendChild(iframe);
 }
 /**
-*  remove iframe 
+*  remove iframe
 **/
 function removeIframe(){
     removeRecordingGraphics();
@@ -562,7 +557,7 @@ function removeIframe(){
     }
 }
 /**
-*  remove element by id 
+*  remove element by id
 *  id: element id
 **/
 function remvoeElement(id){
@@ -572,7 +567,7 @@ function remvoeElement(id){
     }
 }
 /**
-*  create a go back button 
+*  create a go back button
 **/
 function addButton(buttonText, id){
     var buttonElem = document.createElement("button");
@@ -586,9 +581,9 @@ function addButton(buttonText, id){
     });
 }
 /**
-*  create new text tags  
+*  create new text tags
 *  instruction: array of string
-*  text append in inforSvg 
+*  text append in inforSvg
 **/
 function addInstruction(instruction){
   var x = 10;
@@ -615,23 +610,23 @@ zoom home page image, then call loadPage function to load personal or bussiness 
 function zoom(page){
     var img = document.getElementById("imageHome");
     if(img!=null){
-      
+
         var maxWidth = img.width*1.3;
         var maxHeight = img.height*1.3;
-        
+
             var zoomTimer = setInterval(function(){
 
                 if(img!=null && img.width<maxWidth){
                     img.width = img.width*1.005;
                     img.height = img.height*1.005;
-     
+
                 }
                 else {
                     clearInterval(zoomTimer);
                     remvoeElement("imgDivHome");
                     loadPage("#mainSvg", page);
                 }},20);
-        
+
      }
     else if(img==null && document.getElementById("imagePicture")!=null){
         document.getElementById("imgDivPicture").style.display="none";
@@ -722,8 +717,8 @@ function addToList(todoTask){
     }
         var ul = document.getElementById("todoList");
         var li = document.createElement("li");
-        li.appendChild(document.createTextNode(todoTask));  
-        ul.appendChild(li); 
+        li.appendChild(document.createTextNode(todoTask));
+        ul.appendChild(li);
         todoListArray.push(todoTask);
   }
 /**

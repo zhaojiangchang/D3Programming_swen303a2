@@ -11,7 +11,7 @@ html {
   {
     height: 100%;
   }
-  
+
   body
   {
     margin: 0px;
@@ -22,14 +22,14 @@ html {
     font-weight: 40;
     color: #919191;
   }
-  
-  
+
+
   h1, h2, h3
   {
     margin: 0;
     padding: 0;
   }
-  
+
 /*********************************************************************************/
 /* Logo                                                                          */
 /*********************************************************************************/
@@ -39,19 +39,19 @@ html {
     padding: 1em 0em;
     text-transform: uppercase;
   }
-  
+
   #logo h1 a
   {
     text-decoration: none;
     font-size: 1.9em;
     color: #F14;
   }
-  
+
   #logo span
   {
     color: #CDD;
   }
-  
+
 /*********************************************************************************/
 /* Menu                                                                          */
 /*********************************************************************************/
@@ -61,7 +61,7 @@ html {
     background: #1B1B1B repeat;
     border-bottom: 4px solid #BC1414;
   }
-  
+
   #menu ul
   {
     margin: 0;
@@ -70,12 +70,12 @@ html {
     line-height: normal;
     text-align: center;
   }
-  
+
   #menu li
   {
     display: inline-block;
   }
-  
+
   #menu a
   {
     display: block;
@@ -88,13 +88,13 @@ html {
     font-weight: 700;
     color: #838383;
   }
-  
+
   #menu .current_page_item a
   {
     background: #BC1414;
     color: #FFF;
   }
-  
+
   #menu a:hover
   {
     text-decoration: none;
@@ -123,7 +123,7 @@ html {
 	left:10.9%;
 	width: 80%;
 	height:15.5%;
-	background-color: #170202;
+	background-color: #A9A9A9;
     border: 4px solid gray;
 
 }
@@ -150,7 +150,7 @@ html {
   position: fixed;
   top: 30%;
   left: 20%;
-  width: 65%; 
+  width: 65%;
   height: 40%;
   border: 4px solid gray;
 
@@ -165,8 +165,8 @@ html {
   font-size: 60px;
   background-color: white;
 }
-#imgDivHome { 
-  position: fixed; 
+#imgDivHome {
+  position: fixed;
   top: 35%;
    width: 550px;
   height: 300px;
@@ -188,7 +188,7 @@ position: fixed;
   height: 20%;
 }
 #imageHome {
-  
+
 }
 #imageVideoConference {
   position: fixed;
@@ -201,7 +201,7 @@ position: fixed;
 /*********************************************************************************/
 /* image    voice                                                                */
 /*********************************************************************************/
-#selection { 
+#selection {
   position: fixed;
   top: 30%;
   left: 11%;
@@ -234,22 +234,22 @@ position: fixed;
 /*********************************************************************************/
 
 #stockDiv {
-  position: relative; 
+  position: relative;
   width: 800px;
   height: 300px;
-  left:30%; 
-  top: 10%; 
+  left:30%;
+  top: 10%;
   overflow: hidden;
   overflow-y: hidden;
   overflow-x: hidden;
 
 }
 #stockIframe {
-  position: relative; 
-  left:10%; 
-  top: 10%; 
-  width: 50%; 
-  height:60%; 
+  position: relative;
+  left:10%;
+  top: 10%;
+  width: 50%;
+  height:60%;
 }
 /*********************************************************************************/
 /* button                                                                */
@@ -257,7 +257,7 @@ position: fixed;
 #takePictureButton {
   top: 74%;
   left:42.3%;
-    position: fixed; 
+    position: fixed;
   -moz-box-shadow: 0px 1px 0px 0px #1c1b18;
   -webkit-box-shadow: 0px 1px 0px 0px #1c1b18;
   box-shadow: 0px 1px 0px 0px #1c1b18;
@@ -323,7 +323,7 @@ position: fixed;
 /* Todo div                                                                      */
 /*********************************************************************************/
 .todo {
-  position: fixed; 
+  position: fixed;
   top: 35%;
   width: 450px;
   height: 300px;

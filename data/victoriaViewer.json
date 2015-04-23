@@ -1,17 +1,17 @@
 {
     "introduction": [
-        {"option":"<********Demo webpage application********>", "x":100, "y":30},
-        {"option": "Click voice icon and input value as voice input", "x":100, "y":70},
-        {"option":"- Personal Environment: (Home, Traveling, party): ", "x":100, "y":110},
-        {"option":"Take picture: goback and take picture buttons as voice input.", "x":100, "y":150},
-        {"option":"when click voice icon and input google swen303, it will search swen303.", "x":100, "y":190},
-        {"option":"Game involved HTML, D3 and js able to click and play. ", "x":100, "y":230},
-        {"option":"- Business Environment: (workplace, office, training):", "x":100, "y":270},  
-        {"option":"Stock Trading - checking stock and buy or sell shares", "x":100, "y":310},    
-        {"option":"PowerPoint for bussiness meeting and training", "x":100, "y":350},    
-        {"option":"Video Conference - group video meeting and teleconference", "x":100, "y":390}    
+        {"option":"<********Demo webpage application********>", "x":100, "y":60},
+        {"option": "Click voice icon and input value as voice input", "x":100, "y":100},
+        {"option":"- Personal Environment: (Home, Traveling, party): ", "x":100, "y":140},
+        {"option":"Take picture: goback and take picture buttons as voice input.", "x":100, "y":180},
+        {"option":"when click voice icon and input google swen303, it will search swen303.", "x":100, "y":220},
+        {"option":"Game involved HTML, D3 and js able to click and play. ", "x":100, "y":260},
+        {"option":"- Business Environment: (workplace, office, training):", "x":100, "y":300},
+        {"option":"Stock Trading - checking stock and buy or sell shares", "x":100, "y":340},
+        {"option":"PowerPoint for bussiness meeting and training", "x":100, "y":380},
+        {"option":"Video Conference - group video meeting and teleconference", "x":100, "y":420}
 
-  
+
     ],
     "teamMembers": [
         {"option": "1. Jacky Chang - Developer", "x":20, "y":20},
@@ -26,11 +26,11 @@
     ],
     "game": [
          {"x":"200", "y":"200"},
-         {"x":"450", "y":"150"}, 
-         {"x":"300", "y":"0"}, 
-         {"x":"350", "y":"50"}, 
-         {"x":"580", "y":"200"}, 
-         {"x":"780", "y":"200"}, 
+         {"x":"450", "y":"150"},
+         {"x":"300", "y":"0"},
+         {"x":"350", "y":"50"},
+         {"x":"580", "y":"200"},
+         {"x":"780", "y":"200"},
          {"x":"400", "y":"200"}
     ],
      "home": [
@@ -56,8 +56,8 @@
         {"option":"Game", "x":100, "y":350, "instruction":["Use eyes to control the ball to move along the path, help relax, change shapes when wink "],
             "use": ["Jacky: OK Viewer, play a game."]},
         {"option":"Shut Down", "x":100, "y":400,"instruction":["Turn off the Viewer"],"use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]},
-        {"option":"Todo List", "x":100, "y":450,"instruction":["Todo list app, able to add and delete task"],"use": ["Jacky: OK Viewer, Todo list.", "Viewer: OK open todo list."]}           
-           
+        {"option":"Todo List", "x":100, "y":450,"instruction":["Todo list app, able to add and delete task"],"use": ["Jacky: OK Viewer, Todo list.", "Viewer: OK open todo list."]}
+
     ],
 
     "business": [
@@ -67,9 +67,9 @@
         {"option":"Stock Trading", "x":100, "y":150, "instruction": ["Voice control, show NZ stock trading information, buy and sell"], "use": ["Jacky: OK Viewer, today's NZ stock trading."]},
         {"option":"Google It", "x":100, "y":200, "instruction":["Voice control, search: buildings, formal mail writing, business solution and so on"], "use": ["Jacky: OK Viewer, Open google website."]},
         {"option":"Google Map", "x":100, "y":250, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"],"use": ["Jacky: OK Viewer, Open google map and find Fairfax."]},
-        {"option":"PowerPoint", "x":100, "y":300, "instruction":["Voice control, for presentation, interview, meeting and training"],"use": ["Jacky: OK Viewer, training PowerPoint.", "Viewer: training 1 or training 2?","Jacky: training 1 please."]},                   
-        {"option":"Video Conference", "x":100, "y":350, "instruction":["Voice control, group video meeting"],"use": ["Jacky: OK Viewer, finance department video conference.", "Viewer: connecting...","Viewer: connected"]},           
-        {"option":"Shut Down", "x":100, "y":400,"instruction":["shut down the glass"], "use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]}           
+        {"option":"PowerPoint", "x":100, "y":300, "instruction":["Voice control, for presentation, interview, meeting and training"],"use": ["Jacky: OK Viewer, training PowerPoint.", "Viewer: training 1 or training 2?","Jacky: training 1 please."]},
+        {"option":"Video Conference", "x":100, "y":350, "instruction":["Voice control, group video meeting"],"use": ["Jacky: OK Viewer, finance department video conference.", "Viewer: connecting...","Viewer: connected"]},
+        {"option":"Shut Down", "x":100, "y":400,"instruction":["shut down the glass"], "use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]}
     ],
     "contact": [
         {"Jacky": "0276521255", "email":"abc@hotmail.com", "address":"wellington"},
