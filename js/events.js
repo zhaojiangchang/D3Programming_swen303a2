@@ -76,9 +76,9 @@ function loadPage(svgId, page){
     remvoeElement("image");
     remvoeElement("imgDivVideoConference");
     if(document.getElementById("imgDivVoice")==null){
-          loadVoiceIcon();  
+        loadImage("data/voiceicon.png","Voice");
     }
-    
+
     svg.selectAll(".text")
             .data(page)
             .enter().append("text")
@@ -119,13 +119,6 @@ function loadImage(imageAdd,id) {
 }
 
 /**
-*  create voice icon
-**/
-function loadVoiceIcon(){
-    loadImage("data/voiceIcon.png","Voice");
-    var imageVoice = document.getElementById("imageVoice"); 
-}
-/**
 * create listenner for text input lable
 * check key work user input, thne action the function
 **/
@@ -141,7 +134,6 @@ function textInputListenner(){
       remvoeElement("stockDiv");
       remvoeElement("imgDivVideoConference");
       $("svg#inforSvg").empty();
-
       if(personalClicked==false && businessClicked==false){
          // var environment = prompt("Is it persoanl or Business use?", "");
       if (option != null) {
@@ -289,6 +281,7 @@ function activeTodo(option, todoArray, environment){
            checkEnvironment();
             var newT =option.replace("TODO","");
             addToList(newT, todoArray, environment);
+
       }
 }
 /**
@@ -303,33 +296,31 @@ function showTextByUserInput(newValue, index){
               stopTimer();
               remvoeElement("command");
               loadButtonFunction(index);
-
         }
         textTimer(newValue, cnt); },2500);
-    function textTimer(newValue, cnt){
-        remvoeElement("command");
-        var x = 50;
-        var y = 300;
-        var txt = newValue[cnt];
-        var t = d3.select("body").select("#mainSvg")
-              .append("text")
-              .attr("id","command")
-              .attr("class", "command")
-              .attr("fill", "white")
-              .attr("font-size",20)
-              .attr("x",x)
-              .attr("y",y)
-              .text(txt)
-               .transition()
-                    .duration(2500)
-                    .style("fill","#F5FFC2")
-                    .style("opacity", 0);
-
-    }
+       function textTimer(newValue, cnt){
+              remvoeElement("command");
+              var x = 50;
+              var y = 300;
+              var txt = newValue[cnt];
+              var t = d3.select("body").select("#mainSvg")
+                    .append("text")
+                    .attr("id","command")
+                    .attr("class", "command")
+                    .attr("fill", "white")
+                    .attr("font-size",20)
+                    .attr("x",x)
+                    .attr("y",y)
+                    .text(txt)
+                     .transition()
+                          .duration(2500)
+                          .style("fill","#F5FFC2")
+                          .style("opacity", 0);
+        }
 }
 
 /**
-*   add text listener to detect user input 
+*   add text listener to detect user input
 **/
 function attachTextListener(input, func) {
   if (window.addEventListener) {
@@ -359,7 +350,7 @@ attachTextListener(myInput, function() {
 *  option: string name of the side bar label
 *  instruction: string label discription
 *  use: string - for call and message (demo make call and send message)
-*  voiceMenu: load page when click selection menu(personal or business) 
+*  voiceMenu: load page when click selection menu(personal or business)
 **/
 function doEvent(option, instruction, use, voiceMenu, page){
        var newValue = copy(page);
@@ -430,7 +421,7 @@ function doEvent(option, instruction, use, voiceMenu, page){
 **/
 var timer = null;
 function showTextOnSvg(newValue, index){
-   $(".displayOption").toggle();    
+   $(".displayOption").toggle();
     var cnt = -1;
     timer = setInterval(function() {
       ++cnt;
@@ -476,7 +467,7 @@ function stopTimer(){
   clearInterval(timer);
 }
 /**
-*  this function called by showTextOnSvg function, 
+*  this function called by showTextOnSvg function,
 *  index: index of the lable on the black screen.
 **/
 function loadButtonFunction(index){
@@ -498,13 +489,13 @@ function loadButtonFunction(index){
               takePictureButton.onclick = function(){
                       takePictureAction();
                       takePictureButton.style.display = "none";
-              };         
+              };
         }
          else if(index==5){
               iframe("https://www.youtube.com/embed/HVhSasnVjMQ?enablejsapi=1&theme=light&showinfo=0");
          }
          else if(index==6){
-                 var game = new Game(); 
+                 var game = new Game();
                        game.paths();
                        game.square();
          }
@@ -522,7 +513,7 @@ function loadButtonFunction(index){
              if(index==2){
                   iframe("data/sp500.html");
 
-              } 
+              }
              else if(index==5){
                   showPowerPoint();
               }
@@ -530,7 +521,7 @@ function loadButtonFunction(index){
                   loadImage("data/VideoConference.jpg","VideoConference");
             }
       }
-         
+
       if(index==3){
                     iframe( "http://www.google.com/custom?q="+searchGoogle+"&btnG=Search");
       }
@@ -543,14 +534,16 @@ function loadButtonFunction(index){
 * swap two pictures
 **/
 function takePictureAction(){
+	  $(".displayOption").hide();
+
      setTimeout(function(){
         document.getElementById("imagePicture").src = "data/face.jpg";
         document.getElementById("imgDivPicture").style.display="block";
-        document.getElementById("takePictureButton").style.display = "none";        
+        document.getElementById("takePictureButton").style.display = "none";
      },100);
 }
 /**
-*  create iframe 
+*  create iframe
 *  url: source address
 **/
 function iframe(url){
@@ -560,7 +553,7 @@ function iframe(url){
     document.body.appendChild(iframe);
 }
 /**
-*  remove iframe 
+*  remove iframe
 **/
 function removeIframe(){
     removeRecordingGraphics();
@@ -570,7 +563,7 @@ function removeIframe(){
     }
 }
 /**
-*  remove element by id 
+*  remove element by id
 *  id: element id
 **/
 function remvoeElement(id){
@@ -580,7 +573,7 @@ function remvoeElement(id){
     }
 }
 /**
-*  create a go back button 
+*  create a go back button
 **/
 function addButton(buttonText, id){
     var buttonElem = document.createElement("button");
@@ -594,9 +587,9 @@ function addButton(buttonText, id){
     });
 }
 /**
-*  create new text tags  
+*  create new text tags
 *  instruction: array of string
-*  text append in inforSvg 
+*  text append in inforSvg
 **/
 function addInstruction(instruction){
   var x = 10;
@@ -623,23 +616,23 @@ zoom home page image, then call loadPage function to load personal or bussiness 
 function zoom(page){
     var img = document.getElementById("imageHome");
     if(img!=null){
-      
+
         var maxWidth = img.width*1.3;
         var maxHeight = img.height*1.3;
-        
+
             var zoomTimer = setInterval(function(){
 
                 if(img!=null && img.width<maxWidth){
                     img.width = img.width*1.005;
                     img.height = img.height*1.005;
-     
+
                 }
                 else {
                     clearInterval(zoomTimer);
                     remvoeElement("imgDivHome");
                     loadPage("#mainSvg", page);
                 }},20);
-        
+
      }
     else if(img==null && document.getElementById("imagePicture")!=null){
         document.getElementById("imgDivPicture").style.display="none";
@@ -730,6 +723,7 @@ function addToList(todoTask, todoArray, environment){
     li.appendChild(document.createTextNode(todoTask));  
     ul.appendChild(li); 
     todoArray.push(todoTask);
+
   }
 /**
 *   after user input and click send button will call this function to remove to the list
