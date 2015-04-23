@@ -37,7 +37,7 @@ are created dynamically)
 <svg id = "mainSvg" class = "mainSvg" onclick =getPositions(evt) >
 	<table class="textInputTable">
 
-		<td><input id="textInput" type="text" placeholder="Voice command"></td>
+		<td><input id="textInput" type="text" placeholder="Personal or Business"></td>
 		<td><input type="submit" id="submitTextToScreen" value="Send"></td>
 		<td><button id="exit">Go back</button></td>
 </table>
@@ -45,16 +45,24 @@ are created dynamically)
 <svg id = "inforSvg">
 <text id = "textArea" x="0" y="15" fill="red">Information Panel</text>
 </svg>
-    <div id = "todo" class="todo">
-        <h1>Todo List:</h1>
-        <h1>-----------------</h1>
-        <section id="main">
-                <ul id="todoList"></ul>
+    <div id = "todoPersonal" class="todo">
+        <h1>Todo List For Personal:</h1>
+        <h1>---------------------------</h1>
+        <section>
+                <ul id="todoListPersonal"></ul>
+        </section>
+    </div>
+        <div id = "todoBusiness" class="todo">
+        <h1>Todo List For Business:</h1>
+        <h1>---------------------------</h1>
+          <section>
+                <ul id="todoListBusiness"></ul>
         </section>
     </div>
 	<script src="js/readFile.js"></script>
 	<script src="js/game.js"></script>
 	<script src="js/events.js"></script>
 	<script src="js/pages.js"></script>
+	<script src="js/sp500.js"></script>
 </body>
 </html>

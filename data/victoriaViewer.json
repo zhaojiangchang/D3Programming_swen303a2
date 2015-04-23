@@ -25,13 +25,20 @@
         {"option":"or Call us: 0064-04-321321", "x":10, "y":90}
     ],
     "game": [
-         {"x":"200", "y":"200"},
+         {"x":"200", "y":"328"},
          {"x":"450", "y":"150"}, 
          {"x":"300", "y":"0"}, 
          {"x":"350", "y":"50"}, 
-         {"x":"580", "y":"200"}, 
-         {"x":"780", "y":"200"}, 
-         {"x":"400", "y":"200"}
+         {"x":"580", "y":"183"}, 
+         {"x":"542", "y":"400"}, 
+         {"x":"400", "y":"200"},
+         {"x":"200", "y":"120"},
+         {"x":"320", "y":"150"}, 
+         {"x":"120", "y":"88"}, 
+         {"x":"400", "y":"50"}, 
+         {"x":"433", "y":"300"}, 
+         {"x":"235", "y":"107"}, 
+         {"x":"301", "y":"328"}
     ],
      "home": [
         {"option":"Click Personal menu or click voice icon and input to show personal use", "x":10, "y":20},
@@ -51,12 +58,12 @@
             "use": ["Jacky: OK Viewer, Open google website."]},
         {"option":"Google Map", "x":100, "y":250, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"],
             "use": ["Jacky: OK Viewer, cafe on google map wellington."]},
-        {"option":"Recording Video", "x":100, "y":300, "instruction":["Voice control, start recording or finish recording to control the Viewer."],
-            "use": ["Jacky: OK Viewer, Recording video."]},
+        {"option":"Online Video", "x":100, "y":300, "instruction":["Voice control, online video."],
+            "use": ["Jacky: OK Viewer, Online video."]},
         {"option":"Game", "x":100, "y":350, "instruction":["Use eyes to control the ball to move along the path, help relax, change shapes when wink "],
             "use": ["Jacky: OK Viewer, play a game."]},
         {"option":"Shut Down", "x":100, "y":400,"instruction":["Turn off the Viewer"],"use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]},
-        {"option":"Todo List", "x":100, "y":450,"instruction":["Todo list app, able to add and delete task"],"use": ["Jacky: OK Viewer, Todo list.", "Viewer: OK open todo list."]}           
+        {"option":"Todo List", "x":100, "y":450,"instruction":["Todo list app, able to add and delete task"],"use": ["Jacky: OK Viewer, Todo demo.", "Viewer: OK open todo and add demo to the list."]}           
            
     ],
 
@@ -64,12 +71,14 @@
         {"option":"Business Call", "x":100, "y":50, "instruction":["viewer recognize name and number then follow user's instructions"],"use":["Jacky: OK Viewer, make a call, Alex HR department.", "Viewer: connecting to HR Department.","Viewer: connecting...."," Viewer: connected."]},
         {"option":"Business Message", "x":100, "y":100, "instruction":["Voice control, device waiting for detect user's voice! then send message"],
             "use":["Jacky: OK Viewer, send a message.", "Jacky: send to Fairfax finance department.", "Viewer: OK.","Jacky: setup Business meeting at 12","Viewer: sending setup Business meeting at 12....", " Viewer: sent."]},
-        {"option":"Stock Trading", "x":100, "y":150, "instruction": ["Voice control, show NZ stock trading information, buy and sell"], "use": ["Jacky: OK Viewer, today's NZ stock trading."]},
+        {"option":"S&P 500", "x":100, "y":150, "instruction": ["Voice control, show S&P500 stock information"], "use": ["Jacky: OK Viewer, today's S&P500 stock information."]},
         {"option":"Google It", "x":100, "y":200, "instruction":["Voice control, search: buildings, formal mail writing, business solution and so on"], "use": ["Jacky: OK Viewer, Open google website."]},
         {"option":"Google Map", "x":100, "y":250, "instruction":["Voice control,  tell viewer from and to locations, she will show you the way"],"use": ["Jacky: OK Viewer, Open google map and find Fairfax."]},
         {"option":"PowerPoint", "x":100, "y":300, "instruction":["Voice control, for presentation, interview, meeting and training"],"use": ["Jacky: OK Viewer, training PowerPoint.", "Viewer: training 1 or training 2?","Jacky: training 1 please."]},                   
         {"option":"Video Conference", "x":100, "y":350, "instruction":["Voice control, group video meeting"],"use": ["Jacky: OK Viewer, finance department video conference.", "Viewer: connecting...","Viewer: connected"]},           
-        {"option":"Shut Down", "x":100, "y":400,"instruction":["shut down the glass"], "use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]}           
+        {"option":"Shut Down", "x":100, "y":400,"instruction":["shut down the glass"], "use": ["Jacky: OK Viewer, turn off.", "Viewer: Bye, have a nice day!"]},           
+        {"option":"Todo List", "x":100, "y":450,"instruction":["Todo list app, able to add and delete task"],"use": ["Jacky: OK Viewer, Todo demo.", "Viewer: OK open todo and add demo to the list."]}           
+
     ],
     "contact": [
         {"Jacky": "0276521255", "email":"abc@hotmail.com", "address":"wellington"},

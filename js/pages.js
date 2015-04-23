@@ -4,56 +4,74 @@
 // =================================================================================
 var personalClicked = false;
 var businessClicked = false;
+/**
+* load personal page
+**/
 function personalPage(){
-	$(".displayOption").hide();    
 	zoom(personal);
+	init("Voice Command");
 	personalClicked = true;
 	businessClicked = false;
-
-	stopTimer();
-
 }
+/**
+* load business page
+**/
 function businessPage(){
-	$(".displayOption").hide();    
 	zoom(business);
+    init("Voice Command");
 	businessClicked = true;
 	personalClicked = false;
-    stopTimer();
-
 }
+/**
+* set back to home page
+**/
 function homePage(){
   	remvoeElement("imgDivHome");
   	load(home);
-
 }
+/**
+* load contact us page
+**/
 function contactUsPage(){
 	load(contactUsInfo);
 }
+/**
+* load team page
+**/
 function teamPage(){
 	load(teamMembers);
 }
+/**
+* load introduction page
+**/
 function introductionPage(){
-	personalClicked = false;
-  	businessClicked = false;
-	//callAndMsgBoolButtonStateChange(false,false,false,false);
-
 	loadPage("#mainSvg", intro);
   	document.getElementById("mainSvg").style.background = "black";
-  	document.getElementById("todo").style.display = "none";
-  	remvoeElement("imgDivHome");
+    remvoeElement("imgDivHome");
     remvoeElement("imgDivVideoConference");
-
+	init( "personal or business");
 }
-function load(array){
-	personalClicked = false;
-  	businessClicked = false;
-	//callAndMsgBoolButtonStateChange(false,false,false,false);
-	loadPage("#inforSvg", array);
+/**
+* load elements 
+**/
+function load(functionList){
+	loadPage("#inforSvg", functionList);//load string on the svg
   	document.getElementById("mainSvg").style.background = "white";
   	loadImage("data/glasses.png","Home");
   	remvoeElement("imgDivVideoConference");
-    document.getElementById("textInput").value = "";
-    document.getElementById("todo").style.display = "none";
-
+  	init( "personal or business");
+  }
+/**
+* init elements
+**/
+ function init(placeholder){
+  	document.getElementById("textInput").value = "";
+    document.getElementById("todoPersonal").style.display = "none";
+    document.getElementById("todoBusiness").style.display = "none";
+	document.getElementById("textInput").placeholder =placeholder;
+	$(".displayOption").show();    
+	stopTimer();
+	personalClicked = false;
+  	businessClicked = false;
 
   }

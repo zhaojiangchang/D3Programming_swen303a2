@@ -24,14 +24,10 @@ function Game(){
                     .attr("id","circleGame")
                     .attr("r", 4)
                     .attr("transform", function(d) { return "translate(" + d + ")"; });
-
-
       var circle = svg.append("circle")
                     .attr("r", 8)
                     .attr("id", "circleGame")
                     .attr("transform", "translate(" + points[0] + ")");
-
-
       transition();
       function transition() {
           circle.transition()
@@ -79,8 +75,6 @@ this.square = function(){
                         .style("opacity", 0.5)
                         .attr("x",mainSVgElem.getBoundingClientRect().left+170)
                         .ease("elastic");
-
-
     }
 }
 
