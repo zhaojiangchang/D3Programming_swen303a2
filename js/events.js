@@ -197,7 +197,7 @@ function textInputListenner(){
                           showTextByUserInput(["Veiwer: Turn off viewer... "],7);
                  }
                  else if(option.indexOf("TODO")!=-1){
-                          activeTodo(option, todoPersonal,"todoListPersonal");
+                          activeTodo(option, todoPersonal,"todoListPersonal", "todoPersonal");
                   }
 
           }
@@ -255,32 +255,34 @@ function textInputListenner(){
                           showTextByUserInput(["Veiwer: Turn off viewer... "],7);
                 }
                 else if(option.indexOf("TODO")!=-1){
-                  activeTodo(option, todoBusiness, "todoListBusiness");
+                  activeTodo(option, todoBusiness, "todoListBusiness", "todoBusiness");
 
 
                   }
           }
   }
 }
-function activeTodo(option, todoArray, environment){
+function activeTodo(option, todoArray, environment, todoDivId){
       $(".displayOption").hide();
+      checkTodoEnvironment();
       if(option.indexOf("REMOVE TODO")!=-1){
-            if(todoBusiness.length==0){
+            if(todoArray.length==0){
               return;
             }
-            if(document.getElementById("todo").style.display === "none"){
-              document.getElementById("todo").style.display = "block";
+            if(document.getElementById(todoDivId).style.display === "none"){
+              document.getElementById(todoDivId).style.display = "block";
                 showTextByUserInput(["Veiwer: Open TODO list and remove element... "],-1);
             }
-            if(todoBusiness.length!=0){
+            if(todoArray.length!=0){
                   var newT =option.replace("REMOVE TODO","");
                   removeFromList(newT, todoArray, environment);
             }
       }
       else{
-           checkEnvironment();
             var newT =option.replace("TODO","");
-            addToList(newT, todoArray, environment);
+            if(newT!=""){
+                addToList(newT, todoArray, environment);
+            }
 
       }
 }
@@ -334,6 +336,7 @@ function attachTextListener(input, func) {
 *   get user input and call textInputListenner to do the right action
 **/
 var myInput = document.getElementById('textInput');
+document.getElementById("submitTextToScreen").focus();
 attachTextListener(myInput, function() {
   var input = document.getElementById("textInput").value;
            document.getElementById("submitTextToScreen").onclick = function(){
@@ -500,7 +503,7 @@ function loadButtonFunction(index){
                        game.square();
          }
          else if(index==8){
-        	 checkEnvironment();
+        	 checkTodoEnvironment();
             	  addToList("DEMO",todoPersonal,"todoListPersonal");
          }
       }
@@ -516,7 +519,7 @@ function loadButtonFunction(index){
                   loadImage("data/VideoConference.jpg","VideoConference");
             }
              else if(index==8){
-             	 checkEnvironment();
+             	 checkTodoEnvironment();
                  addToList("DEMO", todoBusiness, "todoListBusiness");
               }
       }
@@ -701,15 +704,7 @@ function copy(o) {
    }
    return out;
 }
-/**
-*   Todo for demo only
-**/
-//function addToDoList(demo, environment){
-//	checkEnvironment();
-//	if(demo!=""){
-//	      addToList(demo,demo, environment);
-//      }
-//}
+
 /**
 *   after user input and click send button will call this function to add to the list
 **/
@@ -721,7 +716,6 @@ function addToList(todoTask, todoArray, environment){
     var li = document.createElement("li");
     li.appendChild(document.createTextNode(todoTask));
     ul.appendChild(li);
-    console.log(todoTask);
     todoArray.push(todoTask);
 
   }
@@ -739,7 +733,7 @@ function removeFromList(todoTask, todoArray, environment){
       }
     });
   }
-function checkEnvironment(){
+function checkTodoEnvironment(){
   if(personalClicked==true){
       document.getElementById("todoPersonal").style.display="block"
       document.getElementById("todoBusiness").style.display="none"
